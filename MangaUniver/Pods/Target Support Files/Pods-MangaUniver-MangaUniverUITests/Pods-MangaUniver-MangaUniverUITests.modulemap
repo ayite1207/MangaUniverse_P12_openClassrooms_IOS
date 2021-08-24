@@ -1,0 +1,6 @@
+framework module Pods_MangaUniver_MangaUniverUITests {
+  umbrella header "Pods-MangaUniver-MangaUniverUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

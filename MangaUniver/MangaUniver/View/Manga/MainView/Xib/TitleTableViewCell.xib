@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TitleTableViewCell" rowHeight="132" id="KGk-i7-Jjw" customClass="TitleTableViewCell" customModule="MangaUniver" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXM-gF-bQ9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+                        <connections>
+                            <action selector="displayCategory:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="I7W-s6-4QM"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFD-On-iS0">
+                        <rect key="frame" x="8" y="3" width="262" height="70"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="WFD-On-iS0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Gpz-6z-LDi"/>
+                    <constraint firstAttribute="trailing" secondItem="WFD-On-iS0" secondAttribute="trailing" constant="50" id="WA5-Ip-jaJ"/>
+                    <constraint firstAttribute="bottom" secondItem="WFD-On-iS0" secondAttribute="bottom" constant="3" id="axQ-uF-YVR"/>
+                    <constraint firstItem="sXM-gF-bQ9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="dxb-3r-ftu"/>
+                    <constraint firstAttribute="bottom" secondItem="sXM-gF-bQ9" secondAttribute="bottom" id="gSb-vE-zY3"/>
+                    <constraint firstItem="WFD-On-iS0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="nCP-lH-F1f"/>
+                    <constraint firstAttribute="trailing" secondItem="sXM-gF-bQ9" secondAttribute="trailing" id="oK0-Vs-YeO"/>
+                    <constraint firstItem="sXM-gF-bQ9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="pkI-JE-oZ8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="titleLabel" destination="WFD-On-iS0" id="1MD-Bb-VrD"/>
+            </connections>
+            <point key="canvasLocation" x="15.942028985507248" y="97.098214285714278"/>
+        </tableViewCell>
+    </objects>
+</document>
