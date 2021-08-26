@@ -46,22 +46,26 @@ class MainTableViewController: UITableViewController {
         case 0:
             title = "Les plus populaires"
             cell.onDidSelectHeader = {() in
-                let mangaDetailViewControler = CategoryViewControllerViewController()
-                mangaDetailViewControler.listeTopManga = self.listeStructTopManga
-                self.show(mangaDetailViewControler, sender: nil)
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier:
+                    "CategoryViewController") {
+                       self.show(vc, sender: nil)
+                   }
+//                let mangaDetailViewControler = CategoryViewController()
+////                mangaDetailViewControler.listeTopManga = self.listeStructTopManga
+//                self.show(mangaDetailViewControler, sender: nil)
             }
         case 1:
             title = "Top Samourai Manga"
             guard let mangaArray = categoryDisplay["samouraiManga"] else { return UIView() }
-            cell.categoryMangas = mangaArray
+//            cell.categoryMangas = mangaArray
         case 2:
             title = "Top Parody Manga"
             guard let mangaArray = categoryDisplay["parodyManga"] else { return UIView() }
-            cell.categoryMangas = mangaArray
+//            cell.categoryMangas = mangaArray
         case 3:
             title = "Top Psychological Manga"
             guard let mangaArray = categoryDisplay["psychologicalManga"] else { return UIView() }
-            cell.categoryMangas = mangaArray
+//            cell.categoryMangas = mangaArray
         default:
             break
         }

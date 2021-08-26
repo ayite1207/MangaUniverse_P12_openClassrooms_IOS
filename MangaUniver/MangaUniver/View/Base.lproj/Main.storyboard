@@ -100,20 +100,20 @@
             </objects>
             <point key="canvasLocation" x="328" y="398"/>
         </scene>
-        <!--Category View Controller View Controller-->
-        <scene sceneID="J9b-Kq-jIQ">
+        <!--Category View Controller-->
+        <scene sceneID="Zml-CI-jug">
             <objects>
-                <viewController id="rAc-yH-R1F" customClass="CategoryViewControllerViewController" customModule="MangaUniver" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lmI-c7-Xyj">
+                <viewController restorationIdentifier="CategoryViewController" storyboardIdentifier="CategoryViewController" id="ndw-OU-tC5" customClass="CategoryViewController" customModule="MangaUniver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dMc-SC-GCs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="pdM-R9-4KB"/>
+                        <viewLayoutGuide key="safeArea" id="fz9-eZ-vhZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="seg-3g-9hY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NAK-yr-Je2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1390" y="392"/>
+            <point key="canvasLocation" x="1391" y="398"/>
         </scene>
     </scenes>
     <resources>

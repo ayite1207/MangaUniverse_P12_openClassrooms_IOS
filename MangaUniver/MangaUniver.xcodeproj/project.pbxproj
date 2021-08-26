@@ -10,6 +10,7 @@
 		0BD7016CFF41B589754874F0 /* Pods_MangaUniver_MangaUniverUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2891A2274F8A21CE34639440 /* Pods_MangaUniver_MangaUniverUITests.framework */; };
 		10A38A3E111A2DCE3134FCB2 /* Pods_MangaUniverTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF490C5247907EF346CFC59F /* Pods_MangaUniverTests.framework */; };
 		366527636DCB17E69E925A5B /* Pods_MangaUniver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 730C6D3102452B3D2BD8B043 /* Pods_MangaUniver.framework */; };
+		EA105AB026D8253D0003157B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA105AAF26D8253D0003157B /* CategoryViewController.swift */; };
 		EA375AE42694F7D10018630D /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA375AE22694F7D10018630D /* CategoryTableViewCell.swift */; };
 		EA375AE52694F7D10018630D /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA375AE32694F7D10018630D /* CategoryTableViewCell.xib */; };
 		EA375AE82694FCDB0018630D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA375AE62694FCDB0018630D /* CategoryCollectionViewCell.swift */; };
@@ -38,7 +39,6 @@
 		EA51A2B326D1B7D5004AD7C1 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA51A2B226D1B7D5004AD7C1 /* String.swift */; };
 		EA51A2B526D1E3DB004AD7C1 /* UIView+custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA51A2B426D1E3DB004AD7C1 /* UIView+custom.swift */; };
 		EA51A2B726D2F86D004AD7C1 /* StructTopManga.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA51A2B626D2F86D004AD7C1 /* StructTopManga.swift */; };
-		EA6D167026D5927B00AD676E /* CategoryViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D166F26D5927B00AD676E /* CategoryViewControllerViewController.swift */; };
 		EA8514A926BDDCF900271055 /* DetailTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8514A726BDDCF900271055 /* DetailTitleTableViewCell.swift */; };
 		EA8514AA26BDDCF900271055 /* DetailTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA8514A826BDDCF900271055 /* DetailTitleTableViewCell.xib */; };
 		EA962D2C2693241E0061CB30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA962D2B2693241E0061CB30 /* AppDelegate.swift */; };
@@ -83,6 +83,7 @@
 		AF490C5247907EF346CFC59F /* Pods_MangaUniverTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MangaUniverTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B79083B693BFA4ED903A3D64 /* Pods-MangaUniverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangaUniverTests.debug.xcconfig"; path = "Target Support Files/Pods-MangaUniverTests/Pods-MangaUniverTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BAF7DF4809183A1128D3F36E /* Pods-MangaUniver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangaUniver.release.xcconfig"; path = "Target Support Files/Pods-MangaUniver/Pods-MangaUniver.release.xcconfig"; sourceTree = "<group>"; };
+		EA105AAF26D8253D0003157B /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		EA375AE22694F7D10018630D /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		EA375AE32694F7D10018630D /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		EA375AE62694FCDB0018630D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -111,7 +112,6 @@
 		EA51A2B226D1B7D5004AD7C1 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		EA51A2B426D1E3DB004AD7C1 /* UIView+custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+custom.swift"; sourceTree = "<group>"; };
 		EA51A2B626D2F86D004AD7C1 /* StructTopManga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructTopManga.swift; sourceTree = "<group>"; };
-		EA6D166F26D5927B00AD676E /* CategoryViewControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewControllerViewController.swift; sourceTree = "<group>"; };
 		EA8514A726BDDCF900271055 /* DetailTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTitleTableViewCell.swift; sourceTree = "<group>"; };
 		EA8514A826BDDCF900271055 /* DetailTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTitleTableViewCell.xib; sourceTree = "<group>"; };
 		EA962D282693241E0061CB30 /* MangaUniver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangaUniver.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -389,7 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				EA962D632693323D0061CB30 /* MainTableViewController.swift */,
-				EA6D166F26D5927B00AD676E /* CategoryViewControllerViewController.swift */,
+				EA105AAF26D8253D0003157B /* CategoryViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -661,6 +661,7 @@
 				EA3B6E2D26ADF3200026611B /* RequestMangaConstructor.swift in Sources */,
 				EA962D70269354A80061CB30 /* NewsCollectionViewCell.swift in Sources */,
 				EA51A2B526D1E3DB004AD7C1 /* UIView+custom.swift in Sources */,
+				EA105AB026D8253D0003157B /* CategoryViewController.swift in Sources */,
 				EA49B5BD26C720A900C01969 /* CoreDataManagerMamgaCollection.swift in Sources */,
 				EA3B6E2F26AE0C7B0026611B /* MangaDetailTableViewController.swift in Sources */,
 				EA468A6B26A8BA1100210AF6 /* ListCategoryMangaDecodable.swift in Sources */,
@@ -676,7 +677,6 @@
 				EA375AE82694FCDB0018630D /* CategoryCollectionViewCell.swift in Sources */,
 				EA962D2E2693241E0061CB30 /* SceneDelegate.swift in Sources */,
 				EA4EE67326BB339D0088219A /* PhotoTableViewCell.swift in Sources */,
-				EA6D167026D5927B00AD676E /* CategoryViewControllerViewController.swift in Sources */,
 				EA375AF026963F970018630D /* TitleTableViewCell.swift in Sources */,
 				EA43D4F826984C7500C0AB2F /* MangaToPopularityDecodable.swift in Sources */,
 				EA51A2B726D2F86D004AD7C1 /* StructTopManga.swift in Sources */,

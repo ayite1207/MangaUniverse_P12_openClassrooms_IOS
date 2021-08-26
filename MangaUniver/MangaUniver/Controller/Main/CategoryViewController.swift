@@ -1,16 +1,13 @@
 //
-//  CategoryViewControllerViewController.swift
+//  CategoryViewController.swift
 //  MangaUniver
 //
-//  Created by ayite on 24/08/2021.
+//  Created by ayite on 26/08/2021.
 //
 
 import UIKit
 
-class CategoryViewControllerViewController: UIViewController {
-    
-    var listeTopManga: [TopManga] = []
-    var categoryMangas: [MangaLibrary] = []
+class CategoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
