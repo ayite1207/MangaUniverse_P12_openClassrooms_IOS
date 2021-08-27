@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -74,7 +75,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="byS-wi-4u3" kind="relationship" relationship="viewControllers" id="1cS-fD-gDg"/>
-                        <segue destination="8sG-9N-230" kind="relationship" relationship="viewControllers" id="7P9-2S-QfI"/>
+                        <segue destination="biO-in-5k1" kind="relationship" relationship="viewControllers" id="3dq-CX-k5h"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HdC-RB-5gS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -82,23 +83,49 @@
             <point key="canvasLocation" x="-881" y="5"/>
         </scene>
         <!--Item-->
-        <scene sceneID="ihO-oQ-aas">
+        <scene sceneID="Aia-YL-X6l">
             <objects>
-                <tableViewController id="8sG-9N-230" customClass="LibraryTableViewController" customModule="MangaUniver" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aeW-gJ-e99">
+                <collectionViewController storyboardIdentifier="LibraryTableViewController" id="biO-in-5k1" customClass="LibraryCollectionViewController" customModule="MangaUniver" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="rST-Av-XFo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xtx-vJ-9q0">
+                            <size key="itemSize" width="415" height="728"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="jHK-EI-ksg">
+                                <rect key="frame" x="0.0" y="-1.5" width="415" height="728"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="AVH-nA-xC9">
+                                    <rect key="frame" x="0.0" y="0.0" width="415" height="728"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpN-b1-YAz">
+                                            <rect key="frame" x="43" y="54" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="415" height="728"/>
+                            </collectionViewCell>
+                        </cells>
                         <connections>
-                            <outlet property="dataSource" destination="8sG-9N-230" id="I3v-1j-M38"/>
-                            <outlet property="delegate" destination="8sG-9N-230" id="lap-dX-GH8"/>
+                            <outlet property="dataSource" destination="biO-in-5k1" id="WJv-B9-CFv"/>
+                            <outlet property="delegate" destination="biO-in-5k1" id="bcx-ha-BAl"/>
                         </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="foY-Rt-oJN"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fsF-kv-ANX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Item" id="62b-56-j4J"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iRb-et-Ii6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="328" y="398"/>
+            <point key="canvasLocation" x="253.62318840579712" y="416.51785714285711"/>
         </scene>
         <!--Category View Controller-->
         <scene sceneID="Zml-CI-jug">

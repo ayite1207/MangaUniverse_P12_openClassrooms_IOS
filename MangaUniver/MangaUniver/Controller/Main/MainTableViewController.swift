@@ -15,17 +15,17 @@ class MainTableViewController: UITableViewController {
     var topMangaToDisplay = [String: MangaLibrary]()
     var listeStructTopManga = [TopManga]()
     let dispatchGroup = DispatchGroup()
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleTableViewCell")
         tableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsTableViewCell")
         tableView.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "CategoryTableViewCell")
-                
+        
         let samouraiMangaRequestConstructor = RequestMangaConstructor.samouraiManga
         let parodyMangaRequestConstructor = RequestMangaConstructor.parodyManga
         let psychologicalMangaRequestConstructor = RequestMangaConstructor.psychologicalManga
-
+        
         getMangaCategory(requestConstructor: nil)
         getMangaCategory(requestConstructor: samouraiMangaRequestConstructor)
         getMangaCategory(requestConstructor: parodyMangaRequestConstructor)
@@ -35,7 +35,7 @@ class MainTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-
+    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -46,26 +46,37 @@ class MainTableViewController: UITableViewController {
         case 0:
             title = "Les plus populaires"
             cell.onDidSelectHeader = {() in
-                if let vc = self.storyboard?.instantiateViewController(withIdentifier:
-                    "CategoryViewController") {
-                       self.show(vc, sender: nil)
-                   }
-//                let mangaDetailViewControler = CategoryViewController()
-////                mangaDetailViewControler.listeTopManga = self.listeStructTopManga
-//                self.show(mangaDetailViewControler, sender: nil)
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let categoryViewController = storyBoard.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
+                categoryViewController.listeTopManga = self.listeStructTopManga
+                self.navigationController?.pushViewController(categoryViewController, animated: true)
             }
         case 1:
             title = "Top Samourai Manga"
             guard let mangaArray = categoryDisplay["samouraiManga"] else { return UIView() }
-//            cell.categoryMangas = mangaArray
+            cell.onDidSelectHeader = {() in
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let categoryViewController = storyBoard.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
+                categoryViewController.listCategoryManga = mangaArray
+                self.navigationController?.pushViewController(categoryViewController, animated: true)
+            }
         case 2:
             title = "Top Parody Manga"
             guard let mangaArray = categoryDisplay["parodyManga"] else { return UIView() }
-//            cell.categoryMangas = mangaArray
-        case 3:
-            title = "Top Psychological Manga"
-            guard let mangaArray = categoryDisplay["psychologicalManga"] else { return UIView() }
-//            cell.categoryMangas = mangaArray
+            cell.onDidSelectHeader = {() in
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let categoryViewController = storyBoard.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
+                categoryViewController.listCategoryManga = mangaArray
+                self.navigationController?.pushViewController(categoryViewController, animated: true)
+            }        case 3:
+                title = "Top Psychological Manga"
+                guard let mangaArray = categoryDisplay["psychologicalManga"] else { return UIView() }
+                cell.onDidSelectHeader = {() in
+                    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                    let categoryViewController = storyBoard.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
+                    categoryViewController.listCategoryManga = mangaArray
+                    self.navigationController?.pushViewController(categoryViewController, animated: true)
+                }
         default:
             break
         }
@@ -76,11 +87,11 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 70
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return categoryDisplay.count + 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -98,7 +109,7 @@ class MainTableViewController: UITableViewController {
                     guard let mangaId = self.mangaTopPopularity?.top[indexPath.row].malID else { return }
                     self.getTopMangaDetail(id: String(mangaId))
                 }
-                }
+            }
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as? CategoryTableViewCell else { return UITableViewCell() }
@@ -106,7 +117,7 @@ class MainTableViewController: UITableViewController {
             cell.listGenreManga = mangaSamurai
             cell.onDidSelectItem = {(indexPath) in
                 self.displayMangaDetail( mangaToDisplay: mangaSamurai[indexPath.row])
-                }
+            }
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as? CategoryTableViewCell else { return UITableViewCell() }
@@ -114,7 +125,7 @@ class MainTableViewController: UITableViewController {
             cell.listGenreManga = parodyManga
             cell.onDidSelectItem = {(indexPath) in
                 self.displayMangaDetail(mangaToDisplay: parodyManga[indexPath.row])
-                }
+            }
             return cell
         case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as? CategoryTableViewCell else { return UITableViewCell() }
@@ -122,7 +133,7 @@ class MainTableViewController: UITableViewController {
             cell.listGenreManga = psychologicalManga
             cell.onDidSelectItem = {(indexPath) in
                 self.displayMangaDetail(mangaToDisplay: psychologicalManga[indexPath.row])
-                }
+            }
             return cell
         default:
             return UITableViewCell()
@@ -145,7 +156,7 @@ class MainTableViewController: UITableViewController {
         mangaDetailViewControler.mangaDetail = mangaToDisplay
         self.show(mangaDetailViewControler, sender: nil)
     }
-
+    
 }
 
 extension MainTableViewController {
@@ -178,8 +189,8 @@ extension MainTableViewController {
             jikanService.getMangaTopPopularity() { [unowned self] result in
                 switch result {
                 case .success(let listTopManga):
-                        self.mangaTopPopularity = listTopManga
-                        self.listeStructTopManga = convertTopMangaToArrayStruct(listTopManga: listTopManga)
+                    self.mangaTopPopularity = listTopManga
+                    self.listeStructTopManga = convertTopMangaToArrayStruct(listTopManga: listTopManga)
                     dispatchGroup.leave()
                 case .failure(let error):
                     print(error.description)
@@ -217,7 +228,7 @@ extension MainTableViewController {
         let publishingStart = topMangaToConvert.published?.string ?? ""
         let score = topMangaToConvert.score ?? 0
         let volumes = Double(topMangaToConvert.volumes ?? 0)
-         
+        
         let topMangaToDisplay = MangaLibrary(image : image?.data, title: title, synopsis: synopsis,volumes : volumes, id: id, publishingStart: publishingStart, score: score, type: type)
         
         return topMangaToDisplay

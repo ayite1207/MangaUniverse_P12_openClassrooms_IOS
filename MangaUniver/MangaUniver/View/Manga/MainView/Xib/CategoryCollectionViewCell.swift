@@ -24,4 +24,13 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             titleMangaLabel.text = categoryManga?.title
         }
     }
+    
+    var manga : TopManga? {
+        didSet {
+            if let data = manga?.image {
+                mangaImage.image = UIImage(data: data)
+            }
+            titleMangaLabel.text = manga?.title
+        }
+    }
 }

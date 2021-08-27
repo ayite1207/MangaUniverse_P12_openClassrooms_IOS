@@ -24,6 +24,7 @@ class NewsTableViewCell: UITableViewCell {
         self.newsCollectionView.register(UINib(nibName: "NewsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NewsCollectionViewCell")
         self.newsCollectionView.delegate = self
         self.newsCollectionView.dataSource = self
+        self.newsCollectionView.backgroundColor = .white
         if #available(iOS 13.0, *) {
             self.newsCollectionView.collectionViewLayout = createLayout()
         }
