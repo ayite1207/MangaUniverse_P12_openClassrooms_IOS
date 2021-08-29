@@ -19,9 +19,9 @@ class LibraryCollectionViewController: UICollectionViewController {
 
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        if #available(iOS 13.0, *) {
-            self.collectionView!.collectionViewLayout = createLayout()
-        }
+        
+        self.collectionView!.isPagingEnabled = true
+        
         // Do any additional setup after loading the view.
     }
 
@@ -41,7 +41,7 @@ extension LibraryCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        cell.backgroundColor = .red
+        cell.backgroundColor = indexPath.item % 2 == 0 ? .red : .systemGreen
         return cell
     }
     
@@ -50,35 +50,19 @@ extension LibraryCollectionViewController: UICollectionViewDelegateFlowLayout {
         
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: (view.frame.size.width)-5, height: (view.frame.size.width)-5)
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.size.width, height: view.frame.size.height)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
     }
     
-    @available(iOS 13.0, *)
-    func createLayout() -> UICollectionViewLayout {
-        
-        let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = NSDirectionalEdgeInsets(top: 5.0, leading: 5.0, bottom: 15.0, trailing: 15.0)
-            
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(1.0))
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-            
-            let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = NSDirectionalEdgeInsets(top: 5.0, leading: 5.0, bottom: 5.0, trailing: 5.0)
-            
-            section.orthogonalScrollingBehavior = .paging
-            
-            return section
-        }
-        
-        return layout
-    }
+   
     
 }
 

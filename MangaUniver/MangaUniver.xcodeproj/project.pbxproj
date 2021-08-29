@@ -20,6 +20,7 @@
 		EA375AF126963F970018630D /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA375AEF26963F970018630D /* TitleTableViewCell.xib */; };
 		EA3B6E2D26ADF3200026611B /* RequestMangaConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B6E2C26ADF3200026611B /* RequestMangaConstructor.swift */; };
 		EA3B6E2F26AE0C7B0026611B /* MangaDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B6E2E26AE0C7B0026611B /* MangaDetailTableViewController.swift */; };
+		EA40DC9826DA5F44003892B9 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA40DC9726DA5F44003892B9 /* LibraryViewController.swift */; };
 		EA43D4F42698474C00C0AB2F /* NetWorkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43D4F32698474C00C0AB2F /* NetWorkError.swift */; };
 		EA43D4F6269847C100C0AB2F /* JikanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43D4F5269847C100C0AB2F /* JikanService.swift */; };
 		EA43D4F826984C7500C0AB2F /* MangaToPopularityDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43D4F726984C7500C0AB2F /* MangaToPopularityDecodable.swift */; };
@@ -55,6 +56,8 @@
 		EA962D6D269333570061CB30 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA962D6B269333570061CB30 /* NewsTableViewCell.xib */; };
 		EA962D70269354A80061CB30 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA962D6E269354A70061CB30 /* NewsCollectionViewCell.swift */; };
 		EA962D71269354A80061CB30 /* NewsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA962D6F269354A80061CB30 /* NewsCollectionViewCell.xib */; };
+		EACAA2CF26DC272100B851B9 /* LibraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACAA2CD26DC272100B851B9 /* LibraryCollectionViewCell.swift */; };
+		EACAA2D026DC272100B851B9 /* LibraryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EACAA2CE26DC272100B851B9 /* LibraryCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +97,7 @@
 		EA375AEF26963F970018630D /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
 		EA3B6E2C26ADF3200026611B /* RequestMangaConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMangaConstructor.swift; sourceTree = "<group>"; };
 		EA3B6E2E26AE0C7B0026611B /* MangaDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaDetailTableViewController.swift; sourceTree = "<group>"; };
+		EA40DC9726DA5F44003892B9 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibraryViewController.swift; path = MangaUniver/Controller/Library/LibraryViewController.swift; sourceTree = SOURCE_ROOT; };
 		EA43D4F32698474C00C0AB2F /* NetWorkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkError.swift; sourceTree = "<group>"; };
 		EA43D4F5269847C100C0AB2F /* JikanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JikanService.swift; sourceTree = "<group>"; };
 		EA43D4F726984C7500C0AB2F /* MangaToPopularityDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaToPopularityDecodable.swift; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 		EA962D6B269333570061CB30 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		EA962D6E269354A70061CB30 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA962D6F269354A80061CB30 /* NewsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCollectionViewCell.xib; sourceTree = "<group>"; };
+		EACAA2CD26DC272100B851B9 /* LibraryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCollectionViewCell.swift; sourceTree = "<group>"; };
+		EACAA2CE26DC272100B851B9 /* LibraryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +247,7 @@
 		EA49B5C226C87A5F00C01969 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				EA40DC9726DA5F44003892B9 /* LibraryViewController.swift */,
 				EA49B5CD26C87EB600C01969 /* LibraryTableViewController.swift */,
 				EA105AB126D9A45C0003157B /* LibraryCollectionViewController.swift */,
 			);
@@ -261,6 +268,8 @@
 			children = (
 				EA49B5C726C87D2800C01969 /* LibraryTableViewCell.swift */,
 				EA49B5C826C87D2800C01969 /* LibraryTableViewCell.xib */,
+				EACAA2CD26DC272100B851B9 /* LibraryCollectionViewCell.swift */,
+				EACAA2CE26DC272100B851B9 /* LibraryCollectionViewCell.xib */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -516,6 +525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA962D3B269324220061CB30 /* LaunchScreen.storyboard in Resources */,
+				EACAA2D026DC272100B851B9 /* LibraryCollectionViewCell.xib in Resources */,
 				EA4BAACA26C02C4F00F58CAE /* InfoTableViewCell.xib in Resources */,
 				EA962D38269324220061CB30 /* Assets.xcassets in Resources */,
 				EA375AE52694F7D10018630D /* CategoryTableViewCell.xib in Resources */,
@@ -664,6 +674,8 @@
 				EA3B6E2D26ADF3200026611B /* RequestMangaConstructor.swift in Sources */,
 				EA105AB226D9A45C0003157B /* LibraryCollectionViewController.swift in Sources */,
 				EA962D70269354A80061CB30 /* NewsCollectionViewCell.swift in Sources */,
+				EACAA2CF26DC272100B851B9 /* LibraryCollectionViewCell.swift in Sources */,
+				EA40DC9826DA5F44003892B9 /* LibraryViewController.swift in Sources */,
 				EA51A2B526D1E3DB004AD7C1 /* UIView+custom.swift in Sources */,
 				EA105AB026D8253D0003157B /* CategoryViewController.swift in Sources */,
 				EA49B5BD26C720A900C01969 /* CoreDataManagerMamgaCollection.swift in Sources */,

@@ -105,8 +105,3 @@ final class CoreDataManager {
     }
 }
 
-extension CoreDataManager {
-    
-
-
-}
