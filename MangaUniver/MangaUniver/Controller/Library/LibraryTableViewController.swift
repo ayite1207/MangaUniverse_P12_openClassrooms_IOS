@@ -26,7 +26,7 @@ class LibraryTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         displayTheFavoriteRecipe()
-        print("bim", mangaLibrary.count)
+        print("bimo", mangaLibrary.count)
     }
 
     // MARK: - Table view data source

@@ -11,7 +11,6 @@
 		10A38A3E111A2DCE3134FCB2 /* Pods_MangaUniverTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF490C5247907EF346CFC59F /* Pods_MangaUniverTests.framework */; };
 		366527636DCB17E69E925A5B /* Pods_MangaUniver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 730C6D3102452B3D2BD8B043 /* Pods_MangaUniver.framework */; };
 		EA105AB026D8253D0003157B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA105AAF26D8253D0003157B /* CategoryViewController.swift */; };
-		EA105AB226D9A45C0003157B /* LibraryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA105AB126D9A45C0003157B /* LibraryCollectionViewController.swift */; };
 		EA375AE42694F7D10018630D /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA375AE22694F7D10018630D /* CategoryTableViewCell.swift */; };
 		EA375AE52694F7D10018630D /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA375AE32694F7D10018630D /* CategoryTableViewCell.xib */; };
 		EA375AE82694FCDB0018630D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA375AE62694FCDB0018630D /* CategoryCollectionViewCell.swift */; };
@@ -88,7 +87,6 @@
 		B79083B693BFA4ED903A3D64 /* Pods-MangaUniverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangaUniverTests.debug.xcconfig"; path = "Target Support Files/Pods-MangaUniverTests/Pods-MangaUniverTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BAF7DF4809183A1128D3F36E /* Pods-MangaUniver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangaUniver.release.xcconfig"; path = "Target Support Files/Pods-MangaUniver/Pods-MangaUniver.release.xcconfig"; sourceTree = "<group>"; };
 		EA105AAF26D8253D0003157B /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
-		EA105AB126D9A45C0003157B /* LibraryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCollectionViewController.swift; sourceTree = "<group>"; };
 		EA375AE22694F7D10018630D /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		EA375AE32694F7D10018630D /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		EA375AE62694FCDB0018630D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -249,7 +247,6 @@
 			children = (
 				EA40DC9726DA5F44003892B9 /* LibraryViewController.swift */,
 				EA49B5CD26C87EB600C01969 /* LibraryTableViewController.swift */,
-				EA105AB126D9A45C0003157B /* LibraryCollectionViewController.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -672,7 +669,6 @@
 				EA49B5CE26C87EB600C01969 /* LibraryTableViewController.swift in Sources */,
 				EA49B5D026CB08A200C01969 /* MangaTopDetailDecodable.swift in Sources */,
 				EA3B6E2D26ADF3200026611B /* RequestMangaConstructor.swift in Sources */,
-				EA105AB226D9A45C0003157B /* LibraryCollectionViewController.swift in Sources */,
 				EA962D70269354A80061CB30 /* NewsCollectionViewCell.swift in Sources */,
 				EACAA2CF26DC272100B851B9 /* LibraryCollectionViewCell.swift in Sources */,
 				EA40DC9826DA5F44003892B9 /* LibraryViewController.swift in Sources */,
