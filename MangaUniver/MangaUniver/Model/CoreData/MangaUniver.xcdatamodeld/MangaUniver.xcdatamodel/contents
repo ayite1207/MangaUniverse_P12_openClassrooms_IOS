@@ -3,6 +3,8 @@
     <entity name="MangaCollection" representedClassName=".MangaCollection" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="isLibraryManga" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="numberOfManga" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="publishingStart" optional="YES" attributeType="String"/>
         <attribute name="score" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="synopsis" optional="YES" attributeType="String"/>
@@ -10,18 +12,7 @@
         <attribute name="type" optional="YES" attributeType="String"/>
         <attribute name="volumes" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
-    <entity name="MangaFollow" representedClassName=".MangaFollow" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="image" optional="YES" attributeType="Binary"/>
-        <attribute name="publishingStart" optional="YES" attributeType="String"/>
-        <attribute name="score" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="synopsis" optional="YES" attributeType="String"/>
-        <attribute name="title" optional="YES" attributeType="String"/>
-        <attribute name="type" optional="YES" attributeType="String"/>
-        <attribute name="volumes" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-    </entity>
     <elements>
-        <element name="MangaCollection" positionX="-63" positionY="-18" width="128" height="149"/>
-        <element name="MangaFollow" positionX="-54" positionY="54" width="128" height="149"/>
+        <element name="MangaCollection" positionX="-63" positionY="-18" width="128" height="179"/>
     </elements>
 </model>

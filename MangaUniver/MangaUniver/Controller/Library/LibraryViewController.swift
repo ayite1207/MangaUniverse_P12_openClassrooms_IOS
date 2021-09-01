@@ -13,6 +13,7 @@ class LibraryViewController: UIViewController {
     
     var mangaLibrary : [MangaLibrary] = []
     var mangaFollow : [MangaLibrary] = []
+    var mangaFilter : [MangaLibrary] = []
     
     private var coreDataManager: CoreDataManager?
     
@@ -43,24 +44,23 @@ class LibraryViewController: UIViewController {
         super.viewWillAppear(true)
         hideKeyboardWhenTappedAround()
         displayLibraryManga()
-        displayFollowManga()
         libraryCollectionView.reloadData()
-    }
-    
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        searchBar.resignFirstResponder()
-        let cancelButton = searchBar.value(forKey: "cancelButton") as! UIButton
-        cancelButton.isEnabled = true
     }
     
     @IBAction func changeItem(_ sender: Any) {
         let index = libraryOrFollowSegment.selectedSegmentIndex == 1 ? 1 : 0
         libraryCollectionView.scrollToItem(at: IndexPath(row: index, section: 0), at: .centeredHorizontally, animated: true)
+        mangaFilter = []
+        searchBar.text = ""
+        libraryCollectionView.reloadData()
     }
     
     internal func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         libraryOrFollowSegment.selectedSegmentIndex = Int(pageNumber)
+        mangaFilter = []
+        searchBar.text = ""
+        libraryCollectionView.reloadData()
     }
     
     private func displayLibraryManga(){
@@ -75,29 +75,11 @@ class LibraryViewController: UIViewController {
                 let publishingStart = manga.publishingStart ?? "error publishingStart"
                 let score = manga.score
                 let volumes = manga.volumes
+                let islibraryManga = manga.isLibraryManga
+                let number = manga.numberOfManga
                 
-                let manga = MangaLibrary(image: image, title: title, synopsis: synopsis, volumes: volumes, id: id, publishingStart: publishingStart, score: score, type: type)
+                let manga = MangaLibrary(image: image, title: title, synopsis: synopsis, volumes: volumes, id: id, publishingStart: publishingStart, score: score, type: type, number: Int(number), islibraryManga: islibraryManga)
                 mangaLibrary.append(manga)
-                })
-        }
-        libraryCollectionView.reloadData()
-    }
-    
-    private func displayFollowManga(){
-        mangaFollow = []
-        if let mangaCollection = coreDataManager?.mangaFollow {
-            mangaCollection.forEach({ (manga) in
-                let title = manga.title ?? "error title"
-                let image = manga.image
-                let id = manga.id
-                let synopsis = manga.synopsis ?? "error synopsis"
-                let type = manga.type ?? "error type"
-                let publishingStart = manga.publishingStart ?? "error publishingStart"
-                let score = manga.score
-                let volumes = manga.volumes
-                
-                let manga = MangaLibrary(image: image, title: title, synopsis: synopsis, volumes: volumes, id: id, publishingStart: publishingStart, score: score, type: type)
-                mangaFollow.append(manga)
                 })
         }
         libraryCollectionView.reloadData()
@@ -119,19 +101,19 @@ extension LibraryViewController: UICollectionViewDataSource, UICollectionViewDel
         switch indexPath.row {
         case 0:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LibraryCollectionViewCell", for: indexPath) as? LibraryCollectionViewCell else { return UICollectionViewCell() }
-            cell.mangaLibrary = mangaLibrary
+            cell.mangaLibrary =  mangaFilter.count == 0 ? mangaLibrary.filter({ $0.islibraryManga == true}) : mangaFilter
             cell.onDidSelectItem = {(indexPath) in
                 let mangaDetailViewControler = MangaDetailTableViewController()
-                mangaDetailViewControler.mangaDetail = self.mangaLibrary[indexPath.row]
+                mangaDetailViewControler.mangaDetail = self.mangaFilter.count == 0 ? self.mangaLibrary.filter({ $0.islibraryManga == true})[indexPath.row] : self.mangaFilter[indexPath.row]
                 self.show(mangaDetailViewControler, sender: nil)
             }
             return cell
         case 1:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LibraryCollectionViewCell", for: indexPath) as? LibraryCollectionViewCell else { return UICollectionViewCell() }
-            cell.mangaLibrary = mangaFollow
+            cell.mangaLibrary = mangaFilter.count == 0 ? mangaLibrary.filter({ $0.islibraryManga == false}) : mangaFilter
             cell.onDidSelectItem = {(indexPath) in
                 let mangaDetailViewControler = MangaDetailTableViewController()
-                mangaDetailViewControler.mangaDetail = self.mangaFollow[indexPath.row]
+                mangaDetailViewControler.mangaDetail =  self.mangaFilter.count == 0 ? self.mangaLibrary.filter({ $0.islibraryManga == false})[indexPath.row] : self.mangaFilter[indexPath.row]
                 self.show(mangaDetailViewControler, sender: nil)
             }
             return cell
@@ -159,30 +141,35 @@ extension LibraryViewController: UISearchBarDelegate{
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("bim searchText", searchText)
-        var mangaFilter : [MangaLibrary] = []
+        mangaFilter = []
         if !searchText.isBlank {
             switch  libraryOrFollowSegment.selectedSegmentIndex {
             case 0:
-                mangaFilter = mangaLibrary.filter({ $0.title.contains(searchText)})
-                print("bim mangaFilter / mangaLibrary", mangaFilter.count)
+                mangaFilter = mangaLibrary.filter({
+                    $0.islibraryManga == true
+                }).filter({ $0.title.lowercased().contains(searchText.lowercased())})
             case 1:
-                mangaFilter = mangaFollow.filter({ $0.title.contains(searchText)})
-                print("bim mangaFilter / mangaFollow", mangaFilter.count)
+                mangaFilter = mangaLibrary.filter({
+                    $0.islibraryManga == false
+                }).filter({ $0.title.lowercased().contains(searchText.lowercased())})
             default:
                 print("error")
             }
         }
+        print("bim mangaFilter / mangaLibrary", mangaFilter.count)
+        libraryCollectionView.reloadData()
     }
-    
 }
 
 extension LibraryViewController {
+    
     func hideKeyboardWhenTappedAround() {
-     let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:    #selector(dismissKeyboard))
-      tap.cancelsTouchesInView = false
-      view.addGestureRecognizer(tap)
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:  #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
+    
     @objc func dismissKeyboard() {
-       view.endEditing(true)
+        view.endEditing(true)
     }
 }

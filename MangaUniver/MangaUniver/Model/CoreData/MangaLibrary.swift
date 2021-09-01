@@ -16,4 +16,6 @@ struct MangaLibrary {
     var publishingStart: String
     var score: Double
     var type: String
+    var number : Int?
+    var islibraryManga: Bool?
 }
