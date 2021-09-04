@@ -23,7 +23,6 @@ class CategoryViewController: UIViewController {
             s.placeholder = "Search Manga"
             s.delegate = self
             s.tintColor = .white
-//            s.sizeToFit()
         return s
     }()
     

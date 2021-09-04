@@ -23,7 +23,7 @@ final class JikanService {
 
     // MARK: - Methodes
     
-    func getGenreManga(category: String?, path: String?, callback: @escaping (Result< ListCategoryManga, NetworkError>) -> Void) {
+    func getCategoryManga(category: String?, path: String?, callback: @escaping (Result< ListCategoryManga, NetworkError>) -> Void) {
          var urlBase = urlR
 
         if let path = path {
@@ -58,8 +58,7 @@ final class JikanService {
                 callback(.failure(.noData))
                 return
             }
-//            let str = String(decoding: data, as: UTF8.self)
-//            print("boun", str)
+            
             guard dataResponse.response?.statusCode == 200 && dataResponse.error == nil else {
                 callback(.failure(.noResponse))
                 return

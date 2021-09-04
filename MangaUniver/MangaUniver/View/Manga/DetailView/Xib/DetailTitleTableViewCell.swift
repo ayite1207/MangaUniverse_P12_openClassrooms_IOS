@@ -66,7 +66,7 @@ class DetailTitleTableViewCell: UITableViewCell {
     
     private func checkIfEntityExist() -> Bool{
        
-            guard let title = mangaDetail?.title, let checkIfEntityExist = coreDataManager?.someEntityExists(tilte: title) else { return false}
+            guard let title = mangaDetail?.title, let checkIfEntityExist = coreDataManager?.someEntityIsEmpty(tilte: title) else { return false}
             return checkIfEntityExist
         
     }

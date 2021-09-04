@@ -140,7 +140,6 @@ extension LibraryViewController: UICollectionViewDataSource, UICollectionViewDel
 extension LibraryViewController: UISearchBarDelegate{
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("bim searchText", searchText)
         mangaFilter = []
         if !searchText.isBlank {
             switch  libraryOrFollowSegment.selectedSegmentIndex {
@@ -156,7 +155,6 @@ extension LibraryViewController: UISearchBarDelegate{
                 print("error")
             }
         }
-        print("bim mangaFilter / mangaLibrary", mangaFilter.count)
         libraryCollectionView.reloadData()
     }
 }

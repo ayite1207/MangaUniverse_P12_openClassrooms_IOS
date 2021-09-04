@@ -29,7 +29,7 @@ final class CoreDataManager {
         self.managedObjectContext = coreDataMangaCollection.mainContext
     }
     
-    // MARK: - Manage FavoriteRecipe Entity
+    // MARK: - Manage MangaUniver Entity
     
     func createMangaCollection(image: Data?, title: String, synopsis: String, volumes: Double?, id: Double, publishingStart: String, score: Double, type: String, isLibraryManga: Bool, numberOfManga: Double ) {
         let mangaCollection = MangaCollection(context: managedObjectContext)
@@ -49,7 +49,7 @@ final class CoreDataManager {
         coreDataMangaCollection.saveContext()
     }
     
-    func someEntityExists(tilte: String) -> Bool {
+    func someEntityIsEmpty(tilte: String) -> Bool {
             let request: NSFetchRequest<MangaCollection> = MangaCollection.fetchRequest()
             request.predicate = NSPredicate(format: "title = %@", tilte)
             guard let manga = try? managedObjectContext.fetch(request) else { return false }

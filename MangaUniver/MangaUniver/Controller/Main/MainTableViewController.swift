@@ -176,7 +176,7 @@ extension MainTableViewController {
     private func getMangaCategory(requestConstructor: RequestMangaConstructor?){
         dispatchGroup.enter()
         if let requestConstructor = requestConstructor {
-            jikanService.getGenreManga(category: requestConstructor.mangaNumber, path: requestConstructor.path) { [unowned self] result in
+            jikanService.getCategoryManga(category: requestConstructor.mangaNumber, path: requestConstructor.path) { [unowned self] result in
                 switch result {
                 case .success(let listMangaCategory):
                     self.categoryDisplay[requestConstructor.mangaCategory] = convertMyDecodableToAStruct(decodebleToConvert: listMangaCategory)
