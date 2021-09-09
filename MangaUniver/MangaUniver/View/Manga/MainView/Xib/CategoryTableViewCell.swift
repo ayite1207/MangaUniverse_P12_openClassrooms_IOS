@@ -56,7 +56,7 @@ extension CategoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
 extension CategoryTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.size.width - 20) / 2, height: 200)
+        return CGSize(width: (collectionView.frame.size.height - 20) / 1.5, height: (collectionView.frame.size.height))
        }
     
 }

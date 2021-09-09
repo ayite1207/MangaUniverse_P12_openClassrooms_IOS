@@ -140,7 +140,7 @@ extension CategoryViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (view.frame.size.width/2)-5, height: (view.frame.size.width/2)-5)
+        return CGSize(width: (view.frame.size.width/2)-5, height: (view.frame.size.width/2)*1.5-5)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

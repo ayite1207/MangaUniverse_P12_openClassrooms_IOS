@@ -9,12 +9,16 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
     
+    //MARK: - Properties
+    
     let jikanService = JikanService()
     var mangaTopPopularity : MangaTopPopularity?
     var categoryDisplay = [String: [MangaLibrary]]()
     var topMangaToDisplay = [String: MangaLibrary]()
     var listeStructTopManga = [TopManga]()
     let dispatchGroup = DispatchGroup()
+    
+    //MARK: - Cycle life
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +40,25 @@ class MainTableViewController: UITableViewController {
         }
     }
     
+    // MARK: - Methodes
+
+    private func displayMangaDetail( mangaToDisplay: MangaLibrary? = nil ) {
+        let mangaDetailViewControler = MangaDetailTableViewController()
+        mangaDetailViewControler.mangaDetail = mangaToDisplay
+        self.show(mangaDetailViewControler, sender: nil)
+    }
+    
+    private func displayCategoryVC( mangaToDisplay: [MangaLibrary] = [], listeStructTopManga : [TopManga] = [] ) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let categoryViewController = storyBoard.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
+        if listeStructTopManga.count > 0  {
+            categoryViewController.listeTopManga = self.listeStructTopManga
+        } else {
+            categoryViewController.listCategoryManga = mangaToDisplay
+        }
+        self.navigationController?.pushViewController(categoryViewController, animated: true)
+    }
+    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -46,36 +69,24 @@ class MainTableViewController: UITableViewController {
         case 0:
             title = "Les plus populaires"
             cell.onDidSelectHeader = {() in
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                let categoryViewController = storyBoard.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
-                categoryViewController.listeTopManga = self.listeStructTopManga
-                self.navigationController?.pushViewController(categoryViewController, animated: true)
+                self.displayCategoryVC(listeStructTopManga : self.listeStructTopManga)
             }
         case 1:
             title = "Top Samourai Manga"
             guard let mangaArray = categoryDisplay["samouraiManga"] else { return UIView() }
             cell.onDidSelectHeader = {() in
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                let categoryViewController = storyBoard.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
-                categoryViewController.listCategoryManga = mangaArray
-                self.navigationController?.pushViewController(categoryViewController, animated: true)
+                self.displayCategoryVC(mangaToDisplay: mangaArray)
             }
         case 2:
             title = "Top Parody Manga"
             guard let mangaArray = categoryDisplay["parodyManga"] else { return UIView() }
             cell.onDidSelectHeader = {() in
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                let categoryViewController = storyBoard.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
-                categoryViewController.listCategoryManga = mangaArray
-                self.navigationController?.pushViewController(categoryViewController, animated: true)
+                self.displayCategoryVC(mangaToDisplay: mangaArray)
             }        case 3:
                 title = "Top Psychological Manga"
                 guard let mangaArray = categoryDisplay["psychologicalManga"] else { return UIView() }
                 cell.onDidSelectHeader = {() in
-                    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                    let categoryViewController = storyBoard.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
-                    categoryViewController.listCategoryManga = mangaArray
-                    self.navigationController?.pushViewController(categoryViewController, animated: true)
+                    self.displayCategoryVC(mangaToDisplay: mangaArray)
                 }
         default:
             break
@@ -149,14 +160,7 @@ class MainTableViewController: UITableViewController {
         }
         return CGFloat(height)
     }
-    
-    
-    private func displayMangaDetail( mangaToDisplay: MangaLibrary? = nil ) {
-        let mangaDetailViewControler = MangaDetailTableViewController()
-        mangaDetailViewControler.mangaDetail = mangaToDisplay
-        self.show(mangaDetailViewControler, sender: nil)
-    }
-    
+
 }
 
 extension MainTableViewController {

@@ -19,6 +19,8 @@
 		EA375AF126963F970018630D /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA375AEF26963F970018630D /* TitleTableViewCell.xib */; };
 		EA3B6E2D26ADF3200026611B /* RequestMangaConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B6E2C26ADF3200026611B /* RequestMangaConstructor.swift */; };
 		EA3B6E2F26AE0C7B0026611B /* MangaDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B6E2E26AE0C7B0026611B /* MangaDetailTableViewController.swift */; };
+		EA3E2E4E26E7F487005AB4DC /* MangaTemple.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA3E2E4D26E7F487005AB4DC /* MangaTemple.ttf */; };
+		EA3E2E5026E80042005AB4DC /* AGENTORANGE.TTF in Resources */ = {isa = PBXBuildFile; fileRef = EA3E2E4F26E8003E005AB4DC /* AGENTORANGE.TTF */; };
 		EA40DC9826DA5F44003892B9 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA40DC9726DA5F44003892B9 /* LibraryViewController.swift */; };
 		EA43D4F42698474C00C0AB2F /* NetWorkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43D4F32698474C00C0AB2F /* NetWorkError.swift */; };
 		EA43D4F6269847C100C0AB2F /* JikanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43D4F5269847C100C0AB2F /* JikanService.swift */; };
@@ -54,6 +56,7 @@
 		EA962D6D269333570061CB30 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA962D6B269333570061CB30 /* NewsTableViewCell.xib */; };
 		EA962D70269354A80061CB30 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA962D6E269354A70061CB30 /* NewsCollectionViewCell.swift */; };
 		EA962D71269354A80061CB30 /* NewsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA962D6F269354A80061CB30 /* NewsCollectionViewCell.xib */; };
+		EAA2A28626E7C14A0041E9E9 /* KOMIKAGL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EAA2A28326E7C0A50041E9E9 /* KOMIKAGL.ttf */; };
 		EAAA589F26E3BAB300E7C79A /* FileMockCoreDataMangaCollectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAA589E26E3BAB300E7C79A /* FileMockCoreDataMangaCollectionTest.swift */; };
 		EAAA58A126E3BB8B00E7C79A /* CoreDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAA58A026E3BB8B00E7C79A /* CoreDataManagerTest.swift */; };
 		EAAA58A426E3C4C900E7C79A /* FakeJikanSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAA58A326E3C4C900E7C79A /* FakeJikanSession.swift */; };
@@ -101,6 +104,8 @@
 		EA375AEF26963F970018630D /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
 		EA3B6E2C26ADF3200026611B /* RequestMangaConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMangaConstructor.swift; sourceTree = "<group>"; };
 		EA3B6E2E26AE0C7B0026611B /* MangaDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaDetailTableViewController.swift; sourceTree = "<group>"; };
+		EA3E2E4D26E7F487005AB4DC /* MangaTemple.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MangaTemple.ttf; sourceTree = "<group>"; };
+		EA3E2E4F26E8003E005AB4DC /* AGENTORANGE.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = AGENTORANGE.TTF; sourceTree = "<group>"; };
 		EA40DC9726DA5F44003892B9 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibraryViewController.swift; path = MangaUniver/Controller/Library/LibraryViewController.swift; sourceTree = SOURCE_ROOT; };
 		EA43D4F32698474C00C0AB2F /* NetWorkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkError.swift; sourceTree = "<group>"; };
 		EA43D4F5269847C100C0AB2F /* JikanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JikanService.swift; sourceTree = "<group>"; };
@@ -142,6 +147,7 @@
 		EA962D6B269333570061CB30 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		EA962D6E269354A70061CB30 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA962D6F269354A80061CB30 /* NewsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCollectionViewCell.xib; sourceTree = "<group>"; };
+		EAA2A28326E7C0A50041E9E9 /* KOMIKAGL.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOMIKAGL.ttf; sourceTree = "<group>"; };
 		EAAA589E26E3BAB300E7C79A /* FileMockCoreDataMangaCollectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileMockCoreDataMangaCollectionTest.swift; sourceTree = "<group>"; };
 		EAAA58A026E3BB8B00E7C79A /* CoreDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTest.swift; sourceTree = "<group>"; };
 		EAAA58A326E3C4C900E7C79A /* FakeJikanSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeJikanSession.swift; sourceTree = "<group>"; };
@@ -329,6 +335,7 @@
 		EA962D2A2693241E0061CB30 /* MangaUniver */ = {
 			isa = PBXGroup;
 			children = (
+				EAAA58AD26E7B28900E7C79A /* Font */,
 				EA962D62269331180061CB30 /* Extension */,
 				EA962D61269331080061CB30 /* Delegate */,
 				EA962D60269330F20061CB30 /* Model */,
@@ -435,6 +442,16 @@
 				EAAA58AB26E420C500E7C79A /* TopMangaDetail.json */,
 			);
 			path = AlamofireTest;
+			sourceTree = "<group>";
+		};
+		EAAA58AD26E7B28900E7C79A /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				EA3E2E4F26E8003E005AB4DC /* AGENTORANGE.TTF */,
+				EAA2A28326E7C0A50041E9E9 /* KOMIKAGL.ttf */,
+				EA3E2E4D26E7F487005AB4DC /* MangaTemple.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		F2DBDB1DE1ADF1C464CE7B99 /* Frameworks */ = {
@@ -561,10 +578,13 @@
 				EA962D38269324220061CB30 /* Assets.xcassets in Resources */,
 				EA375AE52694F7D10018630D /* CategoryTableViewCell.xib in Resources */,
 				EA8514AA26BDDCF900271055 /* DetailTitleTableViewCell.xib in Resources */,
+				EA3E2E5026E80042005AB4DC /* AGENTORANGE.TTF in Resources */,
 				EA49B5CA26C87D2800C01969 /* LibraryTableViewCell.xib in Resources */,
 				EA375AE92694FCDB0018630D /* CategoryCollectionViewCell.xib in Resources */,
 				EA375AF126963F970018630D /* TitleTableViewCell.xib in Resources */,
+				EAA2A28626E7C14A0041E9E9 /* KOMIKAGL.ttf in Resources */,
 				EA962D6D269333570061CB30 /* NewsTableViewCell.xib in Resources */,
+				EA3E2E4E26E7F487005AB4DC /* MangaTemple.ttf in Resources */,
 				EA4EE67426BB339D0088219A /* PhotoTableViewCell.xib in Resources */,
 				EA962D71269354A80061CB30 /* NewsCollectionViewCell.xib in Resources */,
 				EA962D332693241E0061CB30 /* Main.storyboard in Resources */,

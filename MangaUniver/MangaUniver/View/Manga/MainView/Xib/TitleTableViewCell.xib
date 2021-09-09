@@ -23,16 +23,16 @@
                             <action selector="displayCategory:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="I7W-s6-4QM"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFD-On-iS0">
-                        <rect key="frame" x="8" y="3" width="262" height="70"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFD-On-iS0">
+                        <rect key="frame" x="8" y="3" width="304" height="70"/>
+                        <fontDescription key="fontDescription" name="MalayalamSangamMN" family="Malayalam Sangam MN" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="WFD-On-iS0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Gpz-6z-LDi"/>
-                    <constraint firstAttribute="trailing" secondItem="WFD-On-iS0" secondAttribute="trailing" constant="50" id="WA5-Ip-jaJ"/>
+                    <constraint firstAttribute="trailing" secondItem="WFD-On-iS0" secondAttribute="trailing" constant="8" id="WA5-Ip-jaJ"/>
                     <constraint firstAttribute="bottom" secondItem="WFD-On-iS0" secondAttribute="bottom" constant="3" id="axQ-uF-YVR"/>
                     <constraint firstItem="sXM-gF-bQ9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="dxb-3r-ftu"/>
                     <constraint firstAttribute="bottom" secondItem="sXM-gF-bQ9" secondAttribute="bottom" id="gSb-vE-zY3"/>

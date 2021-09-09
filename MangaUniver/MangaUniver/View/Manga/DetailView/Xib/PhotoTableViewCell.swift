@@ -16,6 +16,7 @@ class PhotoTableViewCell: UITableViewCell {
         didSet {
             if let data = detailManga?.image {
                 detailImageView.image = UIImage(data: data)
+                detailImageView.raduis(view: detailImageView, raduis: 5)
                 backgroundDetailImageView.image = UIImage(data: data)
             }
         }

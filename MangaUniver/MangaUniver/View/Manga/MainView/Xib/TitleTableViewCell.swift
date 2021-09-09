@@ -14,6 +14,7 @@ class TitleTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        titleLabel.font = UIFont(descriptor: UIFontDescriptor(name: "AgentOrange", size: 12), size: 12)
         // Initialization code
     }
 

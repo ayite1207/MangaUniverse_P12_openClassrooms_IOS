@@ -17,6 +17,7 @@ class LibraryTableViewCell: UITableViewCell {
             mangaTitleLabel.text = mangaLibrary?.title
             if let data = mangaLibrary?.image {
                 mangUIImage.image = UIImage(data: data)
+                mangUIImage.raduis(view: mangUIImage, raduis: 5)
             }
         }
     }
