@@ -31,7 +31,7 @@ final class CoreDataManager {
     
     // MARK: - Manage MangaUniver Entity
     
-    func createMangaCollection(image: Data?, title: String, synopsis: String, volumes: Double?, id: Double, publishingStart: String, score: Double, type: String, isLibraryManga: Bool, numberOfManga: Double ) {
+    func createMangaCollection(image: Data?, title: String, synopsis: String, volumes: Double?, id: Double, publishingStart: String, score: Double, type: String, isFollowManga: Bool,isLibraryManga: Bool, numberOfManga: Double ) {
         let mangaCollection = MangaCollection(context: managedObjectContext)
         if let image = image {
             mangaCollection.image = image
@@ -45,13 +45,27 @@ final class CoreDataManager {
         mangaCollection.type = type
         mangaCollection.isLibraryManga = isLibraryManga
         mangaCollection.numberOfManga = numberOfManga
+        mangaCollection.isFollowManga = isFollowManga
         
         coreDataMangaCollection.saveContext()
     }
     
-    func someEntityIsEmpty(tilte: String) -> Bool {
+    func updateEntity(title: String, updateIsLibraryMangaEntity: Bool, value: Bool, numberOfVolums: Double?){
+        let request: NSFetchRequest<MangaCollection> = MangaCollection.fetchRequest()
+        request.predicate = NSPredicate(format: "title = %@", title)
+        guard let manga = try? managedObjectContext.fetch(request).first else { return }
+        if updateIsLibraryMangaEntity {
+            manga.setValue(value, forKey: "isLibraryManga")
+            manga.setValue(numberOfVolums, forKey: "numberOfManga")
+        } else {
+            manga.setValue(value, forKey: "isFollowManga")
+        }
+        coreDataMangaCollection.saveContext()
+        }
+    
+    func entityExist(title: String) -> Bool {
             let request: NSFetchRequest<MangaCollection> = MangaCollection.fetchRequest()
-            request.predicate = NSPredicate(format: "title = %@", tilte)
+            request.predicate = NSPredicate(format: "title = %@", title)
             guard let manga = try? managedObjectContext.fetch(request) else { return false }
             return manga.isEmpty
     }

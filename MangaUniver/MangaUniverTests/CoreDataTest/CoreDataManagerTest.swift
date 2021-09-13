@@ -35,7 +35,7 @@ class CoreDataManagerTest: XCTestCase {
 
     func testAddTeskMethods_WhenAnEntityIsCreated_ThenShouldBeCorrectlySaved() {
         let data = Data()
-        coreDataManager.createMangaCollection(image: data, title: "Naruto", synopsis: "Ninja Storie", volumes: 12.0, id: 123, publishingStart: "12/04/203", score: 340.0, type: "Ninja Battle", isLibraryManga: true, numberOfManga: 3.0)
+        coreDataManager.createMangaCollection(image: data, title: "Naruto", synopsis: "Ninja Storie", volumes: 12.0, id: 123, publishingStart: "12/04/203", score: 340.0, type: "Ninja Battle", isFollowManga: true, isLibraryManga: true, numberOfManga: 3.0)
         XCTAssertTrue(!coreDataManager.mangaCollection.isEmpty)
         XCTAssertTrue(coreDataManager.mangaCollection.count == 1)
         XCTAssertTrue(coreDataManager.mangaCollection[0].title == "Naruto")
@@ -43,13 +43,13 @@ class CoreDataManagerTest: XCTestCase {
     
     func testChekIfEntityExiste_WhenAnEntityIsCreated_ThenShouldBeCorrectlySaved() {
         let data = Data()
-        coreDataManager.createMangaCollection(image: data, title: "Naruto", synopsis: "Ninja Storie", volumes: 12.0, id: 123, publishingStart: "12/04/203", score: 340.0, type: "Ninja Battle", isLibraryManga: true, numberOfManga: 3.0)
-        XCTAssertTrue(!coreDataManager.someEntityIsEmpty(tilte: "Naruto"))
+        coreDataManager.createMangaCollection(image: data, title: "Naruto", synopsis: "Ninja Storie", volumes: 12.0, id: 123, publishingStart: "12/04/203", score: 340.0, type: "Ninja Battle", isFollowManga: true, isLibraryManga: true, numberOfManga: 3.0)
+        XCTAssertTrue(!coreDataManager.entityExist(title: "Naruto"))
     }
 
     func testDeleteTeskMethods_WhenAnEntityIsdeleted_ThenShouldBeCorrectlySaved() {
         let data = Data()
-        coreDataManager.createMangaCollection(image: data, title: "Naruto", synopsis: "Ninja Storie", volumes: 12.0, id: 123, publishingStart: "12/04/203", score: 340.0, type: "Ninja Battle", isLibraryManga: true, numberOfManga: 3.0)
+        coreDataManager.createMangaCollection(image: data, title: "Naruto", synopsis: "Ninja Storie", volumes: 12.0, id: 123, publishingStart: "12/04/203", score: 340.0, type: "Ninja Battle", isFollowManga: true, isLibraryManga: true, numberOfManga: 3.0)
         coreDataManager.deleteMangaCollection(title: "Naruto")
         XCTAssertTrue(coreDataManager.mangaCollection.isEmpty)
     }

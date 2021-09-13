@@ -10,10 +10,11 @@ import CoreData
 
 class DetailTitleTableViewCell: UITableViewCell {
     
+    
     //MARK: - Properties
     
-    var mangaCollection = "MangaCollection"
-    var mangaFollow = "MangaFollow"
+    var isLibraryManga = false
+    var isFollowManga = false
     
     var mangaDetail: MangaLibrary? {
         didSet {
@@ -25,7 +26,7 @@ class DetailTitleTableViewCell: UITableViewCell {
     private var coreDataManager: CoreDataManager?
 
     
-    var onDidSelectItem: ((MangaLibrary, _ isLibrary: Bool) -> ())?
+    var onDidSelectItem: ((_ manga: MangaLibrary, _ isLibrary: Bool, _ value: Bool) -> ())?
     
     //MARK: - Outlets
     
@@ -35,29 +36,39 @@ class DetailTitleTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+       
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let coreDataMangaCollection = appdelegate.coreDataMangaCollection
         coreDataManager = CoreDataManager(coreDataMangaCollection: coreDataMangaCollection)
-        
-        addButton.raduis(view: addButton, raduis: 20)
-        addButton.border(view: addButton, color: UIColor.black.cgColor)
-        followButton.raduis(view: followButton, raduis: 20)
-        followButton.border(view: followButton, color: UIColor.black.cgColor)
-        
+
+        setButton()
     }
+    
+    //MARK: - Action
 
     @IBAction func addManga(_ sender: Any) {
         guard let mangaToSave = mangaDetail else { return }
-        self.onDidSelectItem?(mangaToSave, true)
-        addButton.setTitle( !checkIfEntityExist() ? "Pull" : "Add" , for: .normal)
+        self.onDidSelectItem?(mangaToSave, true, !isLibraryManga)
+        setButtonTilte()
     }
 
     
     @IBAction func followManga(_ sender: Any) {
         guard let mangaToSave = mangaDetail else { return }
-        self.onDidSelectItem?(mangaToSave, false)
-        followButton.setTitle(!checkIfEntityExist() ? "Unfollow" : "follow", for: .normal)
+        self.onDidSelectItem?(mangaToSave, false, !isFollowManga)
+    }
+    
+    //MARK: - Methodes
+    
+    
+    
+    func setButton() {
+        addButton.raduis(view: addButton, raduis: 15)
+        addButton.border(view: addButton, color: UIColor.red.cgColor)
+        addButton.tintColor = .red
+        followButton.raduis(view: followButton, raduis: 15)
+        followButton.border(view: followButton, color: UIColor.green.cgColor)
+        followButton.tintColor = .green
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -66,14 +77,22 @@ class DetailTitleTableViewCell: UITableViewCell {
     
     private func checkIfEntityExist() -> Bool{
        
-            guard let title = mangaDetail?.title, let checkIfEntityExist = coreDataManager?.someEntityIsEmpty(tilte: title) else { return false}
+        guard let title = mangaDetail?.title, let checkIfEntityExist = coreDataManager?.entityExist(title: title) else { return false}
             return checkIfEntityExist
         
     }
     
     private func setButtonTilte(){
-        addButton.setTitle(mangaDetail?.islibraryManga == true && !checkIfEntityExist() ? "Pull" : "Add" , for: .normal)
-        followButton.setTitle(mangaDetail?.islibraryManga == false && !checkIfEntityExist() ? "Unfollow" : "follow", for: .normal)
+        if let manga = coreDataManager?.mangaCollection.filter({ $0.title == mangaDetail?.title}).first {
+            addButton.setTitle(manga.isLibraryManga == true ? "Update" : "Add" , for: .normal)
+            isLibraryManga = manga.isLibraryManga
+            followButton.setTitle(manga.isFollowManga == true  ? "Unfollow" : "follow", for: .normal)
+            isFollowManga = manga.isFollowManga
+        } else {
+            addButton.setTitle( "Add" , for: .normal)
+            followButton.setTitle( "follow", for: .normal)
+        }
+        
     }
     
 }

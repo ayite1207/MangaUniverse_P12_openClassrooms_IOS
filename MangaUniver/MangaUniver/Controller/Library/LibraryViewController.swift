@@ -30,7 +30,6 @@ class LibraryViewController: UIViewController {
         super.viewDidLoad()
         
         searchBar.delegate = self
-        
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let coreDataMangaCollection = appdelegate.coreDataMangaCollection
         coreDataManager = CoreDataManager(coreDataMangaCollection: coreDataMangaCollection)
@@ -41,6 +40,7 @@ class LibraryViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print(" lbr mangaLibrary.filter({ $0.isMangaFollow == true})",  mangaLibrary.filter({ $0.isMangaFollow == true}).count)
         super.viewWillAppear(true)
         hideKeyboardWhenTappedAround()
         displayLibraryManga()
@@ -76,9 +76,10 @@ class LibraryViewController: UIViewController {
                 let score = manga.score
                 let volumes = manga.volumes
                 let islibraryManga = manga.isLibraryManga
+                let isMangaFollow = manga.isFollowManga
                 let number = manga.numberOfManga
                 
-                let manga = MangaLibrary(image: image, title: title, synopsis: synopsis, volumes: volumes, id: id, publishingStart: publishingStart, score: score, type: type, number: Int(number), islibraryManga: islibraryManga)
+                let manga = MangaLibrary(image: image, title: title, synopsis: synopsis, volumes: volumes, id: id, publishingStart: publishingStart, score: score, type: type, number: Int(number), islibraryManga: islibraryManga, isMangaFollow: isMangaFollow)
                 mangaLibrary.append(manga)
                 })
         }
@@ -110,10 +111,10 @@ extension LibraryViewController: UICollectionViewDataSource, UICollectionViewDel
             return cell
         case 1:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LibraryCollectionViewCell", for: indexPath) as? LibraryCollectionViewCell else { return UICollectionViewCell() }
-            cell.mangaLibrary = mangaFilter.count == 0 ? mangaLibrary.filter({ $0.islibraryManga == false}) : mangaFilter
+            cell.mangaLibrary = mangaFilter.count == 0 ? mangaLibrary.filter({ $0.isMangaFollow == true}) : mangaFilter
             cell.onDidSelectItem = {(indexPath) in
                 let mangaDetailViewControler = MangaDetailTableViewController()
-                mangaDetailViewControler.mangaDetail =  self.mangaFilter.count == 0 ? self.mangaLibrary.filter({ $0.islibraryManga == false})[indexPath.row] : self.mangaFilter[indexPath.row]
+                mangaDetailViewControler.mangaDetail =  self.mangaFilter.count == 0 ? self.mangaLibrary.filter({ $0.isMangaFollow == true})[indexPath.row] : self.mangaFilter[indexPath.row]
                 self.show(mangaDetailViewControler, sender: nil)
             }
             return cell
@@ -149,7 +150,7 @@ extension LibraryViewController: UISearchBarDelegate{
                 }).filter({ $0.title.lowercased().contains(searchText.lowercased())})
             case 1:
                 mangaFilter = mangaLibrary.filter({
-                    $0.islibraryManga == false
+                    $0.isMangaFollow == true
                 }).filter({ $0.title.lowercased().contains(searchText.lowercased())})
             default:
                 print("error")

@@ -18,26 +18,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uuI-GG-Dw8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+                        <rect key="frame" x="16" y="0.0" width="288" height="76"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="44" translatesAutoresizingMaskIntoConstraints="NO" id="l2O-cr-YRn">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="38"/>
+                                <rect key="frame" x="0.0" y="0.0" width="288" height="38"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="mq6-ff-ybG">
-                                <rect key="frame" x="0.0" y="38" width="320" height="38"/>
+                                <rect key="frame" x="0.0" y="38" width="288" height="38"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1U-Ir-XWN">
-                                        <rect key="frame" x="15" y="15" width="132.5" height="8"/>
+                                        <rect key="frame" x="15" y="15" width="116.5" height="8"/>
                                         <state key="normal" title="Ajoutez"/>
                                         <connections>
                                             <action selector="addManga:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mXb-nN-gnh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZo-ws-PiE">
-                                        <rect key="frame" x="172.5" y="15" width="132.5" height="8"/>
+                                        <rect key="frame" x="156.5" y="15" width="116.5" height="8"/>
                                         <state key="normal" title="Suivre"/>
                                         <connections>
                                             <action selector="followManga:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Wat-2m-2So"/>
@@ -45,11 +45,10 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="A1U-Ir-XWN" secondAttribute="bottom" constant="15" id="3Ya-bL-xaD"/>
                                     <constraint firstAttribute="trailing" secondItem="SZo-ws-PiE" secondAttribute="trailing" constant="15" id="9fG-x9-i9I"/>
-                                    <constraint firstItem="SZo-ws-PiE" firstAttribute="top" secondItem="mq6-ff-ybG" secondAttribute="top" constant="15" id="W2Q-6Z-ml1"/>
                                     <constraint firstItem="A1U-Ir-XWN" firstAttribute="top" secondItem="mq6-ff-ybG" secondAttribute="top" constant="15" id="dHu-Pf-nw4"/>
                                     <constraint firstAttribute="bottom" secondItem="A1U-Ir-XWN" secondAttribute="bottom" constant="15" id="f5Z-bV-cLw"/>
-                                    <constraint firstAttribute="bottom" secondItem="SZo-ws-PiE" secondAttribute="bottom" constant="15" id="kLs-UT-Qei"/>
                                     <constraint firstItem="A1U-Ir-XWN" firstAttribute="leading" secondItem="mq6-ff-ybG" secondAttribute="leading" constant="15" id="x5A-gO-nhD"/>
                                 </constraints>
                             </stackView>
@@ -57,9 +56,9 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="uuI-GG-Dw8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="B47-K7-1Ow"/>
+                    <constraint firstItem="uuI-GG-Dw8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="B47-K7-1Ow"/>
                     <constraint firstAttribute="bottom" secondItem="uuI-GG-Dw8" secondAttribute="bottom" constant="16" id="IB0-8s-pGC"/>
-                    <constraint firstAttribute="trailing" secondItem="uuI-GG-Dw8" secondAttribute="trailing" id="qV6-hM-ktp"/>
+                    <constraint firstAttribute="trailing" secondItem="uuI-GG-Dw8" secondAttribute="trailing" constant="16" id="qV6-hM-ktp"/>
                     <constraint firstItem="uuI-GG-Dw8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="uBW-lj-pF1"/>
                 </constraints>
             </tableViewCellContentView>

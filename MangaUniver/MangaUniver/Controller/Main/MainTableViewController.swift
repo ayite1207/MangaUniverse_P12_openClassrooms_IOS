@@ -216,7 +216,7 @@ extension MainTableViewController {
             let score = manga.score ?? 0.0
             let volumes = Double(manga.volumes ?? 0)
             
-            let manga = MangaLibrary(image: image.data, title: title, synopsis: synopsis, volumes: volumes, id: Double(id), publishingStart: publishingStart, score: score, type: type)
+            let manga = MangaLibrary(image : image.data, title: title, synopsis: synopsis,volumes : volumes, id: Double(id), publishingStart: publishingStart, score: score, type: type, islibraryManga: false, isMangaFollow: false)
             mangaLibrary.append(manga)
         })
         return mangaLibrary
@@ -233,7 +233,7 @@ extension MainTableViewController {
         let score = topMangaToConvert.score ?? 0
         let volumes = Double(topMangaToConvert.volumes ?? 0)
         
-        let topMangaToDisplay = MangaLibrary(image : image?.data, title: title, synopsis: synopsis,volumes : volumes, id: id, publishingStart: publishingStart, score: score, type: type)
+        let topMangaToDisplay = MangaLibrary(image : image?.data, title: title, synopsis: synopsis,volumes : volumes, id: id, publishingStart: publishingStart, score: score, type: type, islibraryManga: false, isMangaFollow: false)
         
         return topMangaToDisplay
     }

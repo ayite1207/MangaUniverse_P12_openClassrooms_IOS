@@ -18,4 +18,5 @@ struct MangaLibrary {
     var type: String
     var number : Int?
     var islibraryManga: Bool?
+    var isMangaFollow: Bool?
 }
