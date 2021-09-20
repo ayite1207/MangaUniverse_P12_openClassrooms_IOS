@@ -20,12 +20,19 @@ class PhotoTableViewCell: UITableViewCell {
                 backgroundDetailImageView.image = UIImage(data: data)
             }
         }
-    } 
+    }
+    
+    var character: CharacterDetails? {
+        didSet {
+            if let data = character?.imageURL.data {
+                detailImageView.image = UIImage(data: data)
+                detailImageView.raduis(view: detailImageView, raduis: 5)
+                backgroundDetailImageView.image = UIImage(data: data)
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
-
-    
 }

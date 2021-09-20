@@ -10,34 +10,50 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailTitleTableViewCell" id="KGk-i7-Jjw" customClass="DetailTitleTableViewCell" customModule="MangaUniver" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailTitleTableViewCell" rowHeight="216" id="KGk-i7-Jjw" customClass="DetailTitleTableViewCell" customModule="MangaUniver" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uuI-GG-Dw8">
-                        <rect key="frame" x="16" y="0.0" width="288" height="76"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uuI-GG-Dw8">
+                        <rect key="frame" x="16" y="0.0" width="288" height="200"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="44" translatesAutoresizingMaskIntoConstraints="NO" id="l2O-cr-YRn">
-                                <rect key="frame" x="0.0" y="0.0" width="288" height="38"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="288" translatesAutoresizingMaskIntoConstraints="NO" id="l2O-cr-YRn">
+                                <rect key="frame" x="0.0" y="0.0" width="288" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="F69-Dh-btx"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="2L8-bz-3cO">
+                                <rect key="frame" x="0.0" y="50" width="288" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="ShO-ee-70m"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="W45-eA-hYc">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="mq6-ff-ybG">
-                                <rect key="frame" x="0.0" y="38" width="288" height="38"/>
+                                <rect key="frame" x="0.0" y="130" width="288" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1U-Ir-XWN">
-                                        <rect key="frame" x="15" y="15" width="116.5" height="8"/>
+                                        <rect key="frame" x="15" y="15" width="116.5" height="40"/>
                                         <state key="normal" title="Ajoutez"/>
                                         <connections>
                                             <action selector="addManga:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mXb-nN-gnh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZo-ws-PiE">
-                                        <rect key="frame" x="156.5" y="15" width="116.5" height="8"/>
+                                        <rect key="frame" x="156.5" y="15" width="116.5" height="40"/>
                                         <state key="normal" title="Suivre"/>
                                         <connections>
                                             <action selector="followManga:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Wat-2m-2So"/>
@@ -65,10 +81,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="addButton" destination="A1U-Ir-XWN" id="EjW-AA-s7Y"/>
+                <outlet property="charactersCollectionView" destination="2L8-bz-3cO" id="kuy-uK-n7Q"/>
                 <outlet property="detailTitleManga" destination="l2O-cr-YRn" id="9gd-pA-pN1"/>
                 <outlet property="followButton" destination="SZo-ws-PiE" id="RwE-yJ-7iB"/>
             </connections>
-            <point key="canvasLocation" x="124.6376811594203" y="64.955357142857139"/>
+            <point key="canvasLocation" x="124.6376811594203" y="46.205357142857139"/>
         </tableViewCell>
     </objects>
 </document>

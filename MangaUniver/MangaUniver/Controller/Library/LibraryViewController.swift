@@ -11,6 +11,8 @@ class LibraryViewController: UIViewController {
     
     //MARK: Properties
     
+    let jikanService = JikanService()
+
     var mangaLibrary : [MangaLibrary] = []
     var mangaFollow : [MangaLibrary] = []
     var mangaFilter : [MangaLibrary] = []
@@ -104,18 +106,18 @@ extension LibraryViewController: UICollectionViewDataSource, UICollectionViewDel
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LibraryCollectionViewCell", for: indexPath) as? LibraryCollectionViewCell else { return UICollectionViewCell() }
             cell.mangaLibrary =  mangaFilter.count == 0 ? mangaLibrary.filter({ $0.islibraryManga == true}) : mangaFilter
             cell.onDidSelectItem = {(indexPath) in
-                let mangaDetailViewControler = MangaDetailTableViewController()
-                mangaDetailViewControler.mangaDetail = self.mangaFilter.count == 0 ? self.mangaLibrary.filter({ $0.islibraryManga == true})[indexPath.row] : self.mangaFilter[indexPath.row]
-                self.show(mangaDetailViewControler, sender: nil)
+                let manga =  self.mangaFilter.count == 0 ? self.mangaLibrary.filter({ $0.islibraryManga == true})[indexPath.row] : self.mangaFilter[indexPath.row]
+                let mangaId = String(Int(manga.id ?? 0.0))
+                self.getCharactersManga(id: mangaId, mangaToDisplay: manga)
             }
             return cell
         case 1:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LibraryCollectionViewCell", for: indexPath) as? LibraryCollectionViewCell else { return UICollectionViewCell() }
             cell.mangaLibrary = mangaFilter.count == 0 ? mangaLibrary.filter({ $0.isMangaFollow == true}) : mangaFilter
             cell.onDidSelectItem = {(indexPath) in
-                let mangaDetailViewControler = MangaDetailTableViewController()
-                mangaDetailViewControler.mangaDetail =  self.mangaFilter.count == 0 ? self.mangaLibrary.filter({ $0.isMangaFollow == true})[indexPath.row] : self.mangaFilter[indexPath.row]
-                self.show(mangaDetailViewControler, sender: nil)
+                let manga =  self.mangaFilter.count == 0 ? self.mangaLibrary.filter({ $0.isMangaFollow == true})[indexPath.row] : self.mangaFilter[indexPath.row]
+                let mangaId = String(Int(manga.id ?? 0.0))
+                self.getCharactersManga(id: mangaId, mangaToDisplay: manga)
             }
             return cell
         default:
@@ -147,11 +149,11 @@ extension LibraryViewController: UISearchBarDelegate{
             case 0:
                 mangaFilter = mangaLibrary.filter({
                     $0.islibraryManga == true
-                }).filter({ $0.title.lowercased().contains(searchText.lowercased())})
+                }).filter({ $0.title?.lowercased().contains(searchText.lowercased()) ?? false})
             case 1:
                 mangaFilter = mangaLibrary.filter({
                     $0.isMangaFollow == true
-                }).filter({ $0.title.lowercased().contains(searchText.lowercased())})
+                }).filter({ $0.title?.lowercased().contains(searchText.lowercased()) ?? false})
             default:
                 print("error")
             }
@@ -170,5 +172,22 @@ extension LibraryViewController {
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+}
+
+extension LibraryViewController {
+    private func getCharactersManga(id: String, mangaToDisplay: MangaLibrary?){
+        jikanService.getCharactersManga(idOfTheManga: id) { [unowned self] result in
+            switch result {
+            case .success(let mangaCharacters):
+                let mangaDetailViewControler = MangaDetailTableViewController()
+                let characters = mangaCharacters.characters
+                mangaDetailViewControler.mangaDetail = mangaToDisplay
+                mangaDetailViewControler.characters = characters
+                self.show(mangaDetailViewControler, sender: nil)
+            case .failure(let error):
+                print("error",error.description)
+            }
+        }
     }
 }

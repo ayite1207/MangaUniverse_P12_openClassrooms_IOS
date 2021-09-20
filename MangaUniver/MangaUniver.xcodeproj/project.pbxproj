@@ -11,6 +11,10 @@
 		10A38A3E111A2DCE3134FCB2 /* Pods_MangaUniverTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF490C5247907EF346CFC59F /* Pods_MangaUniverTests.framework */; };
 		366527636DCB17E69E925A5B /* Pods_MangaUniver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 730C6D3102452B3D2BD8B043 /* Pods_MangaUniver.framework */; };
 		EA105AB026D8253D0003157B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA105AAF26D8253D0003157B /* CategoryViewController.swift */; };
+		EA2A656426F08F29003931F7 /* CharactersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2A656226F08F29003931F7 /* CharactersCollectionViewCell.swift */; };
+		EA2A656526F08F29003931F7 /* CharactersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA2A656326F08F29003931F7 /* CharactersCollectionViewCell.xib */; };
+		EA2A656726F0A4A9003931F7 /* CharactersDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2A656626F0A4A9003931F7 /* CharactersDecodable.swift */; };
+		EA2A656926F6A574003931F7 /* CharacterDetailDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2A656826F6A574003931F7 /* CharacterDetailDecodable.swift */; };
 		EA375AE42694F7D10018630D /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA375AE22694F7D10018630D /* CategoryTableViewCell.swift */; };
 		EA375AE52694F7D10018630D /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA375AE32694F7D10018630D /* CategoryTableViewCell.xib */; };
 		EA375AE82694FCDB0018630D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA375AE62694FCDB0018630D /* CategoryCollectionViewCell.swift */; };
@@ -96,6 +100,10 @@
 		B79083B693BFA4ED903A3D64 /* Pods-MangaUniverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangaUniverTests.debug.xcconfig"; path = "Target Support Files/Pods-MangaUniverTests/Pods-MangaUniverTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BAF7DF4809183A1128D3F36E /* Pods-MangaUniver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangaUniver.release.xcconfig"; path = "Target Support Files/Pods-MangaUniver/Pods-MangaUniver.release.xcconfig"; sourceTree = "<group>"; };
 		EA105AAF26D8253D0003157B /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		EA2A656226F08F29003931F7 /* CharactersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCollectionViewCell.swift; sourceTree = "<group>"; };
+		EA2A656326F08F29003931F7 /* CharactersCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharactersCollectionViewCell.xib; sourceTree = "<group>"; };
+		EA2A656626F0A4A9003931F7 /* CharactersDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersDecodable.swift; sourceTree = "<group>"; };
+		EA2A656826F6A574003931F7 /* CharacterDetailDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailDecodable.swift; sourceTree = "<group>"; };
 		EA375AE22694F7D10018630D /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		EA375AE32694F7D10018630D /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		EA375AE62694FCDB0018630D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -231,6 +239,8 @@
 				EA468A6A26A8BA1100210AF6 /* ListCategoryMangaDecodable.swift */,
 				EA43D4F726984C7500C0AB2F /* MangaToPopularityDecodable.swift */,
 				EA49B5CF26CB08A200C01969 /* MangaTopDetailDecodable.swift */,
+				EA2A656626F0A4A9003931F7 /* CharactersDecodable.swift */,
+				EA2A656826F6A574003931F7 /* CharacterDetailDecodable.swift */,
 			);
 			path = Decodable;
 			sourceTree = "<group>";
@@ -306,6 +316,8 @@
 				EA4BAAC726C02C4F00F58CAE /* InfoTableViewCell.swift */,
 				EA4BAAC826C02C4F00F58CAE /* InfoTableViewCell.xib */,
 				EA8514A826BDDCF900271055 /* DetailTitleTableViewCell.xib */,
+				EA2A656226F08F29003931F7 /* CharactersCollectionViewCell.swift */,
+				EA2A656326F08F29003931F7 /* CharactersCollectionViewCell.xib */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -586,6 +598,7 @@
 				EA962D6D269333570061CB30 /* NewsTableViewCell.xib in Resources */,
 				EA3E2E4E26E7F487005AB4DC /* MangaTemple.ttf in Resources */,
 				EA4EE67426BB339D0088219A /* PhotoTableViewCell.xib in Resources */,
+				EA2A656526F08F29003931F7 /* CharactersCollectionViewCell.xib in Resources */,
 				EA962D71269354A80061CB30 /* NewsCollectionViewCell.xib in Resources */,
 				EA962D332693241E0061CB30 /* Main.storyboard in Resources */,
 			);
@@ -739,10 +752,13 @@
 				EA962D2C2693241E0061CB30 /* AppDelegate.swift in Sources */,
 				EA8514A926BDDCF900271055 /* DetailTitleTableViewCell.swift in Sources */,
 				EA468A6926A8B6EC00210AF6 /* Logger.swift in Sources */,
+				EA2A656726F0A4A9003931F7 /* CharactersDecodable.swift in Sources */,
 				EA43D4F42698474C00C0AB2F /* NetWorkError.swift in Sources */,
 				EA43D4F6269847C100C0AB2F /* JikanService.swift in Sources */,
 				EA49B5C926C87D2800C01969 /* LibraryTableViewCell.swift in Sources */,
+				EA2A656926F6A574003931F7 /* CharacterDetailDecodable.swift in Sources */,
 				EA49B5C126C85F7C00C01969 /* MangaLibrary.swift in Sources */,
+				EA2A656426F08F29003931F7 /* CharactersCollectionViewCell.swift in Sources */,
 				EA375AE82694FCDB0018630D /* CategoryCollectionViewCell.swift in Sources */,
 				EA962D2E2693241E0061CB30 /* SceneDelegate.swift in Sources */,
 				EA4EE67326BB339D0088219A /* PhotoTableViewCell.swift in Sources */,

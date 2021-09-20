@@ -47,6 +47,18 @@ final class JikanService {
         guard let url = URL(string: urlStr) else { return }
         getMangaData(baseUrl: url, parameters: nil , callback: callback)
     }
+    
+    func getCharactersManga(idOfTheManga: String?, callback: @escaping (Result<Characters, NetworkError>) -> Void) {
+        let urlStr = "https://api.jikan.moe/v3/manga/\(idOfTheManga ?? "")/characters"
+        guard let url = URL(string: urlStr) else { return }
+        getMangaData(baseUrl: url, parameters: nil , callback: callback)
+    }
+    
+    func getCharacterDetailManga(idOfTheCharacter: String?, callback: @escaping (Result<CharacterDetails, NetworkError>) -> Void) {
+        let urlStr = "https://api.jikan.moe/v3/character/\(idOfTheCharacter ?? "")"
+        guard let url = URL(string: urlStr) else { return }
+        getMangaData(baseUrl: url, parameters: nil , callback: callback)
+    }
 
     func getMangaData<T: Decodable>(baseUrl: URL, parameters: [(String, Any)]?, callback: @escaping (Result<T, NetworkError>) -> Void) {
         let urlRequest = encode(baseUrl: baseUrl, with: parameters)
@@ -63,7 +75,6 @@ final class JikanService {
                 callback(.failure(.noResponse))
                 return
             }
-            
             guard let dataDecoded = try? JSONDecoder().decode(T.self, from: data) else {
                 callback(.failure(.undecodableData))
                 return

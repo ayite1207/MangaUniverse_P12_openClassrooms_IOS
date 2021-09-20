@@ -12,10 +12,11 @@ class CategoryViewController: UIViewController {
 // MARK: - Properties
     
     let jikanService = JikanService()
-    var listeTopManga = [TopManga]()
     var listCategoryManga = [MangaLibrary]()
     var mangaToDisplay = [String: MangaLibrary]()
-    var mangaFilter : [TopManga] = []
+    var mangaFilter : [MangaLibrary] = []
+    var characters = [Character]()
+    var charactersMangas = [String: [Character]]()
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     lazy var searchBar : UISearchBar = {
@@ -31,20 +32,24 @@ class CategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "blur"
+        
+        setCollectionView()
+
+        view.addSubview(collectionView)
+        
+//        hideKeyboardWhenTappedAround()
+    }
+    
+    // MARK: - Methodes
+    
+    private func setCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .white
         collectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
-        
         collectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerCellId")
-
-        view.addSubview(collectionView)
-        
-        hideKeyboardWhenTappedAround()
-        // Do any additional setup after loading the view.
     }
-    
-    // MARK: - Methodes
     
     private func getTopMangaDetail(id: String){
         jikanService.getMangaTopPopularityDetail(idOfTheManga: id) { [unowned self] result in
@@ -58,7 +63,7 @@ class CategoryViewController: UIViewController {
         }
     }
     
-    func convertTopMangaToAStruct(topMangaToConvert: MangaTopDetail)-> MangaLibrary{
+    private func convertTopMangaToAStruct(topMangaToConvert: MangaTopDetail)-> MangaLibrary{
         
         let title = topMangaToConvert.title ?? ""
         let image = topMangaToConvert.imageurl
@@ -77,6 +82,7 @@ class CategoryViewController: UIViewController {
     private func displayMangaDetail( mangaToDisplay: MangaLibrary? ) {
         let mangaDetailViewControler = MangaDetailTableViewController()
         mangaDetailViewControler.mangaDetail = mangaToDisplay
+        mangaDetailViewControler.characters = characters
         self.show(mangaDetailViewControler, sender: nil)
     }
 
@@ -100,43 +106,30 @@ extension CategoryViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return mangaFilter.count == 0 ? listeTopManga.count > 0 ? listeTopManga.count : listCategoryManga.count : mangaFilter.count
+        return mangaFilter.count == 0 ? listCategoryManga.count : mangaFilter.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as? CategoryCollectionViewCell else { return UICollectionViewCell() }
         if mangaFilter.count == 0 {
-            if listeTopManga.count > 0 {
-                cell.manga = listeTopManga[indexPath.row]
-            }else {
-                cell.categoryManga = listCategoryManga[indexPath.row]
-            }
+            cell.categoryManga = listCategoryManga[indexPath.row]
         } else {
-            cell.manga = mangaFilter[indexPath.row]
+            cell.categoryManga = mangaFilter[indexPath.row]
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if mangaFilter.count == 0 {
-            if listeTopManga.count > 0 {
-                if let mangaToDisplay = mangaToDisplay[listeTopManga[indexPath.row].title] {
-                    displayMangaDetail( mangaToDisplay: mangaToDisplay )
-                } else {
-                    getTopMangaDetail(id: String(listeTopManga[indexPath.row].id))
-                }
-            }else {
-                displayMangaDetail( mangaToDisplay: listCategoryManga[indexPath.row] )
-            }
+                getCharactersManga(mangaToDisplay: listCategoryManga[indexPath.row])
         } else {
-            if let mangaToDisplay = mangaToDisplay[mangaFilter[indexPath.row].title] {
-                displayMangaDetail( mangaToDisplay: mangaToDisplay )
+            if let mangaToDisplay = mangaToDisplay[mangaFilter[indexPath.row].title ?? ""] {
+                getCharactersManga(mangaToDisplay: mangaToDisplay)
             } else {
-                getTopMangaDetail(id: String(mangaFilter[indexPath.row].id))
+                getCharactersManga(mangaToDisplay: mangaFilter[indexPath.row])
+
             }
         }
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -146,16 +139,14 @@ extension CategoryViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
     }
-    
 }
 
 extension CategoryViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("bim searchText", searchText)
         mangaFilter = []
         if !searchText.isBlank {
-            mangaFilter = listeTopManga.filter({ $0.title.lowercased().contains(searchText.lowercased())})
+            mangaFilter = listCategoryManga.filter({ $0.title?.lowercased().contains(searchText.lowercased()) ?? false})
         }
         collectionView.reloadData()
     }
@@ -171,5 +162,26 @@ extension CategoryViewController {
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+}
+
+
+extension CategoryViewController {
+    private func getCharactersManga(mangaToDisplay: MangaLibrary? = nil){
+        let mangaId = String(Int(mangaToDisplay?.id ?? 0.0))
+        jikanService.getCharactersManga(idOfTheManga: mangaId) { [unowned self] result in
+            switch result {
+            case .success(let mangaCharacters):
+                self.characters = mangaCharacters.characters
+                self.charactersMangas[mangaToDisplay?.title ?? ""] = mangaCharacters.characters
+                if mangaToDisplay?.synopsis != nil {
+                    displayMangaDetail( mangaToDisplay: mangaToDisplay )
+                } else {
+                    getTopMangaDetail(id: mangaId)
+                }
+            case .failure(let error):
+                print("error",error.description)
+            }
+        }
     }
 }

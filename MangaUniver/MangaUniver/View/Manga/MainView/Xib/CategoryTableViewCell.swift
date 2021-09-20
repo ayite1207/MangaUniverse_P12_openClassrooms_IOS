@@ -10,7 +10,7 @@ import UIKit
 class CategoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var genderCollectionView: UICollectionView!
-    var onDidSelectItem: ((IndexPath) -> ())?
+    var onDidSelectItem: ((IndexPath, _ manga: MangaLibrary) -> ())?
 
     var listGenreManga : [MangaLibrary]? {
         didSet {
@@ -48,7 +48,8 @@ extension CategoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.onDidSelectItem?(indexPath)
+        guard let manga = listGenreManga?[indexPath.row] else { return }
+        self.onDidSelectItem?(indexPath, manga )
     }
     
 }

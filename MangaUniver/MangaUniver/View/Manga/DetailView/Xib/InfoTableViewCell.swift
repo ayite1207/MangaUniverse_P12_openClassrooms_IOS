@@ -23,6 +23,13 @@ class InfoTableViewCell: UITableViewCell {
         }
     }
     
+    var character: CharacterDetails? {
+        didSet {
+            synopsisLabel.numberOfLines = 0
+            synopsisLabel.text = character?.about
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -13,9 +13,11 @@ class MainTableViewController: UITableViewController {
     
     let jikanService = JikanService()
     var mangaTopPopularity : MangaTopPopularity?
+    var characters = [Character]()
     var categoryDisplay = [String: [MangaLibrary]]()
     var topMangaToDisplay = [String: MangaLibrary]()
-    var listeStructTopManga = [TopManga]()
+    static var charactersMangas = [String: [Character]]()
+    var listeStructTopManga = [MangaLibrary]()
     let dispatchGroup = DispatchGroup()
     
     //MARK: - Cycle life
@@ -41,10 +43,12 @@ class MainTableViewController: UITableViewController {
     }
     
     // MARK: - Methodes
-
-    private func displayMangaDetail( mangaToDisplay: MangaLibrary? = nil ) {
+    
+    private func displayMangaDetail( mangaToDisplay: MangaLibrary?, charaterManga: [Character]? ) {
         let mangaDetailViewControler = MangaDetailTableViewController()
         mangaDetailViewControler.mangaDetail = mangaToDisplay
+        let characters = (charaterManga == nil ? characters : charaterManga) ?? [Character]()
+        mangaDetailViewControler.characters = characters
         self.show(mangaDetailViewControler, sender: nil)
     }
     
@@ -52,7 +56,7 @@ class MainTableViewController: UITableViewController {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let categoryViewController = storyBoard.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
         if listeStructTopManga.count > 0  {
-            categoryViewController.listeTopManga = self.listeStructTopManga
+            categoryViewController.listCategoryManga = self.listeStructTopManga
         } else {
             categoryViewController.listCategoryManga = mangaToDisplay
         }
@@ -69,7 +73,7 @@ class MainTableViewController: UITableViewController {
         case 0:
             title = "Les plus populaires"
             cell.onDidSelectHeader = {() in
-                self.displayCategoryVC(listeStructTopManga : self.listeStructTopManga)
+                self.displayCategoryVC(mangaToDisplay : self.listeStructTopManga)
             }
         case 1:
             title = "Top Samourai Manga"
@@ -115,10 +119,11 @@ class MainTableViewController: UITableViewController {
             cell.mangaTopPopularity = self.mangaTopPopularity
             cell.onDidSelectItem = {(indexPath) in
                 if self.topMangaToDisplay[self.mangaTopPopularity?.top[indexPath.row].title ?? ""] != nil {
-                    self.displayMangaDetail( mangaToDisplay: self.topMangaToDisplay[self.mangaTopPopularity?.top[indexPath.row].title ?? ""])
+                    let manga =  self.topMangaToDisplay[self.mangaTopPopularity?.top[indexPath.row].title ?? ""]
+                    self.displayMangaDetail( mangaToDisplay: manga, charaterManga: MainTableViewController.charactersMangas[manga?.title ?? ""])
                 } else {
-                    guard let mangaId = self.mangaTopPopularity?.top[indexPath.row].malID else { return }
-                    self.getTopMangaDetail(id: String(mangaId))
+                    guard let manga = self.mangaTopPopularity?.top[indexPath.row] else {return}
+                    self.getCharactersManga(id: String(manga.malID), category: false, mangaToDisplay: nil, topManga: manga )
                 }
             }
             return cell
@@ -126,24 +131,39 @@ class MainTableViewController: UITableViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as? CategoryTableViewCell else { return UITableViewCell() }
             guard let mangaSamurai = categoryDisplay["samouraiManga"] else { return UITableViewCell() }
             cell.listGenreManga = mangaSamurai
-            cell.onDidSelectItem = {(indexPath) in
-                self.displayMangaDetail( mangaToDisplay: mangaSamurai[indexPath.row])
+            cell.onDidSelectItem = {(indexPath, manga) in
+                if MainTableViewController.charactersMangas[manga.title ?? "" ] != nil {
+                    self.displayMangaDetail( mangaToDisplay: manga, charaterManga: MainTableViewController.charactersMangas[manga.title ?? ""])
+                } else {
+                    let mangaId = String(Int(mangaSamurai[indexPath.row].id ?? 0.0))
+                    self.getCharactersManga(id: mangaId, category: true, mangaToDisplay: mangaSamurai[indexPath.row] )
+                }
             }
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as? CategoryTableViewCell else { return UITableViewCell() }
             guard let parodyManga = categoryDisplay["parodyManga"] else { return UITableViewCell() }
             cell.listGenreManga = parodyManga
-            cell.onDidSelectItem = {(indexPath) in
-                self.displayMangaDetail(mangaToDisplay: parodyManga[indexPath.row])
+            cell.onDidSelectItem = {(indexPath, manga) in
+                if MainTableViewController.charactersMangas[manga.title ?? "" ] != nil {
+                    self.displayMangaDetail( mangaToDisplay: manga, charaterManga: MainTableViewController.charactersMangas[manga.title ?? ""])
+                } else {
+                    let mangaId = String(Int(parodyManga[indexPath.row].id ?? 0.0))
+                    self.getCharactersManga(id: mangaId, category: true, mangaToDisplay: parodyManga[indexPath.row] )
+                }
             }
             return cell
         case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as? CategoryTableViewCell else { return UITableViewCell() }
             guard let psychologicalManga = categoryDisplay["psychologicalManga"] else { return UITableViewCell() }
             cell.listGenreManga = psychologicalManga
-            cell.onDidSelectItem = {(indexPath) in
-                self.displayMangaDetail(mangaToDisplay: psychologicalManga[indexPath.row])
+            cell.onDidSelectItem = {(indexPath, manga) in
+                if MainTableViewController.charactersMangas[manga.title ?? ""] != nil {
+                    self.displayMangaDetail( mangaToDisplay: manga, charaterManga: MainTableViewController.charactersMangas[manga.title ?? ""])
+                } else {
+                    let mangaId = String(Int(psychologicalManga[indexPath.row].id ?? 0.0))
+                    self.getCharactersManga(id: mangaId, category: true, mangaToDisplay: psychologicalManga[indexPath.row] )
+                }
             }
             return cell
         default:
@@ -160,17 +180,39 @@ class MainTableViewController: UITableViewController {
         }
         return CGFloat(height)
     }
-
+    
 }
 
 extension MainTableViewController {
     
     private func getTopMangaDetail(id: String){
+        dispatchGroup.enter()
         jikanService.getMangaTopPopularityDetail(idOfTheManga: id) { [unowned self] result in
             switch result {
             case .success(let mangaDetail):
                 topMangaToDisplay[mangaDetail.title ?? ""] = convertTopMangaToAStruct(topMangaToConvert: mangaDetail)
-                self.displayMangaDetail(mangaToDisplay: topMangaToDisplay[mangaDetail.title ?? ""])
+                self.displayMangaDetail(mangaToDisplay: topMangaToDisplay[mangaDetail.title ?? ""], charaterManga: nil)
+                dispatchGroup.leave()
+            case .failure(let error):
+                print("error",error.description)
+            }
+        }
+    }
+    
+    private func getCharactersManga(id: String, category: Bool, mangaToDisplay: MangaLibrary?, topManga: Top? = nil ){
+        dispatchGroup.enter()
+        jikanService.getCharactersManga(idOfTheManga: id) { [unowned self] result in
+            switch result {
+            case .success(let mangaCharacters):
+                self.characters = mangaCharacters.characters
+                MainTableViewController.charactersMangas[topManga?.title ?? ""] = mangaCharacters.characters
+                if category {
+                    self.displayMangaDetail( mangaToDisplay: mangaToDisplay, charaterManga: mangaCharacters.characters)
+                } else {
+                    MainTableViewController.charactersMangas[mangaToDisplay?.title ?? ""] = mangaCharacters.characters
+                    self.getTopMangaDetail(id: id)
+                }
+                dispatchGroup.leave()
             case .failure(let error):
                 print("error",error.description)
             }
@@ -238,14 +280,14 @@ extension MainTableViewController {
         return topMangaToDisplay
     }
     
-    func convertTopMangaToArrayStruct(listTopManga: MangaTopPopularity)-> [TopManga]{
-        var mangaLibrary : [TopManga] = []
+    func convertTopMangaToArrayStruct(listTopManga: MangaTopPopularity)-> [MangaLibrary]{
+        var mangaLibrary : [MangaLibrary] = []
         listTopManga.top.forEach({ (manga) in
             let title = manga.title
             let image = manga.imageURL
-            let id = manga.malID
+            let id = Double(manga.malID)
             
-            let manga = TopManga(image: image.data, title: title,id: id)
+            let manga = MangaLibrary(image: image.data, title: title, synopsis: nil, volumes: nil, id: id, publishingStart: nil, score: nil, type: nil, number: nil, islibraryManga: nil, isMangaFollow: nil)
             mangaLibrary.append(manga)
         })
         return mangaLibrary

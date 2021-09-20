@@ -9,13 +9,13 @@ import Foundation
 
 struct MangaLibrary {
     var image: Data?
-    var title: String
-    var synopsis: String
+    var title: String?
+    var synopsis: String?
     var volumes: Double?
-    var id: Double
-    var publishingStart: String
-    var score: Double
-    var type: String
+    var id: Double?
+    var publishingStart: String?
+    var score: Double?
+    var type: String?
     var number : Int?
     var islibraryManga: Bool?
     var isMangaFollow: Bool?
