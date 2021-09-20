@@ -53,5 +53,12 @@ class CoreDataManagerTest: XCTestCase {
         coreDataManager.deleteMangaCollection(title: "Naruto")
         XCTAssertTrue(coreDataManager.mangaCollection.isEmpty)
     }
+    
+    func testUpdateTeskMethods_WhenAnEntityIsdeleted_ThenShouldBeCorrectlySaved() {
+        let data = Data()
+        coreDataManager.createMangaCollection(image: data, title: "Naruto", synopsis: "Ninja Storie", volumes: 12.0, id: 123, publishingStart: "12/04/203", score: 340.0, type: "Ninja Battle", isFollowManga: true, isLibraryManga: true, numberOfManga: 3.0)
+        self.coreDataManager?.updateEntity(title: "Naruto", updateIsLibraryMangaEntity: true, value: false, numberOfVolums: 4)
+        XCTAssertTrue(coreDataManager.mangaCollection[0].numberOfManga == 4.0)
+    }
 
 }

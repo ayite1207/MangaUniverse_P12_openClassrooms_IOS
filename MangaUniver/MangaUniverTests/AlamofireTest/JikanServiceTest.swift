@@ -71,4 +71,49 @@ class RequestServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
+    func testGetCharacterMangaData_WhenCorrectDataIsPassed_ThenShouldReturnSuccededCallback() {
+        let session = FakeJikanSession(fakeResponse: FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.characterData))
+        let requestService = JikanService(session: session)
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        requestService.getCharacterDetailManga(idOfTheCharacter: "40882") { result in
+            guard case .success(let character) = result else {
+                XCTFail("Test getData method with correct data failed.")
+                return
+            }
+            XCTAssertTrue(character.name == "Gokuu Son")
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
+    func testGetResultMangaData_WhenCorrectDataIsPassed_ThenShouldReturnSuccededCallback() {
+        let session = FakeJikanSession(fakeResponse: FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.resultsData))
+        let requestService = JikanService(session: session)
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        requestService.getSearchResultManga(str: "dragon ball"){ result in
+            guard case .success(let result) = result else {
+                XCTFail("Test getData method with correct data failed.")
+                return
+            }
+            XCTAssertTrue(result.results[0].title == "Dragon Ball")
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
+    func testGetCharactersMangaData_WhenCorrectDataIsPassed_ThenShouldReturnSuccededCallback() {
+        let session = FakeJikanSession(fakeResponse: FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.charactersData))
+        let requestService = JikanService(session: session)
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        requestService.getCharactersManga(idOfTheManga: "42"){ result in
+            guard case .success(let characters) = result else {
+                XCTFail("Test getData method with correct data failed.")
+                return
+            }
+            XCTAssertTrue(characters.characters[0].name == "Bulma")
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
 }

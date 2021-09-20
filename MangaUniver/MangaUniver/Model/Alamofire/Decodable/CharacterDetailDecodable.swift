@@ -14,7 +14,8 @@ struct CharacterDetails: Decodable {
     let requestCached: Bool
     let requestCacheExpiry, malID: Int
     let url: String
-    let name, nameKanji: String
+    let name: String?
+    let nameKanji: String?
     let about: String
     let memberFavorites: Int
     let imageURL: String

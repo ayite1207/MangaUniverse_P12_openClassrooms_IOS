@@ -27,7 +27,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dok-eb-20x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="378" y="-349"/>
+            <point key="canvasLocation" x="377" y="-626"/>
         </scene>
         <!--Main Table View Controller-->
         <scene sceneID="RhX-Sg-OMo">
@@ -76,6 +76,7 @@
                     <connections>
                         <segue destination="byS-wi-4u3" kind="relationship" relationship="viewControllers" id="1cS-fD-gDg"/>
                         <segue destination="oPL-ef-QTn" kind="relationship" relationship="viewControllers" id="1CL-39-Pxh"/>
+                        <segue destination="0Nu-ic-Qpm" kind="relationship" relationship="viewControllers" id="LGh-Tw-w0U"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HdC-RB-5gS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -173,7 +174,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DQf-sJ-r6h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="322" y="352"/>
+            <point key="canvasLocation" x="377" y="1058"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="2ve-YL-Fg5">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" id="0Nu-ic-Qpm" customClass="SearchViewController" customModule="MangaUniver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aO1-8u-kOP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6qT-Do-T6k"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="1Hd-eJ-PPr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oA4-d7-7if" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="377" y="151"/>
         </scene>
         <!--Category View Controller-->
         <scene sceneID="Zml-CI-jug">

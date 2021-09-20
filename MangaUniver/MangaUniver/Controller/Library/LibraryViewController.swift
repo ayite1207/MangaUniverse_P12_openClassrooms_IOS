@@ -42,7 +42,6 @@ class LibraryViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(" lbr mangaLibrary.filter({ $0.isMangaFollow == true})",  mangaLibrary.filter({ $0.isMangaFollow == true}).count)
         super.viewWillAppear(true)
         hideKeyboardWhenTappedAround()
         displayLibraryManga()

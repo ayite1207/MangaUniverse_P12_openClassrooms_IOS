@@ -59,6 +59,13 @@ final class JikanService {
         guard let url = URL(string: urlStr) else { return }
         getMangaData(baseUrl: url, parameters: nil , callback: callback)
     }
+    
+    func getSearchResultManga(str: String, callback: @escaping (Result<SearchResult, NetworkError>) -> Void) {
+        let urlStr = "https://api.jikan.moe/v3/search/manga"
+        guard let url = URL(string: urlStr) else { return }
+        let parameters = [("q", str)]
+        getMangaData(baseUrl: url, parameters: parameters , callback: callback)
+    }
 
     func getMangaData<T: Decodable>(baseUrl: URL, parameters: [(String, Any)]?, callback: @escaping (Result<T, NetworkError>) -> Void) {
         let urlRequest = encode(baseUrl: baseUrl, with: parameters)

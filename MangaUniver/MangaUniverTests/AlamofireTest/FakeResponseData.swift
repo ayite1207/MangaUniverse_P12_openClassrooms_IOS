@@ -21,5 +21,26 @@ final class FakeResponseData {
         return data
     }
     
+    static var characterData: Data {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "CharacterManga", withExtension: "json")
+        let data = try! Data(contentsOf: url!)
+        return data
+    }
+    
+    static var charactersData: Data {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "CharactersManga", withExtension: "json")
+        let data = try! Data(contentsOf: url!)
+        return data
+    }
+    
+    static var resultsData: Data {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "SearchResult", withExtension: "json")
+        let data = try! Data(contentsOf: url!)
+        return data
+    }
+    
     static let incorrectData = "erreur".data(using: .utf8)!
 }

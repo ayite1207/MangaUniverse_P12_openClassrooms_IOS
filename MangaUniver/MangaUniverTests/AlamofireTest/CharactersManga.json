@@ -1,0 +1,1008 @@
+{
+    "request_hash": "request:manga:2b8ff3cf0152ab6d178db38ffc781a1bc5950334",
+    "request_cached": true,
+    "request_cache_expiry": 76669,
+    "characters": [
+        {
+            "mal_id": 678,
+            "url": "https://myanimelist.net/character/678/Bulma",
+            "image_url": "https://cdn.myanimelist.net/images/characters/14/280893.jpg?s=2b0fdc4d608cdb9f6ca28d6192cb9251",
+            "name": "Bulma",
+            "role": "Main"
+        },
+        {
+            "mal_id": 2159,
+            "url": "https://myanimelist.net/character/2159/Kuririn",
+            "image_url": "https://cdn.myanimelist.net/images/characters/2/48517.jpg?s=19014a6433cd36c32f3661b21b38dad3",
+            "name": "Kuririn",
+            "role": "Main"
+        },
+        {
+            "mal_id": 914,
+            "url": "https://myanimelist.net/character/914/Piccolo",
+            "image_url": "https://cdn.myanimelist.net/images/characters/8/45628.jpg?s=7f3263916ca42434072fb20a7590c277",
+            "name": "Piccolo",
+            "role": "Main"
+        },
+        {
+            "mal_id": 2093,
+            "url": "https://myanimelist.net/character/2093/Gohan_Son",
+            "image_url": "https://cdn.myanimelist.net/images/characters/12/72738.jpg?s=e2b5f7a70d13c4ccc1b386d850f3c465",
+            "name": "Son, Gohan",
+            "role": "Main"
+        },
+        {
+            "mal_id": 246,
+            "url": "https://myanimelist.net/character/246/Gokuu_Son",
+            "image_url": "https://cdn.myanimelist.net/images/characters/15/72546.jpg?s=c434a442d8ad1212885a8d02dbcbbee0",
+            "name": "Son, Gokuu",
+            "role": "Main"
+        },
+        {
+            "mal_id": 913,
+            "url": "https://myanimelist.net/character/913/Vegeta",
+            "image_url": "https://cdn.myanimelist.net/images/characters/14/86185.jpg?s=145f25d852734f70db55a92cab54b27b",
+            "name": "Vegeta",
+            "role": "Main"
+        },
+        {
+            "mal_id": 2114,
+            "url": "https://myanimelist.net/character/2114/Akkuman",
+            "image_url": "https://cdn.myanimelist.net/images/characters/16/112702.jpg?s=feeca34f768d2efaf6f2d64b13d8f841",
+            "name": "Akkuman",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 42899,
+            "url": "https://myanimelist.net/character/42899/Appule",
+            "image_url": "https://cdn.myanimelist.net/images/characters/16/117013.jpg?s=7af355abd8dc0bb96bf82c711c6d55df",
+            "name": "Appule",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 6130,
+            "url": "https://myanimelist.net/character/6130/Babidi",
+            "image_url": "https://cdn.myanimelist.net/images/characters/10/273651.jpg?s=590ff5cc764dec32bfe19a21966abc78",
+            "name": "Babidi",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2126,
+            "url": "https://myanimelist.net/character/2126/Bacterian",
+            "image_url": "https://cdn.myanimelist.net/images/characters/11/71097.jpg?s=30b3543a53e18353b4bb3b1c2d3ae372",
+            "name": "Bacterian",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 6122,
+            "url": "https://myanimelist.net/character/6122/Bardock",
+            "image_url": "https://cdn.myanimelist.net/images/characters/6/103847.jpg?s=c38c133a809e886e0b01fec8e6bb13ee",
+            "name": "Bardock",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2100,
+            "url": "https://myanimelist.net/character/2100/Bee",
+            "image_url": "https://cdn.myanimelist.net/images/characters/7/45213.jpg?s=2c85af9da505cfc6ba502fbf80d6387b",
+            "name": "Bee",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 9340,
+            "url": "https://myanimelist.net/character/9340/Bibidi",
+            "image_url": "https://cdn.myanimelist.net/images/characters/3/111826.jpg?s=b9266b34c2e69407be67f61c77259a58",
+            "name": "Bibidi",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2101,
+            "url": "https://myanimelist.net/character/2101/Bora",
+            "image_url": "https://cdn.myanimelist.net/images/characters/6/45195.jpg?s=af181e8861959ca9fa130562d1630688",
+            "name": "Bora",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2733,
+            "url": "https://myanimelist.net/character/2733/Bra",
+            "image_url": "https://cdn.myanimelist.net/images/characters/4/380636.jpg?s=42d04fa72fbc7738eb9a7942c528d8b5",
+            "name": "Bra",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 9785,
+            "url": "https://myanimelist.net/character/9785/Bubbles",
+            "image_url": "https://cdn.myanimelist.net/images/characters/7/45234.jpg?s=f78510e53dc01e4babb6fa68fd2b8117",
+            "name": "Bubbles",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2107,
+            "url": "https://myanimelist.net/character/2107/Bulma_039_s_Mother",
+            "image_url": "https://cdn.myanimelist.net/images/characters/8/357970.jpg?s=7a4b3cbde69f0cefa11f5181931e13ae",
+            "name": "Bulma's Mother",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 6147,
+            "url": "https://myanimelist.net/character/6147/Burter",
+            "image_url": "https://cdn.myanimelist.net/images/characters/3/65047.jpg?s=997b89a158f98d70672e844d4a79f25d",
+            "name": "Burter",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2136,
+            "url": "https://myanimelist.net/character/2136/Buyon",
+            "image_url": "https://cdn.myanimelist.net/images/characters/9/71101.jpg?s=bdd83f09459fd98976f758a707500afa",
+            "name": "Buyon",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 3908,
+            "url": "https://myanimelist.net/character/3908/Cell",
+            "image_url": "https://cdn.myanimelist.net/images/characters/9/108594.jpg?s=11c75ff4c82ecb2c957dfebede7ab260",
+            "name": "Cell",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 127474,
+            "url": "https://myanimelist.net/character/127474/Cell_Games_Announcer",
+            "image_url": "https://cdn.myanimelist.net/images/characters/12/280363.jpg?s=7d5e514f5a75e8e61ea3b793850120f3",
+            "name": "Cell Games Announcer",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2145,
+            "url": "https://myanimelist.net/character/2145/Cell_Jr",
+            "image_url": "https://cdn.myanimelist.net/images/characters/5/45216.jpg?s=bc11ac9aeb37a2cabb2b0d0c3a05fa3f",
+            "name": "Cell Jr.",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2124,
+            "url": "https://myanimelist.net/character/2124/Chapa-O",
+            "image_url": "https://cdn.myanimelist.net/images/characters/13/112704.jpg?s=98302c0b466e1ba06e6d5e6e4f3940c9",
+            "name": "Chapa-O",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2102,
+            "url": "https://myanimelist.net/character/2102/Chi-Chi",
+            "image_url": "https://cdn.myanimelist.net/images/characters/14/247963.jpg?s=f4b64bc7b901fd59d3d9fd6b42afcf1c",
+            "name": "Chi-Chi",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2151,
+            "url": "https://myanimelist.net/character/2151/Chiaotzu",
+            "image_url": "https://cdn.myanimelist.net/images/characters/13/52822.jpg?s=6e11379dc260224463bcb0990d4cbd1c",
+            "name": "Chiaotzu",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 102027,
+            "url": "https://myanimelist.net/character/102027/Chibi",
+            "image_url": "https://cdn.myanimelist.net/images/characters/7/238175.jpg?s=715489f7a884f92310d4bbf6a34c11b2",
+            "name": "Chibi",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 9762,
+            "url": "https://myanimelist.net/character/9762/Colonel_Silver",
+            "image_url": "https://cdn.myanimelist.net/images/characters/5/45192.jpg?s=75c3ffa16c9f8edd7fa2a6e15f3e5c65",
+            "name": "Colonel Silver",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 9781,
+            "url": "https://myanimelist.net/character/9781/Colonel_Violet",
+            "image_url": "https://cdn.myanimelist.net/images/characters/8/71096.jpg?s=da7efea5542d5c495b1bc14fe213ed77",
+            "name": "Colonel Violet",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2140,
+            "url": "https://myanimelist.net/character/2140/Commander_Red",
+            "image_url": "https://cdn.myanimelist.net/images/characters/12/45198.jpg?s=8c13619c9c37a52683e4211ed5643acf",
+            "name": "Commander Red",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 186155,
+            "url": "https://myanimelist.net/character/186155/Cranberry",
+            "image_url": "https://cdn.myanimelist.net/images/characters/11/417742.jpg?s=4883f0ec17cfb8f4b2fd616bd8a9d4f3",
+            "name": "Cranberry",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 42900,
+            "url": "https://myanimelist.net/character/42900/Cui",
+            "image_url": "https://cdn.myanimelist.net/images/characters/8/117014.jpg?s=3ff03ace448a9bf9bcdce6fbc727d9e5",
+            "name": "Cui",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 9235,
+            "url": "https://myanimelist.net/character/9235/Cymbal",
+            "image_url": "https://cdn.myanimelist.net/images/characters/14/45196.jpg?s=33574379111b3a81ca40def43fd253ef",
+            "name": "Cymbal",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 6132,
+            "url": "https://myanimelist.net/character/6132/Dabura",
+            "image_url": "https://cdn.myanimelist.net/images/characters/10/273659.jpg?s=f8257b7ca972acd4445bc49b8d995d4f",
+            "name": "Dabura",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 9780,
+            "url": "https://myanimelist.net/character/9780/Dai_Kaioshin",
+            "image_url": "https://cdn.myanimelist.net/images/characters/2/113186.jpg?s=602aa561554a4587483c32bcd02e1ad6",
+            "name": "Dai Kaioshin",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 21344,
+            "url": "https://myanimelist.net/character/21344/Nikochan_Daiou",
+            "image_url": "https://cdn.myanimelist.net/images/characters/13/144257.jpg?s=5972d1bfd155fd96448231b5d1c69789",
+            "name": "Daiou, Nikochan",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 102025,
+            "url": "https://myanimelist.net/character/102025/Debu",
+            "image_url": "https://cdn.myanimelist.net/images/characters/12/238173.jpg?s=e0c3c116ad861bec7418582402e840c9",
+            "name": "Debu",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 6273,
+            "url": "https://myanimelist.net/character/6273/Dende",
+            "image_url": "https://cdn.myanimelist.net/images/characters/5/65195.jpg?s=00f7c13fc7e57fb8b2ead76f83dc08aa",
+            "name": "Dende",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 9239,
+            "url": "https://myanimelist.net/character/9239/Dodoria",
+            "image_url": "https://cdn.myanimelist.net/images/characters/7/45236.jpg?s=3436c7ce069895be30c3d4e47c6ef962",
+            "name": "Dodoria",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2103,
+            "url": "https://myanimelist.net/character/2103/Dr_Briefs",
+            "image_url": "https://cdn.myanimelist.net/images/characters/16/357827.jpg?s=b534f1305647f468ace8d2ab740da63d",
+            "name": "Dr. Briefs",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2146,
+            "url": "https://myanimelist.net/character/2146/Dr_Gero",
+            "image_url": "https://cdn.myanimelist.net/images/characters/2/52436.jpg?s=5858330ccf3f4a9f0a7e09b206c18018",
+            "name": "Dr. Gero",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 9773,
+            "url": "https://myanimelist.net/character/9773/Enma_Dai-Ou",
+            "image_url": "https://cdn.myanimelist.net/images/characters/12/111836.jpg?s=83fa2b8e32ea4646fa7a2547d33bbfaa",
+            "name": "Enma Dai-Ou",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2128,
+            "url": "https://myanimelist.net/character/2128/Erasa",
+            "image_url": "https://cdn.myanimelist.net/images/characters/7/273725.jpg?s=2d8d414fe992ccc77b507f147f73204d",
+            "name": "Erasa",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 40489,
+            "url": "https://myanimelist.net/character/40489/Farmer",
+            "image_url": "https://cdn.myanimelist.net/images/characters/5/127713.jpg?s=57a03e01398cd8ce6ce3e3f403639c0e",
+            "name": "Farmer",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 3694,
+            "url": "https://myanimelist.net/character/3694/Freeza",
+            "image_url": "https://cdn.myanimelist.net/images/characters/7/359258.jpg?s=9283da1c6156a10c96ca75d71522d62d",
+            "name": "Freeza",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2118,
+            "url": "https://myanimelist.net/character/2118/Ran_Fuan",
+            "image_url": "https://cdn.myanimelist.net/images/characters/8/116398.jpg?s=68da183036bb3d342e6cec0bf0c33a44",
+            "name": "Fuan, Ran",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 143844,
+            "url": "https://myanimelist.net/character/143844/Future_Trunks",
+            "image_url": "https://cdn.myanimelist.net/images/characters/2/311887.jpg?s=4a9ccd585ff02cdb0eaf5eaa3d6d84a3",
+            "name": "Future Trunks",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2138,
+            "url": "https://myanimelist.net/character/2138/General_Blue",
+            "image_url": "https://cdn.myanimelist.net/images/characters/8/71121.jpg?s=26532c044aa5c86b3afdac766021d8ee",
+            "name": "General Blue",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2137,
+            "url": "https://myanimelist.net/character/2137/General_White",
+            "image_url": "https://cdn.myanimelist.net/images/characters/12/116396.jpg?s=16acf41e24acfeaf20a02158eb209938",
+            "name": "General White",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 6134,
+            "url": "https://myanimelist.net/character/6134/Ginyu",
+            "image_url": "https://cdn.myanimelist.net/images/characters/15/371639.jpg?s=cf06dfc35af8089b78e0148b97e18fee",
+            "name": "Ginyu",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2127,
+            "url": "https://myanimelist.net/character/2127/Giran",
+            "image_url": "https://cdn.myanimelist.net/images/characters/6/45207.jpg?s=7ce4db1d81c4e8e5cbcbcae3e1dac6e1",
+            "name": "Giran",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 170676,
+            "url": "https://myanimelist.net/character/170676/Gotenks",
+            "image_url": "https://cdn.myanimelist.net/images/characters/9/380617.jpg?s=448cefaa910772dc34e257689ab3fd64",
+            "name": "Gotenks",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 101989,
+            "url": "https://myanimelist.net/character/101989/Grandma_Paozu",
+            "image_url": "https://cdn.myanimelist.net/images/characters/6/238101.jpg?s=6c56ffa9e0944a28da7a8981431b0f65",
+            "name": "Grandma Paozu",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 9784,
+            "url": "https://myanimelist.net/character/9784/Gregory",
+            "image_url": "https://cdn.myanimelist.net/images/characters/13/45233.jpg?s=0b89953905c3c875d769703961ef47a9",
+            "name": "Gregory",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 6148,
+            "url": "https://myanimelist.net/character/6148/Guldo",
+            "image_url": "https://cdn.myanimelist.net/images/characters/14/45224.jpg?s=1643e57ce7884f467042c59ea99d27d2",
+            "name": "Guldo",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2094,
+            "url": "https://myanimelist.net/character/2094/Gyumao",
+            "image_url": "https://cdn.myanimelist.net/images/characters/12/357971.jpg?s=9d41f38a348ce57f24c19b0e4dbed984",
+            "name": "Gyumao",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 6133,
+            "url": "https://myanimelist.net/character/6133/Higashi_no_Kaioshin",
+            "image_url": "https://cdn.myanimelist.net/images/characters/3/32340.jpg?s=eca0a0e023cdfc81f2866ab1e473240a",
+            "name": "Higashi no Kaioshin",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 6149,
+            "url": "https://myanimelist.net/character/6149/Jeice",
+            "image_url": "https://cdn.myanimelist.net/images/characters/9/65046.jpg?s=8f788f50e92c613398513aca839133dd",
+            "name": "Jeice",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2099,
+            "url": "https://myanimelist.net/character/2099/Jinzouningen_16-gou",
+            "image_url": "https://cdn.myanimelist.net/images/characters/10/52825.jpg?s=9983dc67104333321fa2632aba09a5cb",
+            "name": "Jinzouningen 16-gou",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2147,
+            "url": "https://myanimelist.net/character/2147/Jinzouningen_17-gou",
+            "image_url": "https://cdn.myanimelist.net/images/characters/16/48582.jpg?s=79dd6757c70b3dc78cc4e1739affe6d4",
+            "name": "Jinzouningen 17-gou",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 4318,
+            "url": "https://myanimelist.net/character/4318/Jinzouningen_18-gou",
+            "image_url": "https://cdn.myanimelist.net/images/characters/2/357828.jpg?s=f07a58b451c4312cece1db2aa84ebdf8",
+            "name": "Jinzouningen 18-gou",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 6115,
+            "url": "https://myanimelist.net/character/6115/Jinzouningen_19-gou",
+            "image_url": "https://cdn.myanimelist.net/images/characters/5/65048.jpg?s=e587de47fc2f10a7db9b511841d8b78a",
+            "name": "Jinzouningen 19-gou",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2098,
+            "url": "https://myanimelist.net/character/2098/Jinzouningen_8-gou",
+            "image_url": "https://cdn.myanimelist.net/images/characters/7/44762.jpg?s=0a164546d0ee36b5b183417cf1493f34",
+            "name": "Jinzouningen 8-gou",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 6108,
+            "url": "https://myanimelist.net/character/6108/Kami",
+            "image_url": "https://cdn.myanimelist.net/images/characters/4/73430.jpg?s=696e6b42b9929ef97aa0e4960e464cba",
+            "name": "Kami",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 7309,
+            "url": "https://myanimelist.net/character/7309/Karin",
+            "image_url": "https://cdn.myanimelist.net/images/characters/4/358479.jpg?s=99c7decef17ee7fcb80041a73d94b06f",
+            "name": "Karin",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 9775,
+            "url": "https://myanimelist.net/character/9775/Kibito",
+            "image_url": "https://cdn.myanimelist.net/images/characters/16/111834.jpg?s=ea56abfe1d0227736eb124a12f2b0c03",
+            "name": "Kibito",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 170672,
+            "url": "https://myanimelist.net/character/170672/Kibitoshin",
+            "image_url": "https://cdn.myanimelist.net/images/characters/8/380614.jpg?s=bb19168df22cfb476e7c475823500566",
+            "name": "Kibitoshin",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 18067,
+            "url": "https://myanimelist.net/character/18067/Akane_Kimidori",
+            "image_url": "https://cdn.myanimelist.net/images/characters/15/144259.jpg?s=4c93c10543a1d32157a3c7c1ec0a3aa1",
+            "name": "Kimidori, Akane",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 32466,
+            "url": "https://myanimelist.net/character/32466/King_Cold",
+            "image_url": "https://cdn.myanimelist.net/images/characters/7/111486.jpg?s=c50fb4801b217394a94976fa0cda98e7",
+            "name": "King Cold",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 9393,
+            "url": "https://myanimelist.net/character/9393/King_Vegeta",
+            "image_url": "https://cdn.myanimelist.net/images/characters/5/73079.jpg?s=049e14cf371c4d151da946a2066b5627",
+            "name": "King Vegeta",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2105,
+            "url": "https://myanimelist.net/character/2105/Lunch",
+            "image_url": "https://cdn.myanimelist.net/images/characters/13/126159.jpg?s=b21968d18bc1346f2a00968d741ab3d5",
+            "name": "Lunch",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2143,
+            "url": "https://myanimelist.net/character/2143/Mai",
+            "image_url": "https://cdn.myanimelist.net/images/characters/10/358456.jpg?s=7b5569aa7a97ac9c1ea6f7ce950fb6ab",
+            "name": "Mai",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 1012,
+            "url": "https://myanimelist.net/character/1012/Majin_Buu",
+            "image_url": "https://cdn.myanimelist.net/images/characters/6/94545.jpg?s=e94f09be98d06f74ce14862c58394224",
+            "name": "Majin Buu",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2106,
+            "url": "https://myanimelist.net/character/2106/Marron",
+            "image_url": "https://cdn.myanimelist.net/images/characters/11/357959.jpg?s=d28197fa19a0c28c685e498c6e248657",
+            "name": "Marron",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 60631,
+            "url": "https://myanimelist.net/character/60631/Mermaid",
+            "image_url": "https://cdn.myanimelist.net/images/characters/9/238197.jpg?s=9f4a4568a897cb877361f167f301f4d9",
+            "name": "Mermaid",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 102029,
+            "url": "https://myanimelist.net/character/102029/Milkman",
+            "image_url": "https://cdn.myanimelist.net/images/characters/16/238177.jpg?s=9899250039ea518477f239261f33a2e4",
+            "name": "Milkman",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 6106,
+            "url": "https://myanimelist.net/character/6106/Mr_Popo",
+            "image_url": "https://cdn.myanimelist.net/images/characters/8/52871.jpg?s=567db9c01f74737226f13e3ffea679c5",
+            "name": "Mr. Popo",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 9377,
+            "url": "https://myanimelist.net/character/9377/Mr_Satan",
+            "image_url": "https://cdn.myanimelist.net/images/characters/2/48724.jpg?s=ebed3c4d0d5b80d5549185caba758b34",
+            "name": "Mr. Satan",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2121,
+            "url": "https://myanimelist.net/character/2121/Mutaito",
+            "image_url": "https://cdn.myanimelist.net/images/characters/2/45209.jpg?s=b2b2c97e0f3671ded3f92a4c5dc45e0f",
+            "name": "Mutaito",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 6167,
+            "url": "https://myanimelist.net/character/6167/Muten-Roushi",
+            "image_url": "https://cdn.myanimelist.net/images/characters/6/359001.jpg?s=b0f6c285cdf733f32738264f42ebdd2f",
+            "name": "Muten-Roushi",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 9771,
+            "url": "https://myanimelist.net/character/9771/Muuri",
+            "image_url": "https://cdn.myanimelist.net/images/characters/16/64444.jpg?s=1598275bed2e977c7c8f10b5145ffbcc",
+            "name": "Muuri",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 6868,
+            "url": "https://myanimelist.net/character/6868/Nail",
+            "image_url": "https://cdn.myanimelist.net/images/characters/2/71647.jpg?s=d828bbb47718695bb3bd62aa115d0acb",
+            "name": "Nail",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2120,
+            "url": "https://myanimelist.net/character/2120/Namu",
+            "image_url": "https://cdn.myanimelist.net/images/characters/6/45210.jpg?s=d62e59be267a1efe5cc511eed44b5490",
+            "name": "Namu",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 5224,
+            "url": "https://myanimelist.net/character/5224/Nappa",
+            "image_url": "https://cdn.myanimelist.net/images/characters/2/52865.jpg?s=aa68b4b5f592322c180af8218b0cc10e",
+            "name": "Nappa",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 102023,
+            "url": "https://myanimelist.net/character/102023/Noppo",
+            "image_url": "https://cdn.myanimelist.net/images/characters/9/238171.jpg?s=a17a3247a1871d8dfb3903d254775334",
+            "name": "Noppo",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 3183,
+            "url": "https://myanimelist.net/character/3183/Senbei_Norimaki",
+            "image_url": "https://cdn.myanimelist.net/images/characters/13/383100.jpg?s=d08470fe4876d9ead28b3e13ab7baaeb",
+            "name": "Norimaki, Senbei",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 18064,
+            "url": "https://myanimelist.net/character/18064/Turbo_Norimaki",
+            "image_url": "https://cdn.myanimelist.net/images/characters/15/39620.jpg?s=4659da52ac594a3593f29400b7c46a6f",
+            "name": "Norimaki, Turbo",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 3182,
+            "url": "https://myanimelist.net/character/3182/Arale_Norimaki",
+            "image_url": "https://cdn.myanimelist.net/images/characters/3/358754.jpg?s=b7f340632ffd5ad0aeaa244a0b615fbe",
+            "name": "Norimaki, Arale",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 18063,
+            "url": "https://myanimelist.net/character/18063/Gajira_Norimaki",
+            "image_url": "https://cdn.myanimelist.net/images/characters/9/144261.jpg?s=d84bac076b96642543237799aa18fe4b",
+            "name": "Norimaki, Gajira",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 4850,
+            "url": "https://myanimelist.net/character/4850/North_Kaio",
+            "image_url": "https://cdn.myanimelist.net/images/characters/7/53213.jpg?s=b82983f5d6f8417bf3e309d121b64d5a",
+            "name": "North Kaio",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 18066,
+            "url": "https://myanimelist.net/character/18066/Obotchaman",
+            "image_url": "https://cdn.myanimelist.net/images/characters/5/358748.jpg?s=63df23c0ab9f869b35b6a37abe467e01",
+            "name": "Obotchaman",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2108,
+            "url": "https://myanimelist.net/character/2108/Oolong",
+            "image_url": "https://cdn.myanimelist.net/images/characters/10/110179.jpg?s=b0d4ecfdf4a9ac4bb471bffd73becdfb",
+            "name": "Oolong",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 3168,
+            "url": "https://myanimelist.net/character/3168/Pan",
+            "image_url": "https://cdn.myanimelist.net/images/characters/3/112948.jpg?s=918e33cfe47ee84d921e74fb4cdcb973",
+            "name": "Pan",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 102287,
+            "url": "https://myanimelist.net/character/102287/Panput",
+            "image_url": "https://cdn.myanimelist.net/images/characters/10/238489.jpg?s=5a1c818ea3ab50200ab981e7bdf1d8e7",
+            "name": "Panput",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 9768,
+            "url": "https://myanimelist.net/character/9768/Piano",
+            "image_url": "https://cdn.myanimelist.net/images/characters/12/358661.jpg?s=75cb491f7ae28a429618ce3d4f8e5655",
+            "name": "Piano",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 9767,
+            "url": "https://myanimelist.net/character/9767/Piccolo_Daimao",
+            "image_url": "https://cdn.myanimelist.net/images/characters/10/79720.jpg?s=12c811caec48c2f66ebd53539ef15769",
+            "name": "Piccolo Daimao",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2141,
+            "url": "https://myanimelist.net/character/2141/Pilaf",
+            "image_url": "https://cdn.myanimelist.net/images/characters/15/71739.jpg?s=f9177c6e82901595feda40788c840c66",
+            "name": "Pilaf",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 133279,
+            "url": "https://myanimelist.net/character/133279/Pirozhki",
+            "image_url": "https://cdn.myanimelist.net/images/characters/6/305144.jpg?s=bd78e16288d4c9b7f8f3459cc93d7304",
+            "name": "Pirozhki",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 101987,
+            "url": "https://myanimelist.net/character/101987/Pochawompa",
+            "image_url": "https://cdn.myanimelist.net/images/characters/11/238099.jpg?s=148d4b1cb1d99ef8e5129e4f62a93a11",
+            "name": "Pochawompa",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 9766,
+            "url": "https://myanimelist.net/character/9766/Porunga",
+            "image_url": "https://cdn.myanimelist.net/images/characters/3/45230.jpg?s=5182cadeaa08f73d3f836dd16e299005",
+            "name": "Porunga",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 677,
+            "url": "https://myanimelist.net/character/677/Puar",
+            "image_url": "https://cdn.myanimelist.net/images/characters/4/358984.jpg?s=0c54161cd9408d73e8dca4e7b95f4516",
+            "name": "Pu'ar",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 6155,
+            "url": "https://myanimelist.net/character/6155/Raditz",
+            "image_url": "https://cdn.myanimelist.net/images/characters/12/103846.jpg?s=031f7682e10063bb6cbc7e739a1b95ca",
+            "name": "Raditz",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 6150,
+            "url": "https://myanimelist.net/character/6150/Recoome",
+            "image_url": "https://cdn.myanimelist.net/images/characters/3/52868.jpg?s=59c230b7e9cd92cb389df76e871bffa4",
+            "name": "Recoome",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 6293,
+            "url": "https://myanimelist.net/character/6293/Rou_Kaioshin",
+            "image_url": "https://cdn.myanimelist.net/images/characters/10/366264.jpg?s=fa4556a93da9d6373d2edb8b93e60590",
+            "name": "Rou Kaioshin",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 28105,
+            "url": "https://myanimelist.net/character/28105/Saichourou",
+            "image_url": "https://cdn.myanimelist.net/images/characters/8/71666.jpg?s=2b6ec38a226c46ad3c33e9afe54a2849",
+            "name": "Saichourou",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2115,
+            "url": "https://myanimelist.net/character/2115/Sanzoku_Kuma",
+            "image_url": "https://cdn.myanimelist.net/images/characters/13/113205.jpg?s=24833fa91de89a24a7ca0002b4c1a37b",
+            "name": "Sanzoku Kuma",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2134,
+            "url": "https://myanimelist.net/character/2134/Sergeant_Metallic",
+            "image_url": "https://cdn.myanimelist.net/images/characters/9/71098.jpg?s=85cc3a87981134f96376f44753975720",
+            "name": "Sergeant Metallic",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2135,
+            "url": "https://myanimelist.net/character/2135/Sergeant_Murasaki",
+            "image_url": "https://cdn.myanimelist.net/images/characters/10/71099.jpg?s=6ee676e0865f5788ededda525b653984",
+            "name": "Sergeant Murasaki",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2117,
+            "url": "https://myanimelist.net/character/2117/Sharpner",
+            "image_url": "https://cdn.myanimelist.net/images/characters/8/273751.jpg?s=f157f7bd5e3eaa954e438569ac1ab5f6",
+            "name": "Sharpner",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 6127,
+            "url": "https://myanimelist.net/character/6127/Shen_Long",
+            "image_url": "https://cdn.myanimelist.net/images/characters/7/65049.jpg?s=93245f4ea44f894018c3446628fc7d9f",
+            "name": "Shen Long",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 101985,
+            "url": "https://myanimelist.net/character/101985/Sherman_Priest",
+            "image_url": "https://cdn.myanimelist.net/images/characters/15/238097.jpg?s=804c9ccdaf9ac973e66624e689f98176",
+            "name": "Sherman Priest",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 102183,
+            "url": "https://myanimelist.net/character/102183/Shi-Buta",
+            "image_url": "https://cdn.myanimelist.net/images/characters/10/358747.jpg?s=25290ecd83c41df9388ad5a7d8a6b166",
+            "name": "Shi-Buta",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2133,
+            "url": "https://myanimelist.net/character/2133/Shuu",
+            "image_url": "https://cdn.myanimelist.net/images/characters/13/358049.jpg?s=e80798b5c21ec9032ce7ea2d044723cb",
+            "name": "Shuu",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2551,
+            "url": "https://myanimelist.net/character/2551/Goten_Son",
+            "image_url": "https://cdn.myanimelist.net/images/characters/11/46985.jpg?s=f7d24b418acbd197dc78cddd3e49a593",
+            "name": "Son, Goten",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2104,
+            "url": "https://myanimelist.net/character/2104/Gohan_Son",
+            "image_url": "https://cdn.myanimelist.net/images/characters/12/110722.jpg?s=c5e2fe0a3cd616e8ed016fca54806054",
+            "name": "Son, Gohan",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 111405,
+            "url": "https://myanimelist.net/character/111405/Kurikinton_Soramame",
+            "image_url": "https://cdn.myanimelist.net/images/characters/15/255611.jpg?s=39dc385b86011af2e04f37b9179fd359",
+            "name": "Soramame, Kurikinton",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 18071,
+            "url": "https://myanimelist.net/character/18071/Tarou_Soramame",
+            "image_url": "https://cdn.myanimelist.net/images/characters/6/358750.jpg?s=356bf42b3a8d1be0ecac95eaec8bb933",
+            "name": "Soramame, Tarou",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 18072,
+            "url": "https://myanimelist.net/character/18072/Peasuke_Soramame",
+            "image_url": "https://cdn.myanimelist.net/images/characters/16/144265.jpg?s=f6366a9bc626f68ced3a7e80822b84b7",
+            "name": "Soramame, Peasuke",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2132,
+            "url": "https://myanimelist.net/character/2132/Spopovitch",
+            "image_url": "https://cdn.myanimelist.net/images/characters/16/71102.jpg?s=8b9a0de7620e9a0397742226c22b07d0",
+            "name": "Spopovitch",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2139,
+            "url": "https://myanimelist.net/character/2139/Staff_Officer_Black",
+            "image_url": "https://cdn.myanimelist.net/images/characters/12/71057.jpg?s=e76a374d9f8ea6186ad4c3c8072f14fd",
+            "name": "Staff Officer Black",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2095,
+            "url": "https://myanimelist.net/character/2095/Suno",
+            "image_url": "https://cdn.myanimelist.net/images/characters/16/116397.jpg?s=d670a267b2b5af8c9f26baac30578558",
+            "name": "Suno",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 13663,
+            "url": "https://myanimelist.net/character/13663/Suppaman",
+            "image_url": "https://cdn.myanimelist.net/images/characters/7/297606.jpg?s=fca4babc7664d457e9cd53a0b9600094",
+            "name": "Suppaman",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2113,
+            "url": "https://myanimelist.net/character/2113/Tama",
+            "image_url": "https://cdn.myanimelist.net/images/characters/3/112701.jpg?s=6983616071860c6f0c0ce268bfe5e911",
+            "name": "Tama",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 9715,
+            "url": "https://myanimelist.net/character/9715/Tambourine",
+            "image_url": "https://cdn.myanimelist.net/images/characters/13/126153.jpg?s=160e28c3b0dee7014c4ae05b12903590",
+            "name": "Tambourine",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2131,
+            "url": "https://myanimelist.net/character/2131/Tao_Pai_Pai",
+            "image_url": "https://cdn.myanimelist.net/images/characters/14/111699.jpg?s=bf0d8d19557b8a127d862d033efccfb1",
+            "name": "Tao Pai Pai",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2109,
+            "url": "https://myanimelist.net/character/2109/Tenkaichi_Budokai_Announcer",
+            "image_url": "https://cdn.myanimelist.net/images/characters/10/273719.jpg?s=ab08b02b2f0eb9e313ab5c54f2e7b0fb",
+            "name": "Tenkaichi Budokai Announcer",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 5499,
+            "url": "https://myanimelist.net/character/5499/Tenshinhan",
+            "image_url": "https://cdn.myanimelist.net/images/characters/8/102021.jpg?s=c059016ec2069e3d78f6be30454d863d",
+            "name": "Tenshinhan",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 34540,
+            "url": "https://myanimelist.net/character/34540/Toninjinka",
+            "image_url": "https://cdn.myanimelist.net/images/characters/3/283210.jpg?s=4f63559fb8cc9d383b33aa1490eae0b9",
+            "name": "Toninjinka",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2707,
+            "url": "https://myanimelist.net/character/2707/Trunks",
+            "image_url": "https://cdn.myanimelist.net/images/characters/5/312402.jpg?s=efbeab2505cea4065c04d7cb9c313e31",
+            "name": "Trunks",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 61683,
+            "url": "https://myanimelist.net/character/61683/Tsururin_Tsun",
+            "image_url": "https://cdn.myanimelist.net/images/characters/6/164243.jpg?s=e6dea0a9dcb5cfce35ba258c4c69650f",
+            "name": "Tsun, Tsururin",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 59291,
+            "url": "https://myanimelist.net/character/59291/Tsukutsun_Tsun",
+            "image_url": "https://cdn.myanimelist.net/images/characters/10/158115.jpg?s=4016b18a9198fafdda57f0e99d3066fc",
+            "name": "Tsun, Tsukutsun",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2130,
+            "url": "https://myanimelist.net/character/2130/Tsuru-Sennin",
+            "image_url": "https://cdn.myanimelist.net/images/characters/11/45206.jpg?s=b19e7cb6b7d4e4a7a27efb8426c78a17",
+            "name": "Tsuru-Sennin",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2112,
+            "url": "https://myanimelist.net/character/2112/Umigame",
+            "image_url": "https://cdn.myanimelist.net/images/characters/6/358662.jpg?s=98bc518fda8b1ce7883636f9b7f9fbab",
+            "name": "Umigame",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2096,
+            "url": "https://myanimelist.net/character/2096/Upa",
+            "image_url": "https://cdn.myanimelist.net/images/characters/7/45211.jpg?s=953c88520f69831cad606c12244a867b",
+            "name": "Upa",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2110,
+            "url": "https://myanimelist.net/character/2110/Uranai_Baba",
+            "image_url": "https://cdn.myanimelist.net/images/characters/2/358931.jpg?s=0daf7d854001f4db7dabe6c4194659d7",
+            "name": "Uranai Baba",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 9392,
+            "url": "https://myanimelist.net/character/9392/Uub",
+            "image_url": "https://cdn.myanimelist.net/images/characters/14/112730.jpg?s=813087f11356500636ecf3bdcc08c29e",
+            "name": "Uub",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 170671,
+            "url": "https://myanimelist.net/character/170671/Vegetto",
+            "image_url": "https://cdn.myanimelist.net/images/characters/2/435924.jpg?s=2ab51882c4503af348532148d42544e0",
+            "name": "Vegetto",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2111,
+            "url": "https://myanimelist.net/character/2111/Videl",
+            "image_url": "https://cdn.myanimelist.net/images/characters/12/357962.jpg?s=0655f3f041c046b45e5df8fa6599a09e",
+            "name": "Videl",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2097,
+            "url": "https://myanimelist.net/character/2097/Yajirobe",
+            "image_url": "https://cdn.myanimelist.net/images/characters/12/275086.jpg?s=0d9b407e205627543b45d46a92206e05",
+            "name": "Yajirobe",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 37014,
+            "url": "https://myanimelist.net/character/37014/Yakon",
+            "image_url": "https://cdn.myanimelist.net/images/characters/10/111829.jpg?s=83551c370b30ab07adf364a7f9f846ed",
+            "name": "Yakon",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 18065,
+            "url": "https://myanimelist.net/character/18065/Midori_Yamabuki",
+            "image_url": "https://cdn.myanimelist.net/images/characters/2/144267.jpg?s=7f7cb044fff34cbb976fe12727dcd20d",
+            "name": "Yamabuki, Midori",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 4014,
+            "url": "https://myanimelist.net/character/4014/Yamcha",
+            "image_url": "https://cdn.myanimelist.net/images/characters/14/126147.jpg?s=c6b311761d167c90d6717a7555efc3ae",
+            "name": "Yamcha",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 2129,
+            "url": "https://myanimelist.net/character/2129/Yamu",
+            "image_url": "https://cdn.myanimelist.net/images/characters/10/356314.jpg?s=ff52513de7fc162f8e49ad3a7902b8d8",
+            "name": "Yamu",
+            "role": "Supporting"
+        },
+        {
+            "mal_id": 5225,
+            "url": "https://myanimelist.net/character/5225/Zarbon",
+            "image_url": "https://cdn.myanimelist.net/images/characters/8/45220.jpg?s=984c1745bfe41aa2c0044445890f8f69",
+            "name": "Zarbon",
+            "role": "Supporting"
+        }
+    ]
+}
