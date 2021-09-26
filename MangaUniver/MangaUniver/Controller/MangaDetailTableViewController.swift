@@ -26,7 +26,7 @@ class MangaDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        title = mangaDetail?.title
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let coreDataMangaCollection = appdelegate.coreDataMangaCollection
         coreDataManager = CoreDataManager(coreDataMangaCollection: coreDataMangaCollection)

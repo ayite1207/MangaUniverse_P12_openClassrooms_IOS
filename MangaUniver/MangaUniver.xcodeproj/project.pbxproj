@@ -682,8 +682,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "
-";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MangaUniver/Pods-MangaUniver-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BA98AC792AA21B5C365E5DDD /* [CP] Embed Pods Frameworks */ = {

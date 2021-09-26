@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D0n-j1-xrU">
-                        <rect key="frame" x="0.0" y="0.0" width="204" height="169"/>
+                        <rect key="frame" x="5" y="0.0" width="194" height="169"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eh8-5H-y6i">
                         <rect key="frame" x="0.0" y="169" width="204" height="30"/>
@@ -37,8 +37,8 @@
                 <constraint firstItem="D0n-j1-xrU" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Ql7-4p-3Xq"/>
                 <constraint firstAttribute="bottom" secondItem="eh8-5H-y6i" secondAttribute="bottom" id="RWx-mo-wXo"/>
                 <constraint firstItem="eh8-5H-y6i" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="frn-B4-5Ya"/>
-                <constraint firstAttribute="trailing" secondItem="D0n-j1-xrU" secondAttribute="trailing" id="gzd-zx-3Ns"/>
-                <constraint firstItem="D0n-j1-xrU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="j9U-30-jD3"/>
+                <constraint firstAttribute="trailing" secondItem="D0n-j1-xrU" secondAttribute="trailing" constant="5" id="gzd-zx-3Ns"/>
+                <constraint firstItem="D0n-j1-xrU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="j9U-30-jD3"/>
                 <constraint firstAttribute="trailing" secondItem="eh8-5H-y6i" secondAttribute="trailing" id="vMb-kj-6af"/>
             </constraints>
             <size key="customSize" width="204" height="199"/>

@@ -19,7 +19,7 @@ class MainTableViewController: UITableViewController {
     static var charactersMangas = [String: [Character]]()
     var listeStructTopManga = [MangaLibrary]()
     let dispatchGroup = DispatchGroup()
-    
+    let categoryTitle = ["Les plus populaires", "Top Samourai Manga", "Top Parody Manga", "Top Psychological Manga"]
     //MARK: - Cycle life
     
     override func viewDidLoad() {
@@ -52,7 +52,7 @@ class MainTableViewController: UITableViewController {
         self.show(mangaDetailViewControler, sender: nil)
     }
     
-    private func displayCategoryVC( mangaToDisplay: [MangaLibrary] = [], listeStructTopManga : [TopManga] = [] ) {
+    private func displayCategoryVC( mangaToDisplay: [MangaLibrary] = [], listeStructTopManga : [TopManga] = [], title: String  = "" ) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let categoryViewController = storyBoard.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
         if listeStructTopManga.count > 0  {
@@ -60,6 +60,7 @@ class MainTableViewController: UITableViewController {
         } else {
             categoryViewController.listCategoryManga = mangaToDisplay
         }
+        categoryViewController.categoryTitle = title
         self.navigationController?.pushViewController(categoryViewController, animated: true)
     }
     
@@ -71,26 +72,26 @@ class MainTableViewController: UITableViewController {
         var title = ""
         switch section {
         case 0:
-            title = "Les plus populaires"
+            title = categoryTitle[section]
             cell.onDidSelectHeader = {() in
-                self.displayCategoryVC(mangaToDisplay : self.listeStructTopManga)
+                self.displayCategoryVC(mangaToDisplay : self.listeStructTopManga, title: title)
             }
         case 1:
-            title = "Top Samourai Manga"
+            title = categoryTitle[section]
             guard let mangaArray = categoryDisplay["samouraiManga"] else { return UIView() }
             cell.onDidSelectHeader = {() in
-                self.displayCategoryVC(mangaToDisplay: mangaArray)
+                self.displayCategoryVC(mangaToDisplay: mangaArray, title: title)
             }
         case 2:
-            title = "Top Parody Manga"
+            title = categoryTitle[section]
             guard let mangaArray = categoryDisplay["parodyManga"] else { return UIView() }
             cell.onDidSelectHeader = {() in
-                self.displayCategoryVC(mangaToDisplay: mangaArray)
+                self.displayCategoryVC(mangaToDisplay: mangaArray, title: title)
             }        case 3:
-                title = "Top Psychological Manga"
+                title = categoryTitle[section]
                 guard let mangaArray = categoryDisplay["psychologicalManga"] else { return UIView() }
                 cell.onDidSelectHeader = {() in
-                    self.displayCategoryVC(mangaToDisplay: mangaArray)
+                    self.displayCategoryVC(mangaToDisplay: mangaArray, title: title)
                 }
         default:
             break

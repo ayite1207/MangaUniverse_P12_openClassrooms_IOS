@@ -106,8 +106,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="firstPublicationLabel" destination="yco-4a-hqN" id="YHV-6j-Q8e"/>
+                <outlet property="releaseStackView" destination="mao-7P-SFp" id="LSo-aS-1jj"/>
                 <outlet property="synopsisLabel" destination="Ldf-y3-F2x" id="QER-rg-Lfi"/>
+                <outlet property="synopsisTitle" destination="DMH-Or-ovd" id="LoJ-lH-BKe"/>
                 <outlet property="volumeNumberLabel" destination="dto-ji-bdJ" id="JNw-N3-8Tw"/>
+                <outlet property="volumesStackView" destination="gmw-vd-JJy" id="HEQ-6Y-z9d"/>
             </connections>
             <point key="canvasLocation" x="122.46376811594205" y="155.69196428571428"/>
         </tableViewCell>

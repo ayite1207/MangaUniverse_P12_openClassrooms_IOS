@@ -12,6 +12,9 @@ class InfoTableViewCell: UITableViewCell {
     @IBOutlet weak var firstPublicationLabel: UILabel!
     @IBOutlet weak var volumeNumberLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
+    @IBOutlet weak var releaseStackView: UIStackView!
+    @IBOutlet weak var volumesStackView: UIStackView!
+    @IBOutlet weak var synopsisTitle: UILabel!
     
     var mangaDetail : MangaLibrary? {
         didSet{
@@ -27,6 +30,9 @@ class InfoTableViewCell: UITableViewCell {
         didSet {
             synopsisLabel.numberOfLines = 0
             synopsisLabel.text = character?.about
+            releaseStackView.isHidden = true
+            volumesStackView.isHidden = true
+            synopsisTitle.text = "About :"
         }
     }
     

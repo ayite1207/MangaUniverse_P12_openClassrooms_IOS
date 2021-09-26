@@ -21,6 +21,7 @@ class DetailTitleTableViewCell: UITableViewCell {
             charactersCollectionView.isHidden = true
             addButton.isHidden = true
             followButton.isHidden = true
+            buttonStackView.isHidden = true
         }
         
     }
@@ -49,6 +50,7 @@ class DetailTitleTableViewCell: UITableViewCell {
     @IBOutlet weak var detailTitleManga: UILabel!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var followButton: UIButton!
+    @IBOutlet weak var buttonStackView: UIStackView!
     @IBOutlet weak var charactersCollectionView: UICollectionView!
     
     override func awakeFromNib() {

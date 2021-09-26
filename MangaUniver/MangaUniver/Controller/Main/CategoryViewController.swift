@@ -17,6 +17,7 @@ class CategoryViewController: UIViewController {
     var mangaFilter : [MangaLibrary] = []
     var characters = [Character]()
     var charactersMangas = [String: [Character]]()
+    var categoryTitle = ""
     
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
@@ -33,7 +34,7 @@ class CategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "blur"
+        title = categoryTitle
         
         setCollectionView()
 
@@ -49,6 +50,11 @@ class CategoryViewController: UIViewController {
         collectionView.delegate = self
         collectionView.backgroundColor = .white
         collectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+                layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 8)
+//                layout.minimumInteritemSpacing = 0
+//                layout.minimumLineSpacing = 0
+        collectionView.collectionViewLayout = layout
         collectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerCellId")
     }
     
@@ -134,7 +140,7 @@ extension CategoryViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (view.frame.size.width/2)-5, height: (view.frame.size.width/2)*1.5-5)
+        return CGSize(width: (view.frame.size.width/2)-10, height: (view.frame.size.width/2)*1.5-5)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

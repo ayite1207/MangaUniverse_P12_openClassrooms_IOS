@@ -81,6 +81,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="addButton" destination="A1U-Ir-XWN" id="EjW-AA-s7Y"/>
+                <outlet property="buttonStackView" destination="mq6-ff-ybG" id="Z1Z-f9-ONW"/>
                 <outlet property="charactersCollectionView" destination="2L8-bz-3cO" id="kuy-uK-n7Q"/>
                 <outlet property="detailTitleManga" destination="l2O-cr-YRn" id="9gd-pA-pN1"/>
                 <outlet property="followButton" destination="SZo-ws-PiE" id="RwE-yJ-7iB"/>
