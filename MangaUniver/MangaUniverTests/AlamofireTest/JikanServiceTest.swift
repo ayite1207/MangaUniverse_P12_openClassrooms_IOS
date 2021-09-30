@@ -101,6 +101,21 @@ class RequestServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
+    func testGetData_WhenCorrectResponseIsPassed_ThenShouldReturnSuccesCallback() {
+        let session = FakeJikanSession(fakeResponse: FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.topMangaDetailData))
+        let requestService = JikanService(session: session)
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        requestService.getMangaTopPopularityDetail(idOfTheManga: "13") { result in
+            guard case .success(let data) = result else {
+                XCTFail("Test getData method with correct data failed.")
+                return
+            }
+            XCTAssertTrue(data.title == "One Piece")
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
     func testGetCharactersMangaData_WhenCorrectDataIsPassed_ThenShouldReturnSuccededCallback() {
         let session = FakeJikanSession(fakeResponse: FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.charactersData))
         let requestService = JikanService(session: session)
@@ -115,5 +130,72 @@ class RequestServiceTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 0.01)
     }
+    
+    
+    func testGetCategoryMangaData_WhenCorrectDataIsPassed_ThenShouldReturnSuccededCallback() {
+        let session = FakeJikanSession(fakeResponse: FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.topMangaPopularityData))
+        let requestService = JikanService(session: session)
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        requestService.getMangaTopPopularity(){ result in
+            guard case .success(let characters) = result else {
+                XCTFail("Test getData method with correct data failed.")
+                return
+            }
+            XCTAssertTrue(characters.top[0].title == "Shingeki no Kyojin")
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
+    
+    
+    func testGetSamouraiMangaData_WhenCorrectDataIsPassed_ThenShouldReturnSuccededCallback() {
+        let samouraiMangaRequestConstructor = RequestMangaConstructor.samouraiManga
+        let session = FakeJikanSession(fakeResponse: FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.samouraiMangaData))
+        let requestService = JikanService(session: session)
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        requestService.getCategoryManga(category: samouraiMangaRequestConstructor.mangaCategory, path: samouraiMangaRequestConstructor.path){ result in
+            guard case .success(let mangaCategory) = result else {
+                XCTFail("Test getData method with correct data failed.")
+                return
+            }
+            XCTAssertTrue(mangaCategory.manga[0].title == "Vagabond")
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
+        
+    func testGetParodyMangaData_WhenCorrectDataIsPassed_ThenShouldReturnSuccededCallback() {
+        let parodyMangaRequestConstructor = RequestMangaConstructor.parodyManga
+        let session = FakeJikanSession(fakeResponse: FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.parodyMangaData))
+        let requestService = JikanService(session: session)
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        requestService.getCategoryManga(category: parodyMangaRequestConstructor.mangaCategory, path: parodyMangaRequestConstructor.path){ result in
+            guard case .success(let mangaCategory) = result else {
+                XCTFail("Test getData method with correct data failed.")
+                return
+            }
+            XCTAssertTrue(mangaCategory.manga[0].title == "One Punch-Man")
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
+        
+    func testGetPsychologicalMangaData_WhenCorrectDataIsPassed_ThenShouldReturnSuccededCallback() {
+        let psychologicalMangaRequestConstructor = RequestMangaConstructor.psychologicalManga
+        let session = FakeJikanSession(fakeResponse: FakeResponse(response: FakeResponseData.responseOK, data: FakeResponseData.PsychologicaData))
+        let requestService = JikanService(session: session)
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        requestService.getCategoryManga(category: psychologicalMangaRequestConstructor.mangaCategory, path: psychologicalMangaRequestConstructor.path){ result in
+            guard case .success(let mangaCategory) = result else {
+                XCTFail("Test getData method with correct data failed.")
+                return
+            }
+            XCTAssertTrue(mangaCategory.manga[0].title == "Berserk")
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
     
 }

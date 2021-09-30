@@ -11,61 +11,50 @@ class CategoryViewController: UIViewController {
     
 // MARK: - Properties
     
-    let jikanService = JikanService()
     var listCategoryManga = [MangaLibrary]()
-    var mangaToDisplay = [String: MangaLibrary]()
-    var mangaFilter : [MangaLibrary] = []
-    var characters = [Character]()
-    var charactersMangas = [String: [Character]]()
+    private var mangaToDisplay = [String: MangaLibrary]()
+    private var mangaFilter : [MangaLibrary] = []
+    private var characters = [Character]()
+    private var charactersMangas = [String: [Character]]()
     var categoryTitle = ""
     
-    private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    // MARK: - Outlets
     
-    lazy var searchBar : UISearchBar = {
-        let s = UISearchBar()
-            s.placeholder = "Search Manga"
-            s.delegate = self
-            s.tintColor = .white
-        return s
-    }()
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var categoryCollectionView: UICollectionView!
     
     // MARK: - Cycle Of Life
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        searchBar.delegate = self
         title = categoryTitle
         
         setCollectionView()
-
-        view.addSubview(collectionView)
-        
-//        hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAround()
     }
     
     // MARK: - Methodes
     
     private func setCollectionView() {
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.backgroundColor = .white
-        collectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
+        categoryCollectionView.dataSource = self
+        categoryCollectionView.delegate = self
+        categoryCollectionView.backgroundColor = .white
+        categoryCollectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
                 layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 8)
-//                layout.minimumInteritemSpacing = 0
-//                layout.minimumLineSpacing = 0
-        collectionView.collectionViewLayout = layout
-        collectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerCellId")
+        categoryCollectionView.collectionViewLayout = layout
+        categoryCollectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerCellId")
     }
     
     private func getTopMangaDetail(id: String){
-        jikanService.getMangaTopPopularityDetail(idOfTheManga: id) { [unowned self] result in
+        JikanService.shared.getMangaTopPopularityDetail(idOfTheManga: id) { [unowned self] result in
             switch result {
             case .success(let mangaDetail):
                 mangaToDisplay[mangaDetail.title ?? ""] = convertTopMangaToAStruct(topMangaToConvert: mangaDetail)
                 self.displayMangaDetail(mangaToDisplay: mangaToDisplay[mangaDetail.title ?? ""])
             case .failure(let error):
-                print("error",error.description)
+                showAlertError(with: "Error : \(error.description)")
             }
         }
     }
@@ -95,18 +84,9 @@ class CategoryViewController: UIViewController {
 
 }
 
+// MARK: - CollectionView
+
 extension CategoryViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
-    override func viewDidLayoutSubviews() {
-        collectionView.frame = view.bounds
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerCellId", for: indexPath)
-            header.addSubview(searchBar)
-        searchBar.frame = header.bounds
-        return header
-    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 40)
@@ -154,21 +134,17 @@ extension CategoryViewController: UISearchBarDelegate {
         mangaFilter = []
         if !searchText.isBlank {
             mangaFilter = listCategoryManga.filter({ $0.title?.lowercased().contains(searchText.lowercased()) ?? false})
+            searchBar.becomeFirstResponder()
         }
-        collectionView.reloadData()
+        categoryCollectionView.reloadData()
     }
 }
 
 extension CategoryViewController {
-    
     func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:  #selector(dismissKeyboard))
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
     }
 }
 
@@ -176,7 +152,7 @@ extension CategoryViewController {
 extension CategoryViewController {
     private func getCharactersManga(mangaToDisplay: MangaLibrary? = nil){
         let mangaId = String(Int(mangaToDisplay?.id ?? 0.0))
-        jikanService.getCharactersManga(idOfTheManga: mangaId) { [unowned self] result in
+        JikanService.shared.getCharactersManga(idOfTheManga: mangaId) { [unowned self] result in
             switch result {
             case .success(let mangaCharacters):
                 self.characters = mangaCharacters.characters
@@ -187,7 +163,7 @@ extension CategoryViewController {
                     getTopMangaDetail(id: mangaId)
                 }
             case .failure(let error):
-                print("error",error.description)
+                showAlertError(with: "Error : \(error.description)")
             }
         }
     }

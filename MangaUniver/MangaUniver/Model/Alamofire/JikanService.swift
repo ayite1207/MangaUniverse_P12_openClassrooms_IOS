@@ -10,8 +10,10 @@ import Alamofire
 
 final class JikanService {
 
+    
     // MARK: - Properties
     
+    static var shared = JikanService()
     var urlR = "https://api.jikan.moe/v3"
     private let session: AlamofireSession
 
@@ -43,19 +45,22 @@ final class JikanService {
     }
     
     func getMangaTopPopularityDetail(idOfTheManga: String?, callback: @escaping (Result< MangaTopDetail, NetworkError>) -> Void) {
-        let urlStr = "https://api.jikan.moe/v3/manga/\(idOfTheManga ?? "")"
+        guard let idOfTheManga = idOfTheManga else { return }
+        let urlStr = "https://api.jikan.moe/v3/manga/\(idOfTheManga)"
         guard let url = URL(string: urlStr) else { return }
         getMangaData(baseUrl: url, parameters: nil , callback: callback)
     }
     
     func getCharactersManga(idOfTheManga: String?, callback: @escaping (Result<Characters, NetworkError>) -> Void) {
-        let urlStr = "https://api.jikan.moe/v3/manga/\(idOfTheManga ?? "")/characters"
+        guard let idOfTheManga = idOfTheManga else { return }
+        let urlStr = "https://api.jikan.moe/v3/manga/\(idOfTheManga)/characters"
         guard let url = URL(string: urlStr) else { return }
         getMangaData(baseUrl: url, parameters: nil , callback: callback)
     }
     
     func getCharacterDetailManga(idOfTheCharacter: String?, callback: @escaping (Result<CharacterDetails, NetworkError>) -> Void) {
-        let urlStr = "https://api.jikan.moe/v3/character/\(idOfTheCharacter ?? "")"
+        guard let idOfTheCharacter = idOfTheCharacter else { return }
+        let urlStr = "https://api.jikan.moe/v3/character/\(idOfTheCharacter)"
         guard let url = URL(string: urlStr) else { return }
         getMangaData(baseUrl: url, parameters: nil , callback: callback)
     }
@@ -72,7 +77,6 @@ final class JikanService {
         Logger(url: urlRequest).show()
         
         session.request(url: urlRequest) { dataResponse in
-            
             guard let data = dataResponse.data else {
                 callback(.failure(.noData))
                 return

@@ -30,6 +30,13 @@
 		EA3B6E2F26AE0C7B0026611B /* MangaDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B6E2E26AE0C7B0026611B /* MangaDetailTableViewController.swift */; };
 		EA3E2E4E26E7F487005AB4DC /* MangaTemple.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA3E2E4D26E7F487005AB4DC /* MangaTemple.ttf */; };
 		EA3E2E5026E80042005AB4DC /* AGENTORANGE.TTF in Resources */ = {isa = PBXBuildFile; fileRef = EA3E2E4F26E8003E005AB4DC /* AGENTORANGE.TTF */; };
+		EA3F7A44270114D500F14C0A /* UIViewController+showAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F7A43270114D500F14C0A /* UIViewController+showAlert.swift */; };
+		EA3F7A462702685E00F14C0A /* MangaTopPopularity.json in Resources */ = {isa = PBXBuildFile; fileRef = EA3F7A452702685D00F14C0A /* MangaTopPopularity.json */; };
+		EA3F7A4827026AE200F14C0A /* SamouraiManga.json in Resources */ = {isa = PBXBuildFile; fileRef = EA3F7A4727026AE200F14C0A /* SamouraiManga.json */; };
+		EA3F7A4A27026B5200F14C0A /* ParodyManga.json in Resources */ = {isa = PBXBuildFile; fileRef = EA3F7A4927026B5200F14C0A /* ParodyManga.json */; };
+		EA3F7A4C27026BC200F14C0A /* PsychologicalManga.json in Resources */ = {isa = PBXBuildFile; fileRef = EA3F7A4B27026BC200F14C0A /* PsychologicalManga.json */; };
+		EA3F7A5027050E4F00F14C0A /* EmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F7A4E27050E4D00F14C0A /* EmptyCollectionViewCell.swift */; };
+		EA3F7A5127050E4F00F14C0A /* EmptyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA3F7A4F27050E4D00F14C0A /* EmptyCollectionViewCell.xib */; };
 		EA40DC9826DA5F44003892B9 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA40DC9726DA5F44003892B9 /* LibraryViewController.swift */; };
 		EA43D4F42698474C00C0AB2F /* NetWorkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43D4F32698474C00C0AB2F /* NetWorkError.swift */; };
 		EA43D4F6269847C100C0AB2F /* JikanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43D4F5269847C100C0AB2F /* JikanService.swift */; };
@@ -38,7 +45,7 @@
 		EA468A6926A8B6EC00210AF6 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA468A6826A8B6EC00210AF6 /* Logger.swift */; };
 		EA468A6B26A8BA1100210AF6 /* ListCategoryMangaDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA468A6A26A8BA1100210AF6 /* ListCategoryMangaDecodable.swift */; };
 		EA49B5BB26C7060900C01969 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49B5BA26C7060900C01969 /* CoreDataStack.swift */; };
-		EA49B5BD26C720A900C01969 /* CoreDataManagerMamgaCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49B5BC26C720A900C01969 /* CoreDataManagerMamgaCollection.swift */; };
+		EA49B5BD26C720A900C01969 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49B5BC26C720A900C01969 /* CoreDataManager.swift */; };
 		EA49B5C126C85F7C00C01969 /* MangaLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49B5C026C85F7B00C01969 /* MangaLibrary.swift */; };
 		EA49B5C926C87D2800C01969 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49B5C726C87D2800C01969 /* LibraryTableViewCell.swift */; };
 		EA49B5CA26C87D2800C01969 /* LibraryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA49B5C826C87D2800C01969 /* LibraryTableViewCell.xib */; };
@@ -123,6 +130,13 @@
 		EA3B6E2E26AE0C7B0026611B /* MangaDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaDetailTableViewController.swift; sourceTree = "<group>"; };
 		EA3E2E4D26E7F487005AB4DC /* MangaTemple.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MangaTemple.ttf; sourceTree = "<group>"; };
 		EA3E2E4F26E8003E005AB4DC /* AGENTORANGE.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = AGENTORANGE.TTF; sourceTree = "<group>"; };
+		EA3F7A43270114D500F14C0A /* UIViewController+showAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+showAlert.swift"; sourceTree = "<group>"; };
+		EA3F7A452702685D00F14C0A /* MangaTopPopularity.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MangaTopPopularity.json; sourceTree = "<group>"; };
+		EA3F7A4727026AE200F14C0A /* SamouraiManga.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SamouraiManga.json; sourceTree = "<group>"; };
+		EA3F7A4927026B5200F14C0A /* ParodyManga.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ParodyManga.json; sourceTree = "<group>"; };
+		EA3F7A4B27026BC200F14C0A /* PsychologicalManga.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PsychologicalManga.json; sourceTree = "<group>"; };
+		EA3F7A4E27050E4D00F14C0A /* EmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewCell.swift; sourceTree = "<group>"; };
+		EA3F7A4F27050E4D00F14C0A /* EmptyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCollectionViewCell.xib; sourceTree = "<group>"; };
 		EA40DC9726DA5F44003892B9 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibraryViewController.swift; path = MangaUniver/Controller/Library/LibraryViewController.swift; sourceTree = SOURCE_ROOT; };
 		EA43D4F32698474C00C0AB2F /* NetWorkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkError.swift; sourceTree = "<group>"; };
 		EA43D4F5269847C100C0AB2F /* JikanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JikanService.swift; sourceTree = "<group>"; };
@@ -131,7 +145,7 @@
 		EA468A6826A8B6EC00210AF6 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		EA468A6A26A8BA1100210AF6 /* ListCategoryMangaDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCategoryMangaDecodable.swift; sourceTree = "<group>"; };
 		EA49B5BA26C7060900C01969 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		EA49B5BC26C720A900C01969 /* CoreDataManagerMamgaCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerMamgaCollection.swift; sourceTree = "<group>"; };
+		EA49B5BC26C720A900C01969 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		EA49B5C026C85F7B00C01969 /* MangaLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaLibrary.swift; sourceTree = "<group>"; };
 		EA49B5C726C87D2800C01969 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
 		EA49B5C826C87D2800C01969 /* LibraryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryTableViewCell.xib; sourceTree = "<group>"; };
@@ -224,6 +238,15 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		EA3F7A4D27050E2000F14C0A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				EA3F7A4E27050E4D00F14C0A /* EmptyCollectionViewCell.swift */,
+				EA3F7A4F27050E4D00F14C0A /* EmptyCollectionViewCell.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		EA43D4F126983F5B00C0AB2F /* MainView */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,7 +303,7 @@
 			children = (
 				EA962D342693241E0061CB30 /* MangaUniver.xcdatamodeld */,
 				EA49B5BA26C7060900C01969 /* CoreDataStack.swift */,
-				EA49B5BC26C720A900C01969 /* CoreDataManagerMamgaCollection.swift */,
+				EA49B5BC26C720A900C01969 /* CoreDataManager.swift */,
 				EA49B5C026C85F7B00C01969 /* MangaLibrary.swift */,
 				EA51A2B626D2F86D004AD7C1 /* StructTopManga.swift */,
 			);
@@ -408,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				EA962D312693241E0061CB30 /* Main.storyboard */,
+				EA3F7A4D27050E2000F14C0A /* Search */,
 				EA49B5C626C87C2C00C01969 /* Library */,
 				EA49B5C326C87A7F00C01969 /* Manga */,
 				EA962D37269324220061CB30 /* Assets.xcassets */,
@@ -439,6 +463,7 @@
 			children = (
 				EA51A2B226D1B7D5004AD7C1 /* String.swift */,
 				EA51A2B426D1E3DB004AD7C1 /* UIView+custom.swift */,
+				EA3F7A43270114D500F14C0A /* UIViewController+showAlert.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -466,12 +491,16 @@
 			children = (
 				EAAA58A326E3C4C900E7C79A /* FakeJikanSession.swift */,
 				EAAA58A726E3C69800E7C79A /* JikanServiceTest.swift */,
-				EA2A657926F9204A003931F7 /* CharacterManga.json */,
 				EAAA58A526E3C51D00E7C79A /* FakeResponseData.swift */,
+				EA3F7A4B27026BC200F14C0A /* PsychologicalManga.json */,
+				EA3F7A4927026B5200F14C0A /* ParodyManga.json */,
+				EA2A657926F9204A003931F7 /* CharacterManga.json */,
 				EAAA58A926E418B100E7C79A /* CategoryManga.json */,
 				EAAA58AB26E420C500E7C79A /* TopMangaDetail.json */,
 				EA2A657126F91A8E003931F7 /* SearchResult.json */,
 				EA2A657726F91F95003931F7 /* CharactersManga.json */,
+				EA3F7A452702685D00F14C0A /* MangaTopPopularity.json */,
+				EA3F7A4727026AE200F14C0A /* SamouraiManga.json */,
 			);
 			path = AlamofireTest;
 			sourceTree = "<group>";
@@ -564,7 +593,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					EA962D272693241E0061CB30 = {
 						CreatedOnToolsVersion = 12.5;
@@ -604,6 +633,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA3F7A5127050E4F00F14C0A /* EmptyCollectionViewCell.xib in Resources */,
 				EA962D3B269324220061CB30 /* LaunchScreen.storyboard in Resources */,
 				EACAA2D026DC272100B851B9 /* LibraryCollectionViewCell.xib in Resources */,
 				EA4BAACA26C02C4F00F58CAE /* InfoTableViewCell.xib in Resources */,
@@ -631,8 +661,12 @@
 				EAAA58AC26E420C500E7C79A /* TopMangaDetail.json in Resources */,
 				EAAA58AA26E418B100E7C79A /* CategoryManga.json in Resources */,
 				EA2A657226F91A8F003931F7 /* SearchResult.json in Resources */,
+				EA3F7A4A27026B5200F14C0A /* ParodyManga.json in Resources */,
 				EA2A657A26F9204A003931F7 /* CharacterManga.json in Resources */,
+				EA3F7A4827026AE200F14C0A /* SamouraiManga.json in Resources */,
+				EA3F7A4C27026BC200F14C0A /* PsychologicalManga.json in Resources */,
 				EA2A657826F91F95003931F7 /* CharactersManga.json in Resources */,
+				EA3F7A462702685E00F14C0A /* MangaTopPopularity.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,8 +799,9 @@
 				EA40DC9826DA5F44003892B9 /* LibraryViewController.swift in Sources */,
 				EA51A2B526D1E3DB004AD7C1 /* UIView+custom.swift in Sources */,
 				EA105AB026D8253D0003157B /* CategoryViewController.swift in Sources */,
-				EA49B5BD26C720A900C01969 /* CoreDataManagerMamgaCollection.swift in Sources */,
+				EA49B5BD26C720A900C01969 /* CoreDataManager.swift in Sources */,
 				EA3B6E2F26AE0C7B0026611B /* MangaDetailTableViewController.swift in Sources */,
+				EA3F7A5027050E4F00F14C0A /* EmptyCollectionViewCell.swift in Sources */,
 				EA468A6B26A8BA1100210AF6 /* ListCategoryMangaDecodable.swift in Sources */,
 				EA962D362693241E0061CB30 /* MangaUniver.xcdatamodeld in Sources */,
 				EA962D6C269333570061CB30 /* NewsTableViewCell.swift in Sources */,
@@ -785,6 +820,7 @@
 				EA962D2E2693241E0061CB30 /* SceneDelegate.swift in Sources */,
 				EA2A656E26F8DEA3003931F7 /* SearchViewController.swift in Sources */,
 				EA4EE67326BB339D0088219A /* PhotoTableViewCell.swift in Sources */,
+				EA3F7A44270114D500F14C0A /* UIViewController+showAlert.swift in Sources */,
 				EA375AF026963F970018630D /* TitleTableViewCell.swift in Sources */,
 				EA43D4F826984C7500C0AB2F /* MangaToPopularityDecodable.swift in Sources */,
 				EA51A2B726D2F86D004AD7C1 /* StructTopManga.swift in Sources */,
@@ -898,7 +934,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -953,7 +989,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -972,7 +1008,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FU9A4BJMCA;
 				INFOPLIST_FILE = MangaUniver/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -993,7 +1029,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FU9A4BJMCA;
 				INFOPLIST_FILE = MangaUniver/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

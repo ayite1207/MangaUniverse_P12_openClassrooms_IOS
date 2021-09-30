@@ -28,6 +28,13 @@ final class FakeResponseData {
         return data
     }
     
+    static var topMangaDetailData: Data {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "TopMangaDetail", withExtension: "json")
+        let data = try! Data(contentsOf: url!)
+        return data
+    }
+    
     static var charactersData: Data {
         let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "CharactersManga", withExtension: "json")
@@ -38,6 +45,34 @@ final class FakeResponseData {
     static var resultsData: Data {
         let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "SearchResult", withExtension: "json")
+        let data = try! Data(contentsOf: url!)
+        return data
+    }
+    
+    static var topMangaPopularityData: Data {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "MangaTopPopularity", withExtension: "json")
+        let data = try! Data(contentsOf: url!)
+        return data
+    }
+    
+    static var samouraiMangaData: Data {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "SamouraiManga", withExtension: "json")
+        let data = try! Data(contentsOf: url!)
+        return data
+    }
+    
+    static var parodyMangaData: Data {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "ParodyManga", withExtension: "json")
+        let data = try! Data(contentsOf: url!)
+        return data
+    }
+    
+    static var PsychologicaData: Data {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "PsychologicalManga", withExtension: "json")
         let data = try! Data(contentsOf: url!)
         return data
     }

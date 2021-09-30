@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Welcome
 struct SearchResult: Decodable {
     let results: [Results]
-    let lastPage: Int
+    let lastPage: Int?
 
     enum CodingKeys: String, CodingKey {
         case results
@@ -20,17 +20,17 @@ struct SearchResult: Decodable {
 
 // MARK: - Result
 struct Results: Decodable {
-    let malID: Int
-    let url: String
-    let imageURL: String
-    let title: String
-    let publishing: Bool
-    let synopsis, type: String
-    let chapters, volumes: Int
-    let score: Double
-    let startDate: String
+    let malID: Int?
+    let url: String?
+    let imageURL: String?
+    let title: String?
+    let publishing: Bool?
+    let synopsis, type: String?
+    let chapters, volumes: Int?
+    let score: Double?
+    let startDate: String?
     let endDate: String?
-    let members: Int
+    let members: Int?
 
     enum CodingKeys: String, CodingKey {
         case malID = "mal_id"

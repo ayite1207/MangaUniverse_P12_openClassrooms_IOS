@@ -9,12 +9,18 @@ import UIKit
 
 class LibraryCollectionViewCell: UICollectionViewCell{
     
+    //MARK: Prpoerties
+    
     var mangaLibrary : [MangaLibrary]?{
         didSet {
             listMangaCoreDataTableView.reloadData()
         }
     }
+    
+    var isLibraryMangas = true
     var onDidSelectItem: ((IndexPath) -> ())?
+    
+    //MARK: Outlets
     
     @IBOutlet weak var listMangaCoreDataTableView: UITableView!
     
@@ -27,6 +33,8 @@ class LibraryCollectionViewCell: UICollectionViewCell{
     }
     
 }
+
+//MARK: TableView
 
 extension LibraryCollectionViewCell: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,4 +57,29 @@ extension LibraryCollectionViewCell: UITableViewDelegate, UITableViewDataSource{
         return 60
     }
     
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let label = UILabel()
+        
+        if isLibraryMangas {
+            label.text = mangaLibrary?.filter({ $0.islibraryManga == true}).count ?? 0 > 0 ? "": "Add some tasks in the list"
+        } else {
+            label.text = mangaLibrary?.filter({ $0.isMangaFollow == true}).count ?? 0 > 0 ? "": "Add some tasks in the list"
+        }
+        label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        label.textAlignment = .center
+        label.textColor = .darkGray
+        return label
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        var manga = 0
+        if isLibraryMangas {
+            manga = mangaLibrary?.filter({ $0.islibraryManga == true}).count == 0 ? 200 : 0
+
+        } else {
+            manga = mangaLibrary?.filter({ $0.isMangaFollow == true}).count ?? 0 > 0 ? 200 : 0
+        }
+
+        return CGFloat(manga)
+    }
 }

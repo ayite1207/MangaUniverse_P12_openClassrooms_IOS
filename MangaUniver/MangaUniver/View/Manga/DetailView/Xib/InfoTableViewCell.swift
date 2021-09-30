@@ -15,6 +15,7 @@ class InfoTableViewCell: UITableViewCell {
     @IBOutlet weak var releaseStackView: UIStackView!
     @IBOutlet weak var volumesStackView: UIStackView!
     @IBOutlet weak var synopsisTitle: UILabel!
+    @IBOutlet weak var userCollectionLabel: UILabel!
     
     var mangaDetail : MangaLibrary? {
         didSet{
@@ -23,6 +24,8 @@ class InfoTableViewCell: UITableViewCell {
             volumeNumberLabel.text = "\(volumes )"
             synopsisLabel.numberOfLines = 0
             synopsisLabel.text = mangaDetail?.synopsis
+            let collection = mangaDetail?.volumes == nil ? "n.c" : String(volumes)
+            userCollectionLabel.text = "\(mangaDetail?.number ?? 0) / \(collection)"
         }
     }
     

@@ -9,11 +9,9 @@ import Foundation
 
 
 enum RequestMangaConstructor {
-    case topManga
     case samouraiManga
     case parodyManga
     case psychologicalManga
-    case martialArtManga
     
     var mangaCategory : String {
         switch self {
@@ -23,18 +21,12 @@ enum RequestMangaConstructor {
             return "parodyManga"
         case .psychologicalManga:
             return "psychologicalManga"
-        case .martialArtManga:
-            return "martialArtManga"
-        case .topManga:
-            return ""
         }
     }
     
     var path : String {
         switch self {
-        case .topManga:
-            return "/top/manga/1/bypopularity"
-        case .samouraiManga, .parodyManga, .psychologicalManga, .martialArtManga:
+        case .samouraiManga, .parodyManga, .psychologicalManga:
             return "/genre/manga/"
         }
     }
@@ -47,10 +39,6 @@ enum RequestMangaConstructor {
             return "20"
         case .psychologicalManga:
             return "40"
-        case .martialArtManga:
-            return "17"
-        case .topManga:
-            return ""
         }
     }
     

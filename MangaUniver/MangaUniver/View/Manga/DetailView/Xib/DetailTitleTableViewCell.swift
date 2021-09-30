@@ -8,11 +8,11 @@
 import UIKit
 import CoreData
 
+
 class DetailTitleTableViewCell: UITableViewCell {
     
     //MARK: - Properties
     
-    let jikanService = JikanService()
     var isLibraryManga = false
     var isFollowManga = false
     var character : CharacterDetails? {
@@ -23,7 +23,6 @@ class DetailTitleTableViewCell: UITableViewCell {
             followButton.isHidden = true
             buttonStackView.isHidden = true
         }
-        
     }
     
     var mangaDetail: MangaLibrary? {
@@ -38,12 +37,10 @@ class DetailTitleTableViewCell: UITableViewCell {
             charactersCollectionView.reloadData()
         }
     }
-    
     private var coreDataManager: CoreDataManager?
     
     var onDidSelectItem: ((_ manga: MangaLibrary, _ isLibrary: Bool, _ value: Bool) -> ())?
     var onDidSelectCharacterItem: ((_ manga: CharacterDetails) -> ())?
-    var delegate: GetCharacterDetails?
     
     //MARK: - Outlets
     
@@ -59,15 +56,14 @@ class DetailTitleTableViewCell: UITableViewCell {
         let coreDataMangaCollection = appdelegate.coreDataMangaCollection
         coreDataManager = CoreDataManager(coreDataMangaCollection: coreDataMangaCollection)
         
-        charactersCollectionView.delegate = self
-        charactersCollectionView.dataSource = self
-        charactersCollectionView.register(UINib(nibName: "CharactersCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CharactersCollectionViewCell")
+        NotificationCenter.default.addObserver(self, selector: #selector(upDateButton), name: Notification.Name("changeValueButton"), object: nil)
         
+        setUpCollectionView()
         setButton()
         
     }
     
-    //MARK: - Action
+    //MARK: - Actions
     
     @IBAction func addManga(_ sender: Any) {
         guard let mangaToSave = mangaDetail else { return }
@@ -84,13 +80,25 @@ class DetailTitleTableViewCell: UITableViewCell {
     
     //MARK: - Methodes
     
-    func setButton() {
+    @objc func upDateButton(){
+        setButtonTilte()
+    }
+    
+    private func setUpCollectionView() {
+        charactersCollectionView.delegate = self
+        charactersCollectionView.dataSource = self
+        charactersCollectionView.register(UINib(nibName: "CharactersCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CharactersCollectionViewCell")
+    }
+    
+    @objc func setButton() {
         addButton.raduis(view: addButton, raduis: 15)
-        addButton.border(view: addButton, color: UIColor.red.cgColor)
-        addButton.tintColor = .red
+        addButton.border(view: addButton, color: UIColor.systemRed.cgColor)
+        addButton.tintColor = .systemRed
+        addButton.backgroundColor = .white
         followButton.raduis(view: followButton, raduis: 15)
-        followButton.border(view: followButton, color: UIColor.green.cgColor)
-        followButton.tintColor = .green
+        followButton.border(view: followButton, color: UIColor.systemGreen.cgColor)
+        followButton.tintColor = .systemGreen
+        followButton.backgroundColor = .white
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -107,14 +115,17 @@ class DetailTitleTableViewCell: UITableViewCell {
     private func setButtonTilte(){
         if let manga = coreDataManager?.mangaCollection.filter({ $0.title == mangaDetail?.title}).first {
             addButton.setTitle(manga.isLibraryManga == true ? "Update" : "Add" , for: .normal)
-            UIView.animate(withDuration: 1) {
-                self.followButton.backgroundColor = manga.isFollowManga == true  ? .green : .white
-                self.followButton.tintColor = manga.isFollowManga == true  ? .white : .green
+            followButton.setTitle(manga.isFollowManga == true  ? "Unfollow" : "follow", for: .normal)
+            UIView.animate(withDuration: 0.5) {
+                self.followButton.backgroundColor = manga.isFollowManga ? .systemGreen : .white
+                self.followButton.tintColor = manga.isFollowManga ? .white : .systemGreen
+                self.addButton.backgroundColor = manga.isLibraryManga ? .systemRed : .white
+                self.addButton.tintColor = manga.isLibraryManga ? .white : .systemRed
             }
             isLibraryManga = manga.isLibraryManga
-            followButton.setTitle(manga.isFollowManga == true  ? "Unfollow" : "follow", for: .normal)
             isFollowManga = manga.isFollowManga
         } else {
+            setButton()
             addButton.setTitle( "Add" , for: .normal)
             followButton.setTitle( "follow", for: .normal)
         }
@@ -123,7 +134,10 @@ class DetailTitleTableViewCell: UITableViewCell {
     
 }
 
+// MARK: - CollectionView
+
 extension  DetailTitleTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let numberOfItem = characters?.count ?? 0 < 10 ? characters?.count : 10
         return numberOfItem ?? 0
@@ -149,10 +163,9 @@ extension  DetailTitleTableViewCell: UICollectionViewDelegate, UICollectionViewD
 extension DetailTitleTableViewCell {
     
     private func getCharacterDetails(id: String){
-        jikanService.getCharacterDetailManga(idOfTheCharacter: id) { [unowned self] result in
+        JikanService.shared.getCharacterDetailManga(idOfTheCharacter: id) { [unowned self] result in
             switch result {
             case .success(let characterDetail):
-                print("vfr charcterDetail", characterDetail.name)
                 self.onDidSelectCharacterItem?(characterDetail)
             case .failure(let error):
                 print("error",error.description)
@@ -161,3 +174,5 @@ extension DetailTitleTableViewCell {
     }
     
 }
+
+

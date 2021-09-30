@@ -11,8 +11,6 @@ class LibraryViewController: UIViewController {
     
     //MARK: Properties
     
-    let jikanService = JikanService()
-
     var mangaLibrary : [MangaLibrary] = []
     var mangaFollow : [MangaLibrary] = []
     var mangaFilter : [MangaLibrary] = []
@@ -30,15 +28,13 @@ class LibraryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "Library"
         searchBar.delegate = self
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let coreDataMangaCollection = appdelegate.coreDataMangaCollection
         coreDataManager = CoreDataManager(coreDataMangaCollection: coreDataMangaCollection)
         
-        libraryCollectionView.delegate = self
-        libraryCollectionView.dataSource = self
-        libraryCollectionView.register(UINib(nibName: "LibraryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "LibraryCollectionViewCell")
+        setUpCommectionView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,12 +44,22 @@ class LibraryViewController: UIViewController {
         libraryCollectionView.reloadData()
     }
     
+    //MARK: Actions
+    
     @IBAction func changeItem(_ sender: Any) {
         let index = libraryOrFollowSegment.selectedSegmentIndex == 1 ? 1 : 0
         libraryCollectionView.scrollToItem(at: IndexPath(row: index, section: 0), at: .centeredHorizontally, animated: true)
         mangaFilter = []
         searchBar.text = ""
         libraryCollectionView.reloadData()
+    }
+    
+    //MARK: Methodes
+    
+    private func setUpCommectionView() {
+        libraryCollectionView.delegate = self
+        libraryCollectionView.dataSource = self
+        libraryCollectionView.register(UINib(nibName: "LibraryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "LibraryCollectionViewCell")
     }
     
     internal func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -89,6 +95,8 @@ class LibraryViewController: UIViewController {
     
 }
 
+//MARK: CollectionView
+
 extension LibraryViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     override func viewDidLayoutSubviews() {
@@ -104,6 +112,7 @@ extension LibraryViewController: UICollectionViewDataSource, UICollectionViewDel
         case 0:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LibraryCollectionViewCell", for: indexPath) as? LibraryCollectionViewCell else { return UICollectionViewCell() }
             cell.mangaLibrary =  mangaFilter.count == 0 ? mangaLibrary.filter({ $0.islibraryManga == true}) : mangaFilter
+            cell.isLibraryMangas = libraryOrFollowSegment.selectedSegmentIndex == 0
             cell.onDidSelectItem = {(indexPath) in
                 let manga =  self.mangaFilter.count == 0 ? self.mangaLibrary.filter({ $0.islibraryManga == true})[indexPath.row] : self.mangaFilter[indexPath.row]
                 let mangaId = String(Int(manga.id ?? 0.0))
@@ -113,6 +122,7 @@ extension LibraryViewController: UICollectionViewDataSource, UICollectionViewDel
         case 1:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LibraryCollectionViewCell", for: indexPath) as? LibraryCollectionViewCell else { return UICollectionViewCell() }
             cell.mangaLibrary = mangaFilter.count == 0 ? mangaLibrary.filter({ $0.isMangaFollow == true}) : mangaFilter
+            cell.isLibraryMangas = libraryOrFollowSegment.selectedSegmentIndex == 0
             cell.onDidSelectItem = {(indexPath) in
                 let manga =  self.mangaFilter.count == 0 ? self.mangaLibrary.filter({ $0.isMangaFollow == true})[indexPath.row] : self.mangaFilter[indexPath.row]
                 let mangaId = String(Int(manga.id ?? 0.0))
@@ -137,7 +147,11 @@ extension LibraryViewController: UICollectionViewDataSource, UICollectionViewDel
         return 1
     }
     
+    
+    
 }
+
+//MARK: Extenssions
 
 extension LibraryViewController: UISearchBarDelegate{
     
@@ -176,7 +190,7 @@ extension LibraryViewController {
 
 extension LibraryViewController {
     private func getCharactersManga(id: String, mangaToDisplay: MangaLibrary?){
-        jikanService.getCharactersManga(idOfTheManga: id) { [unowned self] result in
+        JikanService.shared.getCharactersManga(idOfTheManga: id) { [unowned self] result in
             switch result {
             case .success(let mangaCharacters):
                 let mangaDetailViewControler = MangaDetailTableViewController()
@@ -185,7 +199,7 @@ extension LibraryViewController {
                 mangaDetailViewControler.characters = characters
                 self.show(mangaDetailViewControler, sender: nil)
             case .failure(let error):
-                print("error",error.description)
+                showAlertError(with: "Error : \(error.description)")
             }
         }
     }

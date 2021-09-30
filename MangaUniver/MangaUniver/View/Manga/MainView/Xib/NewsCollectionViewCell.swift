@@ -7,16 +7,16 @@
 
 import UIKit
 
-class NewsCollectionViewCell: UICollectionViewCell {    
+class NewsCollectionViewCell: UICollectionViewCell {
+    
+    // MARK: - outlets
     
     @IBOutlet weak var topMangaClassementLabel: UILabel!
-    @IBOutlet weak var topMangaImageView: UIImageView!
+    @IBOutlet weak var backgroundTopMangaImageView: UIImageView!
+    @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var topMangaTitleLabel: UILabel!
-    @IBOutlet weak var topMangaDescriptionLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+    // MARK: - protperties
     
     var topManga : Top? {
         didSet {
@@ -24,7 +24,10 @@ class NewsCollectionViewCell: UICollectionViewCell {
             if let url = URL( string: topManga?.imageURL ?? ""){
                   if let data = try? Data( contentsOf:url)
                   {
-                    topMangaImageView.image = UIImage(data: data)
+                    backgroundTopMangaImageView.image = UIImage(data: data)
+                      mainImageView.image = UIImage(data: data)
+                      mainImageView.raduis(view: mainImageView, raduis: 5)
+                      backgroundTopMangaImageView.raduis(view: mainImageView, raduis: 5)
                   }
             }
             topMangaTitleLabel.text = topManga?.title
