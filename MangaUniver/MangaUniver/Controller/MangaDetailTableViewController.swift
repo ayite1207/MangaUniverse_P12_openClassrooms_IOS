@@ -13,7 +13,7 @@ class MangaDetailTableViewController: UITableViewController {
     
     var mangaDetail: MangaLibrary?
     var characters = [Character]()
-    var character : CharacterDetails?
+    private var character : CharacterDetails?
     private var coreDataManager: CoreDataManager?
     
     // MARK: - Cycle Life
@@ -21,18 +21,20 @@ class MangaDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = mangaDetail?.title
-        guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let coreDataMangaCollection = appdelegate.coreDataMangaCollection
-        coreDataManager = CoreDataManager(coreDataMangaCollection: coreDataMangaCollection)
-        
+        setCoreData()
         setUpTableView()
     }
     
     // MARK: - Methodes
     
-    func createMangaCollection(_ mangaDetail: MangaLibrary, isFollowManga: Bool, isLibraryManga: Bool, numberOfManga: Int) {
+    private func setCoreData(){
+        guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let coreDataMangaCollection = appdelegate.coreDataMangaCollection
+        coreDataManager = CoreDataManager(coreDataMangaCollection: coreDataMangaCollection)
+    }
+    
+    private func createMangaCollection(_ mangaDetail: MangaLibrary, isFollowManga: Bool, isLibraryManga: Bool, numberOfManga: Int) {
         self.coreDataManager?.createMangaCollection(image: mangaDetail.image, title: mangaDetail.title ?? "", synopsis: mangaDetail.synopsis ?? "", volumes: Double(mangaDetail.volumes ?? 0.0), id: Double(mangaDetail.id ?? 0.0 ), publishingStart: mangaDetail.publishingStart ?? "" , score: Double(mangaDetail.score ?? 0.0 ), type: mangaDetail.type ?? "", isFollowManga: isFollowManga, isLibraryManga: isLibraryManga, numberOfManga: Double(numberOfManga))
-        NotificationCenter.default.post(name: Notification.Name("changeValueButton"), object: nil)
     }
     
     private func setUpTableView() {
@@ -41,7 +43,36 @@ class MangaDetailTableViewController: UITableViewController {
         tableView.register(UINib(nibName: "InfoTableViewCell", bundle: nil), forCellReuseIdentifier: "InfoTableViewCell")
     }
     
-    func alertSaveManga(_ mangaDetail: MangaLibrary, isSavingManga: Bool) {
+    private func displayLibraryManga(manga: MangaCollection?) -> MangaLibrary{
+        guard let manga = manga else { return MangaLibrary()}
+            let title = manga.title ?? "error title"
+            let image = manga.image
+            let id = manga.id
+            let synopsis = manga.synopsis ?? "error synopsis"
+            let type = manga.type ?? "error type"
+            let publishingStart = manga.publishingStart ?? "error publishingStart"
+            let score = manga.score
+            let volumes = manga.volumes
+            let islibraryManga = manga.isLibraryManga
+            let isMangaFollow = manga.isFollowManga
+            let number = manga.numberOfManga
+            
+            return MangaLibrary(image: image, title: title, synopsis: synopsis, volumes: volumes, id: id, publishingStart: publishingStart, score: score, type: type, number: Int(number), islibraryManga: islibraryManga, isMangaFollow: isMangaFollow)
+    }
+    
+    private func updateMangaDetail() {
+        let mangaSaved = self.coreDataManager?.mangaCollection.filter({ $0.title == mangaDetail?.title}).first
+        if let manga = mangaSaved {
+            let manga = self.displayLibraryManga(manga: manga)
+            self.mangaDetail = manga
+        } else {
+            self.mangaDetail?.islibraryManga = false
+            self.mangaDetail?.isMangaFollow = false
+        }
+        self.tableView.reloadData()
+    }
+    
+    private func alertSaveManga(_ mangaDetail: MangaLibrary, isSavingManga: Bool) {
         let titleAlertController = isSavingManga ? "Add \(mangaDetail.title ?? "")" : "Update \(mangaDetail.title ?? "") "
         let titleAlertAction = isSavingManga ? "Add" : "Update"
         let messageSuccesAlertAction = isSavingManga ? "added" : "Updated"
@@ -63,7 +94,7 @@ class MangaDetailTableViewController: UITableViewController {
                 }
                 let alertController = UIAlertController(title: "Success", message: "Your manga \(mangaDetail.title ?? "") has been succesfully \(messageSuccesAlertAction) !", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                NotificationCenter.default.post(name: Notification.Name("changeValueButton"), object: nil)
+                self.updateMangaDetail()
                 self.present(alertController, animated: true)
             } else {
                 let alertController = UIAlertController(title: "Error", message: "Please enter a number !", preferredStyle: .alert)
@@ -124,13 +155,11 @@ class MangaDetailTableViewController: UITableViewController {
                                 let alertDelete =  UIAlertAction(title: "Delete from your library", style: .default) { action in
                                     if manga?.isFollowManga == false && value == false {
                                         self.coreDataManager?.deleteMangaCollection(title: mangaDetail.title ?? "")
-                                        NotificationCenter.default.post(name: Notification.Name("changeValueButton"), object: nil)
-
+                                        self.updateMangaDetail()
                                     } else {
                                         self.coreDataManager?.updateEntity(title: manga?.title ?? "", updateIsLibraryMangaEntity: true, value: false, numberOfVolums: nil)
                                     }
-                                    NotificationCenter.default.post(name: Notification.Name("changeValueButton"), object: nil)
-
+                                    self.updateMangaDetail()
                                 }
                                 let alertUpdate =  UIAlertAction(title: "Update your manga", style: .default) { action in
                                     self.alertSaveManga(mangaDetail, isSavingManga: false)
@@ -149,18 +178,17 @@ class MangaDetailTableViewController: UITableViewController {
                         } else {
                             if manga?.isLibraryManga == false && value == false {
                                 self.coreDataManager?.deleteMangaCollection(title: mangaDetail.title ?? "" )
-                                NotificationCenter.default.post(name: Notification.Name("changeValueButton"), object: nil)
+                                self.updateMangaDetail()
                             } else {
                                 self.coreDataManager?.updateEntity(title: manga?.title ?? "", updateIsLibraryMangaEntity: false, value: value, numberOfVolums: nil)
-                                NotificationCenter.default.post(name: Notification.Name("changeValueButton"), object: nil)
                             }
                         }
                     }
+                    self.updateMangaDetail()
                 }
                 cell.onDidSelectCharacterItem = { (character) in
                     let characterDetailVC = MangaDetailTableViewController()
                     characterDetailVC.character = character
-                    NotificationCenter.default.post(name: Notification.Name("GetCharacter"), object: nil)
                     self.present(characterDetailVC, animated: true, completion: nil)
                 }
             }

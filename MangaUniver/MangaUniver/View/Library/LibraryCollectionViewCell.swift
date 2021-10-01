@@ -29,7 +29,6 @@ class LibraryCollectionViewCell: UICollectionViewCell{
         listMangaCoreDataTableView.delegate = self
         listMangaCoreDataTableView.dataSource = self
         listMangaCoreDataTableView.register(UINib(nibName: "LibraryTableViewCell", bundle: nil), forCellReuseIdentifier: "LibraryTableViewCell")
-        // Initialization code
     }
     
 }

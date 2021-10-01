@@ -11,17 +11,18 @@ class SearchViewController: UIViewController {
     
     //    MARK: - Properties
     
+    private var jikanService = JikanService()
     private var listResultManga = [MangaLibrary]()
     private var mangaToDisplay = [String: MangaLibrary]()
     private var characters = [Character]()
     private var charactersMangas = [String: [Character]]()
+    private var coreDataManager: CoreDataManager?
     
     //    MARK: - Outlets
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var resultCollectionView: UICollectionView!
-    
     @IBOutlet weak var searchBar: UISearchBar!
     
     // MARK: - Cycle Of Life
@@ -29,12 +30,19 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         searchBar.delegate = self
         super.viewDidLoad()
+        
+        setCoreData()
         hideKeyboardWhenTappedAround()
         setCollectionView()
-        
     }
     
     // MARK: - Methodes
+    
+    private func setCoreData(){
+        guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let coreDataMangaCollection = appdelegate.coreDataMangaCollection
+        coreDataManager = CoreDataManager(coreDataMangaCollection: coreDataMangaCollection)
+    }
     
     private func setCollectionView() {
         activityIndicator.isHidden = true
@@ -45,16 +53,38 @@ class SearchViewController: UIViewController {
         resultCollectionView.register(UINib(nibName: "EmptyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "EmptyCollectionViewCell")
         
         resultCollectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
-
-//        resultCollectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerCellId")
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
                 layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 8)
         resultCollectionView.collectionViewLayout = layout
     }
     
+    private func displayLibraryManga(manga: MangaCollection?) -> MangaLibrary{
+        guard let manga = manga else { return MangaLibrary()}
+            let title = manga.title ?? "error title"
+            let image = manga.image
+            let id = manga.id
+            let synopsis = manga.synopsis ?? "error synopsis"
+            let type = manga.type ?? "error type"
+            let publishingStart = manga.publishingStart ?? "error publishingStart"
+            let score = manga.score
+            let volumes = manga.volumes
+            let islibraryManga = manga.isLibraryManga
+            let isMangaFollow = manga.isFollowManga
+            let number = manga.numberOfManga
+            
+            return MangaLibrary(image: image, title: title, synopsis: synopsis, volumes: volumes, id: id, publishingStart: publishingStart, score: score, type: type, number: Int(number), islibraryManga: islibraryManga, isMangaFollow: isMangaFollow)
+    }
+    
     private func displayMangaDetail( mangaToDisplay: MangaLibrary? ) {
         let mangaDetailViewControler = MangaDetailTableViewController()
-        mangaDetailViewControler.mangaDetail = mangaToDisplay
+        let mangaSaved = coreDataManager?.mangaCollection.filter({ $0.title == mangaToDisplay?.title}).first
+        
+        if let manga = mangaSaved {
+            let manga = displayLibraryManga(manga: manga)
+            mangaDetailViewControler.mangaDetail = manga
+        } else {
+            mangaDetailViewControler.mangaDetail = mangaToDisplay
+        }
         mangaDetailViewControler.characters = characters
         self.show(mangaDetailViewControler, sender: nil)
     }
@@ -160,7 +190,7 @@ extension SearchViewController {
     private func getResultManga(str: String){
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
-        JikanService.shared.getSearchResultManga(str: str) { [unowned self] result in
+        jikanService.getSearchResultManga(str: str) { [unowned self] result in
             switch result {
             case .success(let searchResult):
                 DispatchQueue.main.async {
@@ -178,7 +208,7 @@ extension SearchViewController {
 
     private func getCharactersManga(mangaToDisplay: MangaLibrary? = nil){
         let mangaId = String(Int(mangaToDisplay?.id ?? 0.0))
-        JikanService.shared.getCharactersManga(idOfTheManga: mangaId) { [unowned self] result in
+        jikanService.getCharactersManga(idOfTheManga: mangaId) { [unowned self] result in
             switch result {
             case .success(let mangaCharacters):
                 self.characters = mangaCharacters.characters

@@ -13,7 +13,6 @@ final class JikanService {
     
     // MARK: - Properties
     
-    static var shared = JikanService()
     var urlR = "https://api.jikan.moe/v3"
     private let session: AlamofireSession
 

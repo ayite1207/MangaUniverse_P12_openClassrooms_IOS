@@ -36,9 +36,11 @@ final class CoreDataManager {
         if let image = image {
             mangaCollection.image = image
         }
+        guard let volumes = volumes else {return}
+
         mangaCollection.title = title
         mangaCollection.synopsis = synopsis
-        mangaCollection.volumes = volumes ?? 0.0
+        mangaCollection.volumes = volumes
         mangaCollection.id = id
         mangaCollection.publishingStart = publishingStart
         mangaCollection.score = score

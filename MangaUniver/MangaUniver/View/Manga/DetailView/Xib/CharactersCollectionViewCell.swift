@@ -31,13 +31,7 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        charactersUIView.raduis(view: charactersUIView, raduis: 35)
-        NotificationCenter.default.addObserver(self, selector: #selector(str), name: Notification.Name("GetCharacter"), object: nil)
-        
-    }
-    
-    @objc func str(){
-        characterNameLabel.backgroundColor = .red
+        charactersUIView.raduis(view: charactersUIView, raduis: 35)        
     }
     
 }

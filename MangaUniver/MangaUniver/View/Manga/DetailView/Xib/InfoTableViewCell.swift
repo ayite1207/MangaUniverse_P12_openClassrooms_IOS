@@ -9,13 +9,7 @@ import UIKit
 
 class InfoTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var firstPublicationLabel: UILabel!
-    @IBOutlet weak var volumeNumberLabel: UILabel!
-    @IBOutlet weak var synopsisLabel: UILabel!
-    @IBOutlet weak var releaseStackView: UIStackView!
-    @IBOutlet weak var volumesStackView: UIStackView!
-    @IBOutlet weak var synopsisTitle: UILabel!
-    @IBOutlet weak var userCollectionLabel: UILabel!
+    // MARK: - Properties
     
     var mangaDetail : MangaLibrary? {
         didSet{
@@ -39,15 +33,31 @@ class InfoTableViewCell: UITableViewCell {
         }
     }
     
+    // MARK: - Outlets
+    
+    @IBOutlet weak var firstPublicationLabel: UILabel!
+    @IBOutlet weak var volumeNumberLabel: UILabel!
+    @IBOutlet weak var synopsisLabel: UILabel!
+    @IBOutlet weak var releaseStackView: UIStackView!
+    @IBOutlet weak var volumesStackView: UIStackView!
+    @IBOutlet weak var synopsisTitle: UILabel!
+    @IBOutlet weak var userCollectionLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    // MARK: - Methodes
+    
+    @objc func upDateCollection(){
+        let volumes = Int(mangaDetail?.volumes ?? 0.0)
+        let collection = mangaDetail?.volumes == nil ? "n.c" : String(volumes)
+        userCollectionLabel.text = "\(mangaDetail?.number ?? 0) / \(collection)"
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

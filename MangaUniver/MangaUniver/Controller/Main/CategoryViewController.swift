@@ -11,11 +11,13 @@ class CategoryViewController: UIViewController {
     
 // MARK: - Properties
     
+    private var jikanService = JikanService()
     var listCategoryManga = [MangaLibrary]()
     private var mangaToDisplay = [String: MangaLibrary]()
     private var mangaFilter : [MangaLibrary] = []
     private var characters = [Character]()
     private var charactersMangas = [String: [Character]]()
+    private var coreDataManager: CoreDataManager?
     var categoryTitle = ""
     
     // MARK: - Outlets
@@ -30,11 +32,18 @@ class CategoryViewController: UIViewController {
         searchBar.delegate = self
         title = categoryTitle
         
+        setCoreData()
         setCollectionView()
         hideKeyboardWhenTappedAround()
     }
     
     // MARK: - Methodes
+    
+    private func setCoreData(){
+        guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let coreDataMangaCollection = appdelegate.coreDataMangaCollection
+        coreDataManager = CoreDataManager(coreDataMangaCollection: coreDataMangaCollection)
+    }
     
     private func setCollectionView() {
         categoryCollectionView.dataSource = self
@@ -47,8 +56,25 @@ class CategoryViewController: UIViewController {
         categoryCollectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerCellId")
     }
     
+    private func displayLibraryManga(manga: MangaCollection?) -> MangaLibrary{
+        guard let manga = manga else { return MangaLibrary()}
+            let title = manga.title ?? "error title"
+            let image = manga.image
+            let id = manga.id
+            let synopsis = manga.synopsis ?? "error synopsis"
+            let type = manga.type ?? "error type"
+            let publishingStart = manga.publishingStart ?? "error publishingStart"
+            let score = manga.score
+            let volumes = manga.volumes
+            let islibraryManga = manga.isLibraryManga
+            let isMangaFollow = manga.isFollowManga
+            let number = manga.numberOfManga
+            
+            return MangaLibrary(image: image, title: title, synopsis: synopsis, volumes: volumes, id: id, publishingStart: publishingStart, score: score, type: type, number: Int(number), islibraryManga: islibraryManga, isMangaFollow: isMangaFollow)
+    }
+    
     private func getTopMangaDetail(id: String){
-        JikanService.shared.getMangaTopPopularityDetail(idOfTheManga: id) { [unowned self] result in
+        jikanService.getMangaTopPopularityDetail(idOfTheManga: id) { [unowned self] result in
             switch result {
             case .success(let mangaDetail):
                 mangaToDisplay[mangaDetail.title ?? ""] = convertTopMangaToAStruct(topMangaToConvert: mangaDetail)
@@ -59,7 +85,7 @@ class CategoryViewController: UIViewController {
         }
     }
     
-    private func convertTopMangaToAStruct(topMangaToConvert: MangaTopDetail)-> MangaLibrary{
+    private func convertTopMangaToAStruct(topMangaToConvert: MangaTopDetail) -> MangaLibrary{
         
         let title = topMangaToConvert.title ?? ""
         let image = topMangaToConvert.imageurl
@@ -77,7 +103,14 @@ class CategoryViewController: UIViewController {
     
     private func displayMangaDetail( mangaToDisplay: MangaLibrary? ) {
         let mangaDetailViewControler = MangaDetailTableViewController()
-        mangaDetailViewControler.mangaDetail = mangaToDisplay
+        let mangaSaved = coreDataManager?.mangaCollection.filter({ $0.title == mangaToDisplay?.title}).first
+        
+        if let manga = mangaSaved {
+            let manga = displayLibraryManga(manga: manga)
+            mangaDetailViewControler.mangaDetail = manga
+        } else {
+            mangaDetailViewControler.mangaDetail = mangaToDisplay
+        }
         mangaDetailViewControler.characters = characters
         self.show(mangaDetailViewControler, sender: nil)
     }
@@ -152,7 +185,7 @@ extension CategoryViewController {
 extension CategoryViewController {
     private func getCharactersManga(mangaToDisplay: MangaLibrary? = nil){
         let mangaId = String(Int(mangaToDisplay?.id ?? 0.0))
-        JikanService.shared.getCharactersManga(idOfTheManga: mangaId) { [unowned self] result in
+        jikanService.getCharactersManga(idOfTheManga: mangaId) { [unowned self] result in
             switch result {
             case .success(let mangaCharacters):
                 self.characters = mangaCharacters.characters

@@ -12,7 +12,7 @@ import CoreData
 class DetailTitleTableViewCell: UITableViewCell {
     
     //MARK: - Properties
-    
+    private var jikanService = JikanService()
     var isLibraryManga = false
     var isFollowManga = false
     var character : CharacterDetails? {
@@ -28,6 +28,10 @@ class DetailTitleTableViewCell: UITableViewCell {
     var mangaDetail: MangaLibrary? {
         didSet {
             detailTitleManga.text = mangaDetail?.title
+            if  let islibraryManga = mangaDetail?.islibraryManga,  let isMangaFollow = mangaDetail?.isMangaFollow {
+                isLibraryManga = islibraryManga
+                isFollowManga = isMangaFollow
+            }
             setButtonTilte()
         }
     }
@@ -52,6 +56,7 @@ class DetailTitleTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let coreDataMangaCollection = appdelegate.coreDataMangaCollection
         coreDataManager = CoreDataManager(coreDataMangaCollection: coreDataMangaCollection)
@@ -59,7 +64,8 @@ class DetailTitleTableViewCell: UITableViewCell {
         NotificationCenter.default.addObserver(self, selector: #selector(upDateButton), name: Notification.Name("changeValueButton"), object: nil)
         
         setUpCollectionView()
-        setButton()
+        setButtonTilte()
+//        setButton()
         
     }
     
@@ -68,7 +74,6 @@ class DetailTitleTableViewCell: UITableViewCell {
     @IBAction func addManga(_ sender: Any) {
         guard let mangaToSave = mangaDetail else { return }
         self.onDidSelectItem?(mangaToSave, true, !isLibraryManga)
-        setButtonTilte()
     }
     
     
@@ -91,6 +96,8 @@ class DetailTitleTableViewCell: UITableViewCell {
     }
     
     @objc func setButton() {
+        addButton.setTitle( "Add" , for: .normal)
+        followButton.setTitle( "follow", for: .normal)
         addButton.raduis(view: addButton, raduis: 15)
         addButton.border(view: addButton, color: UIColor.systemRed.cgColor)
         addButton.tintColor = .systemRed
@@ -113,21 +120,17 @@ class DetailTitleTableViewCell: UITableViewCell {
     }
     
     private func setButtonTilte(){
-        if let manga = coreDataManager?.mangaCollection.filter({ $0.title == mangaDetail?.title}).first {
-            addButton.setTitle(manga.isLibraryManga == true ? "Update" : "Add" , for: .normal)
-            followButton.setTitle(manga.isFollowManga == true  ? "Unfollow" : "follow", for: .normal)
+        if isLibraryManga || isFollowManga {
+            addButton.setTitle(isLibraryManga ? "Update" : "Add" , for: .normal)
+            followButton.setTitle(isFollowManga  ? "Unfollow" : "follow", for: .normal)
             UIView.animate(withDuration: 0.5) {
-                self.followButton.backgroundColor = manga.isFollowManga ? .systemGreen : .white
-                self.followButton.tintColor = manga.isFollowManga ? .white : .systemGreen
-                self.addButton.backgroundColor = manga.isLibraryManga ? .systemRed : .white
-                self.addButton.tintColor = manga.isLibraryManga ? .white : .systemRed
+                self.followButton.backgroundColor = self.isFollowManga ? .systemGreen : .white
+                self.followButton.tintColor = self.isFollowManga ? .white : .systemGreen
+                self.addButton.backgroundColor = self.isLibraryManga ? .systemRed : .white
+                self.addButton.tintColor = self.isLibraryManga ? .white : .systemRed
             }
-            isLibraryManga = manga.isLibraryManga
-            isFollowManga = manga.isFollowManga
         } else {
             setButton()
-            addButton.setTitle( "Add" , for: .normal)
-            followButton.setTitle( "follow", for: .normal)
         }
         
     }
@@ -163,7 +166,7 @@ extension  DetailTitleTableViewCell: UICollectionViewDelegate, UICollectionViewD
 extension DetailTitleTableViewCell {
     
     private func getCharacterDetails(id: String){
-        JikanService.shared.getCharacterDetailManga(idOfTheCharacter: id) { [unowned self] result in
+        jikanService.getCharacterDetailManga(idOfTheCharacter: id) { [unowned self] result in
             switch result {
             case .success(let characterDetail):
                 self.onDidSelectCharacterItem?(characterDetail)

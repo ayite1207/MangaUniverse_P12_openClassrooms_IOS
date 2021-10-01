@@ -11,6 +11,7 @@ class LibraryViewController: UIViewController {
     
     //MARK: Properties
     
+    private var jikanService = JikanService()
     var mangaLibrary : [MangaLibrary] = []
     var mangaFollow : [MangaLibrary] = []
     var mangaFilter : [MangaLibrary] = []
@@ -190,7 +191,7 @@ extension LibraryViewController {
 
 extension LibraryViewController {
     private func getCharactersManga(id: String, mangaToDisplay: MangaLibrary?){
-        JikanService.shared.getCharactersManga(idOfTheManga: id) { [unowned self] result in
+        jikanService.getCharactersManga(idOfTheManga: id) { [unowned self] result in
             switch result {
             case .success(let mangaCharacters):
                 let mangaDetailViewControler = MangaDetailTableViewController()
