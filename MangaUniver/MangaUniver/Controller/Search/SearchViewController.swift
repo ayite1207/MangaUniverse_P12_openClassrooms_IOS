@@ -30,7 +30,11 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         searchBar.delegate = self
         super.viewDidLoad()
-        
+        if #available(iOS 13.0, *) {
+            activityIndicator.style = .large
+        } else {
+            activityIndicator.style = .whiteLarge
+        }
         setCoreData()
         hideKeyboardWhenTappedAround()
         setCollectionView()
