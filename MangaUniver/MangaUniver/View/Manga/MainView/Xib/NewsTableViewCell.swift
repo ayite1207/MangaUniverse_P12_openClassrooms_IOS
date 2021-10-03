@@ -8,7 +8,9 @@
 import UIKit
 
 class NewsTableViewCell: UITableViewCell {
-    
+
+    // MARK: - Outlet
+
     @IBOutlet weak var newsCollectionView: UICollectionView!
     
     var mangaTopPopularity : MangaTopPopularity? {
@@ -17,10 +19,24 @@ class NewsTableViewCell: UITableViewCell {
         }
     }
     
+    // MARK: - Property
+
     var onDidSelectItem: ((IndexPath) -> ())?
+    
+    // MARK: - Cycle Life
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setCollectionView()
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+    
+    // MARK: - Methode
+    
+    private func setCollectionView() {
         self.newsCollectionView.register(UINib(nibName: "NewsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NewsCollectionViewCell")
         self.newsCollectionView.delegate = self
         self.newsCollectionView.dataSource = self
@@ -30,11 +46,9 @@ class NewsTableViewCell: UITableViewCell {
         }
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
 }
+
+// MARK: - TableView
 
 extension NewsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     

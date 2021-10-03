@@ -8,6 +8,8 @@
 import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
+
+    // MARK: - Outlets
     
     @IBOutlet weak var mangaImage: UIImageView!
     @IBOutlet weak var titleMangaLabel: UILabel!
@@ -16,6 +18,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    // MARK: - Properties
     
     var categoryManga : MangaLibrary? {
         didSet {

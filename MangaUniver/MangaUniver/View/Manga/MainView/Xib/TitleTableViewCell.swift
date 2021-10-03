@@ -8,15 +8,11 @@
 import UIKit
 
 class TitleTableViewCell: UITableViewCell {
+    
+    // MARK: - Outlets
 
     @IBOutlet weak var titleLabel: UILabel!
     var onDidSelectHeader: (() -> ())?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-//        titleLabel.font = UIFont(descriptor: UIFontDescriptor(name: "AgentOrange", size: 12), size: 12)
-        // Initialization code
-    }
 
     @IBAction func displayCategory(_ sender: Any) {
         self.onDidSelectHeader?()

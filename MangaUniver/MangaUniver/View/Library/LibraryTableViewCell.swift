@@ -8,6 +8,8 @@
 import UIKit
 
 class LibraryTableViewCell: UITableViewCell {
+    
+    // MARK: - Outlets
 
     @IBOutlet weak var mangUIImage: UIImageView!
     @IBOutlet weak var mangaTitleLabel: UILabel!
@@ -20,18 +22,6 @@ class LibraryTableViewCell: UITableViewCell {
                 mangUIImage.raduis(view: mangUIImage, raduis: 5)
             }
         }
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-//        self.backgroundColor = .systemPink
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

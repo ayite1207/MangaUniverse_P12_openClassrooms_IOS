@@ -8,9 +8,13 @@
 import UIKit
 
 class PhotoTableViewCell: UITableViewCell {
+    
+    // MARK: - Outlets
 
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var backgroundDetailImageView: UIImageView!
+    
+    // MARK: - Properties
     
     var detailManga: MangaLibrary? {
         didSet {
@@ -31,8 +35,5 @@ class PhotoTableViewCell: UITableViewCell {
             }
         }
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+
 }

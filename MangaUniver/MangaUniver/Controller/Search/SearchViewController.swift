@@ -54,25 +54,25 @@ class SearchViewController: UIViewController {
         
         resultCollectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-                layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 8)
+        layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 8)
         resultCollectionView.collectionViewLayout = layout
     }
     
     private func displayLibraryManga(manga: MangaCollection?) -> MangaLibrary{
         guard let manga = manga else { return MangaLibrary()}
-            let title = manga.title ?? "error title"
-            let image = manga.image
-            let id = manga.id
-            let synopsis = manga.synopsis ?? "error synopsis"
-            let type = manga.type ?? "error type"
-            let publishingStart = manga.publishingStart ?? "error publishingStart"
-            let score = manga.score
-            let volumes = manga.volumes
-            let islibraryManga = manga.isLibraryManga
-            let isMangaFollow = manga.isFollowManga
-            let number = manga.numberOfManga
-            
-            return MangaLibrary(image: image, title: title, synopsis: synopsis, volumes: volumes, id: id, publishingStart: publishingStart, score: score, type: type, number: Int(number), islibraryManga: islibraryManga, isMangaFollow: isMangaFollow)
+        let title = manga.title ?? "error title"
+        let image = manga.image
+        let id = manga.id
+        let synopsis = manga.synopsis ?? "error synopsis"
+        let type = manga.type ?? "error type"
+        let publishingStart = manga.publishingStart ?? "error publishingStart"
+        let score = manga.score
+        let volumes = manga.volumes
+        let islibraryManga = manga.isLibraryManga
+        let isMangaFollow = manga.isFollowManga
+        let number = manga.numberOfManga
+        
+        return MangaLibrary(image: image, title: title, synopsis: synopsis, volumes: volumes, id: id, publishingStart: publishingStart, score: score, type: type, number: Int(number), islibraryManga: islibraryManga, isMangaFollow: isMangaFollow)
     }
     
     private func displayMangaDetail( mangaToDisplay: MangaLibrary? ) {
@@ -113,22 +113,22 @@ class SearchViewController: UIViewController {
 // MARK: - CollectionView
 
 extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-
+    
     override func viewDidLayoutSubviews() {
         resultCollectionView.frame = containerView.bounds
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return listResultManga.count == 0 ? 1 : listResultManga.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = UICollectionViewCell()
         
         if listResultManga.count == 0 {
             guard let emptyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyCollectionViewCell", for: indexPath) as? EmptyCollectionViewCell else { return UICollectionViewCell() }
             cell = emptyCell
-//            cell.titleMangaLabel.text = "It s time to search 8"
+            //            cell.titleMangaLabel.text = "It s time to search 8"
         } else {
             guard let resultCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as? CategoryCollectionViewCell else { return UICollectionViewCell() }
             resultCell.categoryManga = listResultManga[indexPath.row]
@@ -137,13 +137,13 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if listResultManga.count > 0 {
-        getCharactersManga(mangaToDisplay: listResultManga[indexPath.row])
+            getCharactersManga(mangaToDisplay: listResultManga[indexPath.row])
         }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var size : CGSize
         if listResultManga.count == 0 {
@@ -153,11 +153,11 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         }
         return size
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
     }
-
+    
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -165,25 +165,36 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked( _ searchBar: UISearchBar){
         guard let text = searchBar.text else { return }
         if !text.isBlank {
-            self.getResultManga(str: text)
+            if text.count <  3 {
+                showAlertError(with: "Please enter 3 letters")
+            } else {
+                self.getResultManga(str: text)
+            }
         } else {
             showAlertError(with: "Please enter a research")
         }
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count == 0 {
+            listResultManga = []
+        }
+        resultCollectionView.reloadData()
+    }
 }
 
 extension SearchViewController {
-
+    
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:  #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-
+    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
-   
+    
 }
 
 extension SearchViewController {
@@ -198,14 +209,14 @@ extension SearchViewController {
                     convertMyDecodableToAStruct(decodebleToConvert: results)
                     activityIndicator.isHidden = true
                     activityIndicator.stopAnimating()
-
+                    
                 }
             case .failure(let error):
                 showAlertError(with: "Error : \(error.description)")
             }
         }
     }
-
+    
     private func getCharactersManga(mangaToDisplay: MangaLibrary? = nil){
         let mangaId = String(Int(mangaToDisplay?.id ?? 0.0))
         jikanService.getCharactersManga(idOfTheManga: mangaId) { [unowned self] result in

@@ -163,6 +163,9 @@ extension  DetailTitleTableViewCell: UICollectionViewDelegate, UICollectionViewD
     
 }
 
+// MARK: - Extension
+
+
 extension DetailTitleTableViewCell {
     
     private func getCharacterDetails(id: String){

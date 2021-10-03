@@ -8,9 +8,13 @@
 import UIKit
 
 class CategoryTableViewCell: UITableViewCell {
+    
+    // MARK: - Outlets
 
     @IBOutlet weak var genderCollectionView: UICollectionView!
     var onDidSelectItem: ((IndexPath, _ manga: MangaLibrary) -> ())?
+    
+    // MARK: - Property
 
     var listGenreManga : [MangaLibrary]? {
         didSet {
@@ -33,6 +37,8 @@ class CategoryTableViewCell: UITableViewCell {
     }
     
 }
+
+// MARK: - TableView
 
 extension CategoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
